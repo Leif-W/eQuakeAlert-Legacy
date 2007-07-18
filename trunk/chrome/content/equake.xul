@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<overlay id="equake-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://equake/content/equake.js" />
+	<script type="application/x-javascript" src="chrome://equake/content/rss.js" />
+  	
+	<statusbar id="status-bar">
+		<statusbarpanel
+			id="equake-display"
+			label="eQuake!"
+			oncontextmenu="equakePopup(event)"
+			insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"
+		/>
+	</statusbar>
+
+	<window id="main-window">
+		<popupset id="mainPopupSet">
+			<popup id="equake-contextmenu" position="before_end">
+				<menuitem id="equake-interval" label="Interval" name="equakeinterval" oncommand="window.openDialog('chrome://equake/content/options.xul', null,'chrome,centerscreen,dependent', null, null, null);"/>
+				<menuitem id="equake-check" label="Check now" name="equakecheck" oncommand="equakeUpdate();"/>
+				<menu id="equake-recent" label="Recent Quakes" name="equakerecent">
+				<menupopup id="equake-submenu">
+          <menuitem id="equake-item0" label="quake0" name="item0" oncommand="linkit(0);"/>
+				  <menuitem id="equake-item1" label="quake1" name="item1" oncommand="linkit(1);"/>
+				  <menuitem id="equake-item2" label="quake2" name="item2" oncommand="linkit(2);"/>
+				  <menuitem id="equake-item3" label="quake3" name="item3" oncommand="linkit(3);"/>
+				  <menuitem id="equake-item4" label="quake4" name="item4" oncommand="linkit(4);"/>
+				  <menuitem id="equake-item5" label="quake5" name="item5" oncommand="linkit(5);"/>
+				  <menuitem id="equake-item6" label="quake6" name="item6" oncommand="linkit(6);"/>
+				  <menuitem id="equake-item7" label="quake7" name="item7" oncommand="linkit(7);"/>
+				  <menuitem id="equake-item8" label="quake8" name="item8" oncommand="linkit(8);"/>
+				  <menuitem id="equake-item9" label="quake9" name="item9" oncommand="linkit(9);"/>
+   	    </menupopup>
+				</menu>
+				<menuitem id="equake-about" label="About" name="equakeabout" oncommand="linkit(-1);"/>
+   	  </popup>
+		</popupset>
+	</window>
+</overlay>
