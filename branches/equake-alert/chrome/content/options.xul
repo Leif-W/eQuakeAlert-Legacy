@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 
+
 <dialog buttons="accept,cancel"
         id="equake-options-dialog"
 	      onload="equakeoptions_init();"
@@ -9,7 +10,9 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 <script type="application/x-javascript" src="chrome://equake/content/options.js"/>
-<dialogheader id="header" title="eQuake!" description="version 2.0"/>
+<script type="application/x-javascript" src="chrome://equake/content/common.js"/>
+
+<dialogheader id="header" title="eQuake!" description="version 2.1"/>
 <groupbox>
 	<caption label="General;"/>
 		<row valign="center">
@@ -21,6 +24,16 @@
 	<checkbox id="equake.12clock" label="Use 12 hour clock"/>
 	<checkbox id="equake.newtab" label="Open links in new tab"/>
 </groupbox>
+<groupbox>
+	<caption label="Status Bar"/>
+	<radiogroup id="equake.status" orient="vertical" oncommand="onStatusChange(this.value);">
+	 <radio group="status" label="Show icon" value="0"/>
+	 <radio group="status" label="Statusbar message" value="1"/>
+	 <vbox style="padding-left:2em">
+    <textbox type="text" id="equake.stat_str" label="Status String" width="10"/>
+	 </vbox>
+	</radiogroup>
+</groupbox>		
 
 <groupbox>
 	<caption label="Alert methods"/>
@@ -30,7 +43,7 @@
 				<checkbox id="equake.chkshakm" label="Shake proportional to earth quake magnitude"/>
 			</vbox>
     <radio group="alert" label="Alert box" value="1"/> 
-    <radio group="alert" label="None (Statusbar message is enough)" value="2"/> 
+ 
   </radiogroup>
 <!-->
   <row valign="center">
@@ -47,5 +60,6 @@
     <checkbox id="equake.chkmag" label="Alert me only for magnitude >" oncommand="onMagChange(this);"/>
     <textbox type="text" id="equake.magval"></textbox>
   </row>
+  <button label="Preview shake" oncommand="shakeIt(prompt('Enter Magnitude: ',5))"/>
 </groupbox>	
 </dialog>

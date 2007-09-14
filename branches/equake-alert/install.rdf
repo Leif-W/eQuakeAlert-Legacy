@@ -6,7 +6,7 @@
     <Description about="urn:mozilla:install-manifest">
 	<em:id>{8585C31E-1E94-4498-ACEC-CB913A05FC52}</em:id>
 	<em:name>eQuake</em:name>
-	<em:version>2.0</em:version>
+	<em:version>2.1</em:version>
 	<em:description>eQuake Alert!!!</em:description>
 	<em:creator>Priyadarsan</em:creator>
 
@@ -14,6 +14,7 @@
 
   <em:optionsURL>chrome://equake/content/options.xul</em:optionsURL>
 	<em:aboutURL>chrome://equake/content/about.xul</em:aboutURL>
+	<em:iconURL>chrome://equake/skin/equake.png</em:iconURL>
 	<em:type>2</em:type><!-- type=extension -->
 	
         <em:targetApplication>
@@ -27,6 +28,7 @@
         <em:file>
            <Description about="urn:mozilla:extension:file:equake.jar">
              <em:package>content/</em:package>
+             <em:skin>skin/</em:skin>
            </Description>
         </em:file>
     </Description>
