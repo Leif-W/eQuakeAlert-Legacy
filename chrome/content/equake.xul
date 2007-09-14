@@ -5,17 +5,32 @@
 
 	<script type="application/x-javascript" src="chrome://equake/content/equake.js" />
 	<script type="application/x-javascript" src="chrome://equake/content/rss.js" />
+	<script type="application/x-javascript" src="chrome://equake/content/common.js"/>
   	
 	<statusbar id="status-bar">
 		<statusbarpanel
 			id="equake-display"
 			label="eQuake!"
+			pack="end"
 			oncontextmenu="equakePopup(event)"
-			insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"
-		/>
+			insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"/>
+			
+	 <statusbarpanel
+			id="equake-display-icon"
+			class="statusbarpanel-iconic"
+			src="chrome://equake/skin/earth.png"
+			pack="end"
+			context="equake-contextmenu"
+insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"
+			/>
 	</statusbar>
 
 	<window id="main-window">
+    <vbox 
+      id="equake-notifier"
+      hidden="false"
+      value="title"/>
+      
 		<popupset id="mainPopupSet">
 			<popup id="equake-contextmenu" position="before_end">
 				<menuitem id="equake-interval" label="Interval" name="equakeinterval" oncommand="window.openDialog('chrome://equake/content/options.xul', null,'chrome,centerscreen,dependent', null, null, null);"/>
@@ -33,6 +48,20 @@
 				  <menuitem id="equake-item8" label="quake8" name="item8" oncommand="linkit(8);"/>
 				  <menuitem id="equake-item9" label="quake9" name="item9" oncommand="linkit(9);"/>
    	    </menupopup>
+				</menu>
+				<menu id="equake-filter" label="Your Quakes" name="equakefilter">
+					<menupopup id="equake-filtersubmenu">
+<menuitem id="equake-fitem0" label="quake0" name="fitem0" oncommand="finkit(0);"/>
+<menuitem id="equake-fitem1" label="quake1" name="fitem1" oncommand="finkit(1);"/>
+<menuitem id="equake-fitem2" label="quake2" name="fitem2" oncommand="flinkit(2);"/>
+<menuitem id="equake-fitem3" label="quake3" name="fitem3" oncommand="flinkit(3);"/>
+<menuitem id="equake-fitem4" label="quake4" name="fitem4" oncommand="flinkit(4);"/>
+<menuitem id="equake-fitem5" label="quake5" name="fitem5" oncommand="flinkit(5);"/>
+<menuitem id="equake-fitem6" label="quake6" name="fitem6" oncommand="flinkit(6);"/>
+<menuitem id="equake-fitem7" label="quake7" name="fitem7" oncommand="flinkit(7);"/>
+<menuitem id="equake-fitem8" label="quake8" name="fitem8" oncommand="flinkit(8);"/>
+<menuitem id="equake-fitem9" label="quake9" name="fitem9" oncommand="flinkit(9);"/>
+					</menupopup>
 				</menu>
 				<menuitem id="equake-about" label="About" name="equakeabout" oncommand="linkit(-1);"/>
    	  </popup>

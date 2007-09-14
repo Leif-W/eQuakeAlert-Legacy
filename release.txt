@@ -1,5 +1,7 @@
 How to release?
 
-1) Compress chrome/content into chrome/equake.jar
-2) remove chrome/content
-3) Remove all svn entries and compress equake-alert into equake-alert.xpi
+1) Check in the Code
+2) Remove all svn entries
+3) Compress chrome/content into chrome/equake.jar
+4) remove chrome/content
+5) Compress equake-alert into equake-alert.xpi

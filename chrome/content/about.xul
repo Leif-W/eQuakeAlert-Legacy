@@ -29,7 +29,7 @@ function openURL(aURL)
 <groupbox align="center" orient="horizontal">
 <vbox>
   <text value="eQuake" style="font-weight: bold; font-size: x-large;"/>
-  <text value="ver. 2.0"/>
+  <text value="ver. 2.1"/>
   <separator class="thin"/>
   <text value="Created By:" style="font-weight: bold;"/>
   <text value="Priyadarsan" class="url"
