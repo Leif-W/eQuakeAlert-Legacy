@@ -18,7 +18,7 @@ var anim;
 var animateYStart_=-100;
 var animateY_ = 40;
 
-
+var m;
 
 function equakeInit() {
 	this.ID_PrefService	= "@mozilla.org/preferences-service;1";
@@ -114,7 +114,7 @@ function equakeSetBoolPref(name, value) {
 
 function showPopup() {
   var notifier=document.getElementById("equake-notifier");
-  notifier.style.right = (window.innerWidth - window.gBrowser.contentDocument.clientWidth) + 5 + "px";  
+  notifier.style.right = (window.innerWidth - window.gBrowser.contentDocument.clientWidth) + 5 +"px";
   ClearAnimation();
   StartAnimation();
   notifier.hidden=false;
@@ -142,27 +142,23 @@ function Animate() {
 }
 
 function equakeLoadPrefs() {
-
-  
-	//try
+	try
 	{
-		equake_interval  	= this.PrefService.getIntPref('equake.interval');
-		equake_showday		= this.PrefService.getBoolPref('equake.showday');
-		equake_12clock		= this.PrefService.getBoolPref('equake.12clock');
 		equake_alert		= this.PrefService.getIntPref('equake.alert');
 		equake_status		= this.PrefService.getIntPref('equake.status');
+		equake_interval  	= this.PrefService.getIntPref('equake.interval');
+		equake_dbidx 		= this.PrefService.getIntPref('equake.dbidx');
+		equake_showday		= this.PrefService.getBoolPref('equake.showday');
+		equake_12clock		= this.PrefService.getBoolPref('equake.12clock');
 		equake_chkshakm		= this.PrefService.getBoolPref('equake.chkshakm');
 		equake_newtab		= this.PrefService.getBoolPref('equake.newtab');
 		equake_chkmag 		= this.PrefService.getBoolPref('equake.chkmag');
-		equake_magval 		= parseFloat(this.PrefService.getCharPref('equake.magval'));
-		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
-
 		equake_stat_popup 	= this.PrefService.getBoolPref('equake.stat_popup');
-		equake_dbidx 		= this.PrefService.getIntPref('equake.dbidx');
+		equake_magval 		= this.PrefService.getCharPref('equake.magval');
+		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
 	}
-	/*catch (ignored)	{
+	catch (ignored)	{
 	    firstrun=true;
-		
 		this.PrefService.setBoolPref('equake.showday',equake_showday);
 		this.PrefService.setBoolPref('equake.12clock',equake_12clock);
 		this.PrefService.setBoolPref('equake.chkshakm',equake_chkshakm);
@@ -173,48 +169,65 @@ function equakeLoadPrefs() {
 		this.PrefService.setIntPref('equake.status',equake_status);
 		this.PrefService.setCharPref('equake.magval',equake_magval);
 		this.PrefService.setCharPref('equake.stat_str',equake_stat_str);
-		
 		this.PrefService.setBoolPref('equake.stat_popup',equake_stat_popup);
 		this.PrefService.setIntPref('equake.dbidx',equake_dbidx);
-	}*/
+	}
 
-  var m;
-  m = document.getElementById("equake-interval");
-  m.label="Interval: "+equake_interval+"min(s)";
+  var m_StatMsg;
+  var m_StatIcn;
+  var m_Interval;
+  m_StatMsg = document.getElementById("equake-display");
+  m_StatIcn = document.getElementById("equake-display-icon");
   
+  m_Interval = document.getElementById("equake-interval");
+  m_Interval.label="Interval: "+equake_interval+"min(s)";
+
   if (!firstrun)
   {
     var i;
+	
+	for (i=9;i>=0;i--)
+    {
+      m = document.getElementById("equake-fitem"+i);
+      date=equakeGetCharPref("fdate_item" + i, "");
+	  if (date=="") continue;
+	  m.setAttribute("hidden",false);
+      date=dateFormat(date, equake_12clock, 0, equake_showday);
+      place=equakeGetCharPref("fplace_item" + i, "location");
+      m.label=date+":- "+place;
+    }
+	
     for (i=9;i>=0;i--)
     {
       m = document.getElementById("equake-item"+i);
-      date=equakeGetCharPref("date_item" + i, "time");
+      date=equakeGetCharPref("date_item" + i, "");
+	  if (date=="") continue;
+	  m.setAttribute("hidden",false);
       date=dateFormat(date, equake_12clock, 0, equake_showday);
       place=equakeGetCharPref("place_item" + i, "location");
       m.label=date+":- "+place;
     }
+	
+    var str_Tmp=place.split(", ");
+    var str_M=str_Tmp[0].slice(1);
+    var str_L=str_Tmp[1];
+    if (str_Tmp[2]) {
+		str_L+=", "+str_Tmp[2];
+	}
+	m_StatMsg.label=equake_stat_str.replace("%m",str_M).replace("%l",str_L);
+	
   switch(equake_status)
   {
     case 0:
-      m = document.getElementById("equake-display");
-      m.setAttribute("hidden",true);
-      m = document.getElementById("equake-display-icon");
-      m.setAttribute("hidden",false);
+      m_StatMsg.setAttribute("hidden",true);
+      m_StatIcn.setAttribute("hidden",false);
       break;
     case 1:
-    default:
-      m = document.getElementById("equake-display");
-      m.setAttribute("hidden",false);
-	  m = document.getElementById("equake-display-icon");
-      m.setAttribute("hidden",true);
-      var str_Tmp=place.split(", ");
-      var str_M=str_Tmp[0].slice(1);
-      var str_L=str_Tmp[1];
-      if (str_Tmp[2]) str_L+=", "+str_Tmp[2];
-      m.label=equake_stat_str.replace("%m",str_M).replace("%l",str_L);
+      m_StatMsg.setAttribute("hidden",false);
+      m_StatIcn.setAttribute("hidden",true);
       break;
   }
-        showPopup();
+    showPopup();
   }
   else
     firstrun=false;
@@ -242,20 +255,20 @@ var equakePrefObserver = {
 	},
 
 	observe: function(subject, topic, data) {
-	if(topic != "nsPref:changed")
-		return;
-		
-	if (data=="interval")
-    {
-		equakeLoadPrefs();
+		if(topic != "nsPref:changed")
+			return;
+			
+		if (data=="interval")   {
+			equakeLoadPrefs();
 
-		if(equake_timeout != null)
-			clearTimeout(equake_timeout);
+			if(equake_timeout != null)
+				clearTimeout(equake_timeout);
 
-		equakeUpdate();
-	}
-	else if(data.indexOf("_item")<0)
-		equakeLoadPrefs();
+			equakeUpdate();
+		}
+		else if(data.indexOf("_item")<0) {
+			equakeLoadPrefs();
+		}
 	}
 }
 
@@ -277,20 +290,41 @@ function iconUpdate(op) {
     if (op==0)
 		m.src="chrome://equake/skin/earth.png";
 	else
+	{
 		m.src="chrome://equake/skin/qearth.png";
+		
+		if(icon_timeout != null)
+			clearTimeout(icon_timeout);
+		icon_timeout = setTimeout("iconUpdate(0)", 10*60000);
+	}
 }
 
 function shake(mag) {
 	iconUpdate(1);
-	
-	if(icon_timeout != null)
-		clearTimeout(icon_timeout);
-	icon_timeout = setTimeout("iconUpdate(0)", 10*60000);
 
 oldX=window.screenX;
 oldY=window.screenY;
-oldOutWidth=window.outerWidth;
-oldOutHeight=window.outerHeight;
+/*oldOutWidth=window.outerWidth;
+oldOutHeight=window.outerHeight;*/
+oldOutWidth=(window.outerWidth<=160)?screen.availWidth:window.outerWidth;
+oldOutHeight=(window.outerHeight<34)?screen.availHeight:window.outerHeight;
+
+if (oldX<-4 && oldY <-4) //minimized
+{
+	oldX=-4;
+	oldY=-4;
+	/*if (oldOutWidth==160 && oldOutHeight==31)
+	{
+		oldOutWidth=window.outerWidth;
+		oldOutHeight=window.outerHeight;
+	}*/
+}
+/*oldX=(window.screenX<-4)?-4:window.screenX;
+oldY=(window.screenY<-4)?-4:window.screenY;
+*/
+
+
+//alert(oldX + ", " + oldY + ", " + oldOutWidth + ", " + oldOutHeight);
 
 //maximize();
 
@@ -301,8 +335,7 @@ window.moveTo(oldX,oldY);
 window.resizeTo(oldOutWidth,oldOutHeight);
 }
 
-function getMag(strPlace, dec)
-{
+function getMag(strPlace, dec) {
   var tmp=strPlace.substring(1,strPlace.indexOf(','))
   if (dec==0)
     return parseInt(tmp);
@@ -310,8 +343,7 @@ function getMag(strPlace, dec)
     return parseFloat(tmp);
 }
 
-function getMagClass(strPlace)
-{
+function getMagClass(strPlace) {
 intClass=getMag(strPlace, 1);
     if (intClass < 3)
       return "Micro";
@@ -329,8 +361,7 @@ intClass=getMag(strPlace, 1);
       return "Great";
 }
 
-function linkit(i)
-{
+function linkit(i) {
     var strUrl;
     if (i==-1)
       strUrl="http://www.freebookzone.com/exec.php?cmd=firefox_addon";
@@ -354,8 +385,7 @@ function linkit(i)
       alert("n0 reC3nt dAta!");
 }
 
-function enc(str) 
-{
+function enc(str) {
   sig ="|:=" + b64_sha1(str);
   return sig;
 }
@@ -475,50 +505,88 @@ var equakeCheck = {
 		var lastentry=equakeGetCharPref("equake-last","noentry");
     
  		var itemsSource = "";
-		var items = feed.getItems();   
+		var items = feed.getItems();
     var i=0;
     var link = items[i].getLink();
 		var place = items[i].getTitle();
 		var date = items[i].getContent();
 		var id = document.getElementById("equake-display");
-	  id.label = place;
-    
-    if (link+":"+place+date!=lastentry)
-    {
-      if (lastentry!="noentry") 
-      {
-        if (!equake_chkmag || getMag(place, 1)>=equake_magval)
-        {
-        switch(equake_alert)
-        {
-          case 0:
-            if(equake_chkshakm)
-              shake(getMag(place, 0));
-            else
-              shake(6);
-            break;
-          case 1:
-            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
-            break;
-          default:
-            break;
-        }
-        }
-      }
-      
-      equakeSetCharPref("equake-last",link+":"+place+date);
+   
+	    if (link+":"+place+date!=lastentry)
+	    {
+	      if (lastentry!="noentry") 
+	      {
+	        if (!equake_chkmag || getMag(place, 1)>=equake_magval)
+	        {
+	        switch(equake_alert)
+	        {
+	          case 0:
+	            if(equake_chkshakm)
+	              shake(getMag(place, 0));
+	            else
+	              shake(6);
+	            break;
+	          case 1:
+	            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
+	            break;
+	          default:
+	            break;
+	        }
+	        }
+			else
+			{
+				iconUpdate(1);
+			}
+				
+	      }
+		  //id.label = place;
+	      
+	      equakeSetCharPref("equake-last",link+":"+place+date);
 
-      for(i = 0; i<=9; i++) 
-      {
-        place = items[i].getTitle();
-        date=items[i].getContent();
-        link=items[i].getLink();
-        equakeSetCharPref("date_item" + i, date);
-        equakeSetCharPref("place_item" + i, place);
-        equakeSetCharPref("link_item" + i, link);
-      }
-      equakeLoadPrefs();
-    }
+	    }
+		
+		  for(i = 0; i<=9; i++) 
+	      {
+			equakeSetCharPref("fdate_item" + i, "");
+			equakeSetCharPref("fplace_item" + i, "");
+			equakeSetCharPref("flink_item" + i, "");
+	        equakeSetCharPref("date_item" + i, "");
+	        equakeSetCharPref("place_item" + i, "");
+	        equakeSetCharPref("link_item" + i, "");			
+		    m = document.getElementById("equake-item"+i);
+			m.setAttribute("hidden",true);
+			m = document.getElementById("equake-fitem"+i);			
+			m.setAttribute("hidden",true);
+		  }
+		  
+		  for(i = 0; i<=9; i++) 
+	      {
+	        place = items[i].getTitle();
+	        date=items[i].getContent();
+	        link=items[i].getLink();
+	        equakeSetCharPref("date_item" + i, date);
+	        equakeSetCharPref("place_item" + i, place);
+	        equakeSetCharPref("link_item" + i, link);
+	      }
+		  
+		  i=0;
+		  var j=0;
+		  
+		  do
+		  {
+			if (!items[i]) break;
+			place = items[i].getTitle();
+			if (getMag(place, 1)>=equake_magval)
+			{
+				date=items[i].getContent();
+				link=items[i].getLink();
+				equakeSetCharPref("fdate_item" + j, date);
+				equakeSetCharPref("fplace_item" + j, place);
+				equakeSetCharPref("flink_item" + j++, link);				
+			}
+			i++;
+		  } while (j<9)
+	      equakeLoadPrefs();
 		this.checking = false;
 	}
 }

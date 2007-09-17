@@ -30,8 +30,9 @@
 	 <radio group="status" label="Show icon" value="0"/>
 	 <radio group="status" label="Statusbar message" value="1"/>
 	 <vbox style="padding-left:2em">
-    <textbox type="text" id="equake.stat_str" label="Status String" width="10"/>
-	 </vbox>
+		<textbox type="text" id="equake.stat_str" label="Status String" width="10"/>
+		<label value="%l = location, %m=Magnitude"/>
+	</vbox>
 	</radiogroup>
 </groupbox>		
 
