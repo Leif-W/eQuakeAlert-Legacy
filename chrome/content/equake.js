@@ -8,6 +8,7 @@ var equake_newtab = false;
 var equake_chkmag = false;
 var equake_magval = 0;
 var equake_stat_str="M %m, %l";
+var ifModifiedSince =  new Date(0);
 
 var equake_dbidx=0;
 var firstrun=false;
@@ -17,6 +18,7 @@ var equake_stat_popup=true;
 var anim;
 var animateYStart_=-100;
 var animateY_ = 40;
+var status=-1;
 
 var m;
 
@@ -156,6 +158,7 @@ function equakeLoadPrefs() {
 		equake_stat_popup 	= this.PrefService.getBoolPref('equake.stat_popup');
 		equake_magval 		= this.PrefService.getCharPref('equake.magval');
 		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
+		ifModifiedSince     = this.PrefService.getCharPref('equake.ifModifiedSince');
 	}
 	catch (ignored)	{
 	    firstrun=true;
@@ -207,6 +210,14 @@ function equakeLoadPrefs() {
       place=equakeGetCharPref("place_item" + i, "location");
       m.label=date+":- "+place;
     }
+	
+	m = document.getElementById("equake-filter");
+	if (i==0) {
+		m.setAttribute("hidden",true);
+	}
+	else {
+		m.setAttribute("hidden",false);
+	}
 	
     var str_Tmp=place.split(", ");
     var str_M=str_Tmp[0].slice(1);
@@ -385,11 +396,6 @@ function linkit(i) {
       alert("n0 reC3nt dAta!");
 }
 
-function enc(str) {
-  sig ="|:=" + b64_sha1(str);
-  return sig;
-}
-
 function dateFormat(date, twelveHourClock, format, showday) {
 	function padout(number) { return (number < 10) ? '0' + number : number; }
 	date=fmtDate(date);
@@ -438,8 +444,8 @@ function dateFormat(date, twelveHourClock, format, showday) {
 	}
 
 	var hours = date.getHours();
-  var minutes = padout(date.getMinutes());
-  var seconds = padout(date.getSeconds());
+	var minutes = padout(date.getMinutes());
+	var seconds = padout(date.getSeconds());
 	var adjhours, time_str;
 	
 	if(twelveHourClock) {
@@ -464,15 +470,23 @@ var equakeCheck = {
 	getXML: function(){
 		if(this.checking) return;
     if (equake_dbidx==0)
-  	 this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M2.5.xml";
-  	else
-  	 this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M5.xml";
+	{
+  	 //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M2.5.xml";
+	 this.url = "http://earthquake.usgs.gov/eqcenter/catalogs/eqs7day-M2.5.xml";
+	}
+  	else {
+  	 //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M5.xml";
+	 this.url = "http://earthquake.usgs.gov/eqcenter/catalogs/eqs7day-M5.xml";
+	}
+
 		this.httpReq = new XMLHttpRequest();
 		this.httpReq.onload = this.httpLoaded;
 		this.httpReq.onreadystatechange = this.httpReadyStateChange;
 		this.httpReq.open("GET", this.url);
 		this.httpReq.setRequestHeader("User-Agent", "Mozilla/5.0 (eQuake) http://www.freebookzone.com");
 		this.httpReq.overrideMimeType("application/xml");
+		ifModifiedSince = equakeGetCharPref("ifModifiedSince", new Date(0));
+		this.httpReq.setRequestHeader("If-Modified-Since", ifModifiedSince);
 		try {
 			this.httpReq.send(null);
 		} catch(e) {
@@ -483,31 +497,40 @@ var equakeCheck = {
 	},
 	
 	httpReadyStateChange: function() {
-	var status=-1;
 		if(equakeCheck.httpReq.readyState == 4) {
 			try {
 				status=equakeCheck.httpReq.status;
 			} catch(e) {
-			  var id = document.getElementById("equake-display");
+				var id = document.getElementById("equake-display");
+				status=-1;
 				id.label="No Connection";
 			}
-      if (status!=200)
-      {
-        var id = document.getElementById("equake-display");
-        id.label="eQuake: "+status;
-			}
-		
+			
+	      if (status==200) {
+			ifModifiedSince = equakeCheck.httpReq.getResponseHeader("Last-Modified");
+			ifModifiedSince = (ifModifiedSince) ? ifModifiedSince : new Date(0); // January 1, 1970
+			equakeSetCharPref("ifModifiedSince",ifModifiedSince);
+		  }
+		  else if(status==304) {
+			return;
+		  }
+		  else
+	      {
+	        var id = document.getElementById("equake-display");
+	        id.label="eQuake Error: "+status;
+		  }
 		}
 	},
 	
 	httpLoaded: function() {
+	if (status!=200) return;
 		var feed = new rssFmt(equakeCheck.httpReq.responseXML);
 		var lastentry=equakeGetCharPref("equake-last","noentry");
     
  		var itemsSource = "";
 		var items = feed.getItems();
-    var i=0;
-    var link = items[i].getLink();
+		var i=0;
+		var link = items[i].getLink();
 		var place = items[i].getTitle();
 		var date = items[i].getContent();
 		var id = document.getElementById("equake-display");
@@ -518,20 +541,20 @@ var equakeCheck = {
 	      {
 	        if (!equake_chkmag || getMag(place, 1)>=equake_magval)
 	        {
-	        switch(equake_alert)
-	        {
-	          case 0:
-	            if(equake_chkshakm)
-	              shake(getMag(place, 0));
-	            else
-	              shake(6);
-	            break;
-	          case 1:
-	            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
-	            break;
-	          default:
-	            break;
-	        }
+		        switch(equake_alert)
+		        {
+		          case 0:
+		            if(equake_chkshakm)
+		              shake(getMag(place, 0));
+		            else
+		              shake(6);
+		            break;
+		          case 1:
+		            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
+		            break;
+		          default:
+		            break;
+		        }
 	        }
 			else
 			{
@@ -542,10 +565,7 @@ var equakeCheck = {
 		  //id.label = place;
 	      
 	      equakeSetCharPref("equake-last",link+":"+place+date);
-
-	    }
-		
-		  for(i = 0; i<=9; i++) 
+	    		  for(i = 0; i<=9; i++) 
 	      {
 			equakeSetCharPref("fdate_item" + i, "");
 			equakeSetCharPref("fplace_item" + i, "");
@@ -569,24 +589,28 @@ var equakeCheck = {
 	        equakeSetCharPref("link_item" + i, link);
 	      }
 		  
-		  i=0;
-		  var j=0;
-		  
-		  do
+		  if (equake_chkmag)
 		  {
-			if (!items[i]) break;
-			place = items[i].getTitle();
-			if (getMag(place, 1)>=equake_magval)
-			{
-				date=items[i].getContent();
-				link=items[i].getLink();
-				equakeSetCharPref("fdate_item" + j, date);
-				equakeSetCharPref("fplace_item" + j, place);
-				equakeSetCharPref("flink_item" + j++, link);				
-			}
-			i++;
-		  } while (j<9)
-	      equakeLoadPrefs();
+			  i=0;
+			  var j=0;
+			  
+			  do
+			  {
+				if (!items[i]) break;
+				place = items[i].getTitle();
+				if (getMag(place, 1)>=equake_magval)
+				{
+					date=items[i].getContent();
+					link=items[i].getLink();
+					equakeSetCharPref("fdate_item" + j, date);
+					equakeSetCharPref("fplace_item" + j, place);
+					equakeSetCharPref("flink_item" + j++, link);				
+				}
+				i++;
+			  } while (j<9)
+		  }
+	      equakeLoadPrefs();		
+		}
 		this.checking = false;
 	}
 }

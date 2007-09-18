@@ -49,8 +49,8 @@ insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-
 		<menuitem id="equake-item9" label="quake9" hidden="true" name="item9" oncommand="linkit(9);"/>
    	   </menupopup>
 	</menu>
-	<menu id="equake-filter" label="Your Quakes" name="equakefilter">
-	   <menupopup id="equake-filtersubmenu">
+	<menu id="equake-filter" label="Your Quakes" name="equakefilter" hidden="true">
+	   <menupopup id="equake-filtersubmenu" >
         <menuitem id="equake-fitem0" label="quake0" hidden="true" name="fitem0" oncommand="finkit(0);"/>
         <menuitem id="equake-fitem1" label="quake1" hidden="true" name="fitem1" oncommand="finkit(1);"/>
         <menuitem id="equake-fitem2" label="quake2" hidden="true" name="fitem2" oncommand="finkit(2);"/>
