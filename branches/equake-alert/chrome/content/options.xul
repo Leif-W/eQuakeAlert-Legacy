@@ -4,7 +4,7 @@
 
 <dialog buttons="accept,cancel"
         id="equake-options-dialog"
-	      onload="equakeoptions_init();"
+	    onload="equakeoptions_init();"
         ondialogaccept="return gequakeOptions.saveOptions()"
         title="eQuake Options"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
@@ -17,7 +17,7 @@
 	<caption label="General;"/>
 		<row valign="center">
 			<label value="Interval: "/>
-			<textbox type="text" id="equake.interval"></textbox>
+			<textbox type="text" id="equake.interval" onchange="chkIntValue()"></textbox>
 			<label value=" min(s)"/>
   	</row>
 	<checkbox id="equake.showday" label="Show Day"/>

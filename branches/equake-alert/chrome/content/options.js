@@ -31,6 +31,18 @@ function onMagChange(i)
   document.getElementById("equake.magval").disabled = !i.checked;
 }
 
+function chkIntValue()
+{
+	var equake_interval	 = document.getElementById('equake.interval');
+	var intValue = parseInt(equake_interval.value);
+	//validations
+	if (!intValue || intValue == NaN || intValue<1) 
+	{
+		alert("Interval should be a natural number");
+		equake_interval.value=5;
+		equake_interval.focus();
+	}
+}
    
 equakeOptions.prototype = {
 
@@ -45,7 +57,7 @@ equakeOptions.prototype = {
 		var equake_chkmag	   = document.getElementById('equake.chkmag');
 		var equake_magval	   = document.getElementById('equake.magval');
 		var equake_stat_str    = document.getElementById('equake.stat_str');
-
+		
 	  	this.PrefService.setIntPref('equake.interval',equake_interval.value); 
 	  	this.PrefService.setIntPref('equake.alert',equake_alert.value);
 	 	this.PrefService.setIntPref('equake.status',equake_status.value);  	
