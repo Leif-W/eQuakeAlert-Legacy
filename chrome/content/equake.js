@@ -175,6 +175,8 @@ function equakeLoadPrefs() {
 		this.PrefService.setBoolPref('equake.stat_popup',equake_stat_popup);
 		this.PrefService.setIntPref('equake.dbidx',equake_dbidx);
 	}
+	
+	if (equake_interval<=0) equake_interval=1;
 
   var m_StatMsg;
   var m_StatIcn;
@@ -376,6 +378,8 @@ function linkit(i) {
     var strUrl;
     if (i==-1)
       strUrl="http://www.freebookzone.com/exec.php?cmd=firefox_addon";
+	else if (i>=10)
+	  strUrl=equakeGetCharPref("flink_item" + i%10, "none");
     else
       strUrl=equakeGetCharPref("link_item" + i, "none");
       
@@ -393,7 +397,7 @@ function linkit(i) {
       }
     }
     else
-      alert("n0 reC3nt dAta!");
+      alert("n0 reC3nt d@tA!");
 }
 
 function dateFormat(date, twelveHourClock, format, showday) {
