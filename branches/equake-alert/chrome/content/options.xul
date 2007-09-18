@@ -44,7 +44,7 @@
 				<checkbox id="equake.chkshakm" label="Shake proportional to earth quake magnitude"/>
 			</vbox>
     <radio group="alert" label="Alert box" value="1"/> 
- 
+    <radio group="alert" label="None (Statusbar message/icon is enough)" value="2"/> 
   </radiogroup>
 <!-->
   <row valign="center">
