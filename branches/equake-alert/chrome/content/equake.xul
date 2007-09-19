@@ -12,17 +12,15 @@
 			id="equake-display"
 			label="eQuake!"
 			pack="end"
-			oncontextmenu="equakePopup(event)"
-			insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"/>
+			oncontextmenu="equakePopup(event, this)"			insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"/>
 			
-	 <statusbarpanel
+		<statusbarpanel
 			id="equake-display-icon"
-			class="statusbarpanel-iconic"
+			class="statusbarpanel-menu-iconic"
 			src="chrome://equake/skin/earth.png"
 			pack="end"
-			context="equake-contextmenu"
-insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"
-			/>
+			oncontextmenu="equakePopup(event, this)"
+insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-button,privacy-button,offline-status,popupIcon,statusbar-display,component-bar"/>
 	</statusbar>
 
 	<window id="main-window">
