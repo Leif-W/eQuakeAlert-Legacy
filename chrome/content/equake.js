@@ -300,15 +300,16 @@ function maximize() {
 
 function iconUpdate(op) {
 	m = document.getElementById("equake-display-icon");
-    if (op==0)
+    if (op==0) {
 		m.src="chrome://equake/skin/earth.png";
-	else
+	}
+	else if (op==1)
 	{
 		m.src="chrome://equake/skin/qearth.png";
 		
 		if(icon_timeout != null)
 			clearTimeout(icon_timeout);
-		icon_timeout = setTimeout("iconUpdate(0)", 10*60000);
+		icon_timeout = setTimeout("iconUpdate(0)", 5 * 60000);
 	}
 }
 
