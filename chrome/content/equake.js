@@ -45,8 +45,8 @@ function equakeUpdate() {
 }
 
 /** Statusbar popup menu **/
-function equakePopup(e) {
-	var statusbar = document.getElementById("equake-display");
+function equakePopup(e, statusbar) {
+	//var statusbar = document.getElementById("equake-display");
 	var context = document.getElementById("equake-contextmenu");
 	var x = e.clientX;
 	var y = e.clientY;
