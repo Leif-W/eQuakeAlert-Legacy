@@ -28,6 +28,9 @@ var equakesep = mystrings.GetStringFromName("equakesep");
 var equakeoct = mystrings.GetStringFromName("equakeoct");
 var equakenov = mystrings.GetStringFromName("equakenov");
 var equakedec = mystrings.GetStringFromName("equakedec");
+var equakeequakeerror = mystrings.GetStringFromName("equakeequakeerror");
+var equakenoconnection = mystrings.GetStringFromName("equakenoconnection");
+
 var equake_interval = 5;
 var equake_showday = true;
 var equake_12clock = true;
@@ -215,7 +218,7 @@ function equakeLoadPrefs() {
   m_StatIcn = document.getElementById("equake-display-icon");
   
   m_Interval = document.getElementById("equake-interval");
-  m_Interval.label=equakeinterval+equake_interval+equakemins;
+  m_Interval.label=equakeinterval+": "+equake_interval+ " " + equakemins;
 
   if (!firstrun)
   {
@@ -244,7 +247,7 @@ function equakeLoadPrefs() {
     }
 	
 	m = document.getElementById("equake-filter");
-	if (i==0) {
+	if (i==9) {
 		m.setAttribute("hidden",true);
 	}
 	else {
@@ -538,7 +541,7 @@ var equakeCheck = {
 			} catch(e) {
 				var id = document.getElementById("equake-display");
 				status=-1;
-				id.label="No Connection";
+				id.label=equakenoconnection;
 			}
 			
 	      if (status==200) {
@@ -552,7 +555,7 @@ var equakeCheck = {
 		  else
 	      {
 	        var id = document.getElementById("equake-display");
-	        id.label="eQuake Error: "+status;
+	        id.label=equakeequakeerror+": "+status;
 		  }
 		}
 	},

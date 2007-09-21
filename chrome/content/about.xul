@@ -32,11 +32,11 @@ function openURL(aURL)
   <text value="&equake.text.equake;" style="font-weight: bold; font-size: x-large;" />
   <text value="&equake.text.ver;&#32;2.1" />
   <separator class="thin"/>
-  <text value="&equake.text.created.by;" style="font-weight: bold;" />
+  <text value="&equake.text.created.by;:" style="font-weight: bold;" />
   <text value="Priyadarsan" class="url"
         onclick="openURL('http://www.freebookzone.com'); window.close();"/>
   <separator class="thin"/>
-    <text value="&equake.text.addon.home.page;" style="font-weight: bold;" />
+    <text value="&equake.text.addon.home.page;:" style="font-weight: bold;" />
     <text value="http://www.freebookzone.com/exec.php?cmd=firefox_addon"
           class="url"
         onclick="openURL('http://www.freebookzone.com/exec.php?cmd=firefox_addon'); window.close();"/>

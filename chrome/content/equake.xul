@@ -7,6 +7,11 @@
 	<script type="application/x-javascript" src="chrome://equake/content/equake.js" />
 	<script type="application/x-javascript" src="chrome://equake/content/rss.js" />
 	<script type="application/x-javascript" src="chrome://equake/content/common.js"/>
+
+
+<stringbundleset id="stringbundleset">
+   <stringbundle id="equake-strings" src="chrome://equake/locale/equake.properties"/>
+</stringbundleset>
   	
 	<statusbar id="status-bar">
 		<statusbarpanel
@@ -30,9 +35,10 @@ insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-
       hidden="false"
       value="title"/>
       
+  
 		<popupset id="mainPopupSet">
 			<popup id="equake-contextmenu" position="before_end">
-				<menuitem id="equake-interval" label="&equake.menuitem.interval;" name="equakeinterval" oncommand="window.openDialog('chrome://equake/content/options.xul', null,'chrome,centerscreen,dependent', null, null, null);"/>
+				<menuitem id="equake-interval" name="equakeinterval" oncommand="window.openDialog('chrome://equake/content/options.xul', null,'chrome,centerscreen,dependent', null, null, null);"/>
 				<menuitem id="equake-check" label="&equake.menuitem.check.now;" name="equakecheck" oncommand="equakeUpdate();"/>
 	<menu id="equake-recent" label="&equake.menu.recent.quakes;" name="equakerecent">
 	   <menupopup id="equake-submenu">
@@ -66,4 +72,8 @@ insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-
    </popup>
   </popupset>
   </window>
+
+	<script type="application/x-javascript">
+	document.getElementById(equake-interval).label =  document.getElementById('equake-strings').getString('equakeinterval');
+	</script>
 </overlay>
