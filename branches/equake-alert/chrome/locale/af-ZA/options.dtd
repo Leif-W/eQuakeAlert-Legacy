@@ -1,7 +1,7 @@
 <!ENTITY equake.dialog.equake.options "eQuake-opsies">
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Weergawe">
-<!ENTITY equake.caption.general "Algemeen;">
+<!ENTITY equake.caption.general "Algemeen">
 <!ENTITY equake.label.interval "Interval: ">
 <!ENTITY equake.label.min.s " min(e)">
 <!ENTITY equake.checkbox.show.day "Wys dag">

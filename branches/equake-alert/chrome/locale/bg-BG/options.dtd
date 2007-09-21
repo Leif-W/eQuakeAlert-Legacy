@@ -1,7 +1,7 @@
 <!ENTITY equake.dialog.equake.options "Настройки на eQuake">
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Версия">
-<!ENTITY equake.caption.general "Основни:">
+<!ENTITY equake.caption.general "Основни">
 <!ENTITY equake.label.interval "Интервал">
 <!ENTITY equake.label.min.s "мин.">
 <!ENTITY equake.checkbox.show.day "Покажи деня">
