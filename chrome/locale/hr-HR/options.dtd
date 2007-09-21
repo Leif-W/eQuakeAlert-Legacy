@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "eQuake Opcije">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Inačica">
+<!ENTITY equake.caption.general "Općenito;">
+<!ENTITY equake.label.interval "Interval: ">
+<!ENTITY equake.label.min.s " min(s)">
+<!ENTITY equake.checkbox.show.day "Prikaži dan">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Koristi 12 satni sat">
+<!ENTITY equake.checkbox.open.links.in2 "Otvori poveznice u novoj kartici">
+<!ENTITY equake.caption.alert.methods "Metode upozorenja">
+<!ENTITY equake.radio.shake.browser.on3 "Tresi preglednik pri potresu">
+<!ENTITY equake.checkbox.shake.proport4 "Tresi proporcionalno magnitudi potresa">
+<!ENTITY equake.radio.alert.box "Okvir upozorenja">
+<!ENTITY equake.radio.none.statusbar.m5 "Niti jedan (Dovoljna je poruka u statusnoj traci)">
+<!ENTITY equake.checkbox.alert.me.only6 "Upozori me samo za magnitudu od &gt;">

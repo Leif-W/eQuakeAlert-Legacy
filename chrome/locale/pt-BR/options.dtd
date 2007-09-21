@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "Opções do eQuake">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Versão">
+<!ENTITY equake.caption.general "Geral;">
+<!ENTITY equake.label.interval "Intervalo:">
+<!ENTITY equake.label.min.s "min(s)">
+<!ENTITY equake.checkbox.show.day "Exibir Dia">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Utilizar relógio de 12 horas">
+<!ENTITY equake.checkbox.open.links.in2 "Abrir links em nova aba">
+<!ENTITY equake.caption.alert.methods "Métodos de alerta">
+<!ENTITY equake.radio.shake.browser.on3 "Fazer o navegador tremer em terremoto">
+<!ENTITY equake.checkbox.shake.proport4 "Fazer tremer proporcionalmente à magnitude do terremoto">
+<!ENTITY equake.radio.alert.box "Caixa de alerta">
+<!ENTITY equake.radio.none.statusbar.m5 "Nenhuma (Mensagem na barra de status é suficiente)">
+<!ENTITY equake.checkbox.alert.me.only6 "Alertar apenas para magnitude &gt;">

@@ -1,0 +1,5 @@
+<!ENTITY equake.statusbarpanel.equake "eQuake!">
+<!ENTITY equake.menuitem.interval "Intervalo">
+<!ENTITY equake.menuitem.check.now "Verificar agora">
+<!ENTITY equake.menu.recent.quakes "Tremores recentes">
+<!ENTITY equake.menuitem.about "Sobre">

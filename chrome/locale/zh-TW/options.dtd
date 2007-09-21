@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "eQuake 選項">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "版本">
+<!ENTITY equake.caption.general "一般">
+<!ENTITY equake.label.interval "更新間隔:">
+<!ENTITY equake.label.min.s "分鐘">
+<!ENTITY equake.checkbox.show.day "顯示星期幾">
+<!ENTITY equake.checkbox.use.12.hour.c1 "使用12 小時制">
+<!ENTITY equake.checkbox.open.links.in2 "開啟鏈結於新分頁">
+<!ENTITY equake.caption.alert.methods "警報方法">
+<!ENTITY equake.radio.shake.browser.on3 "當發生地震時震動瀏覽器">
+<!ENTITY equake.checkbox.shake.proport4 "瀏覽器震動程度根據地震震度大小(黎克特制)而定">
+<!ENTITY equake.radio.alert.box "警報對話框">
+<!ENTITY equake.radio.none.statusbar.m5 "無 (狀態列信息已足夠)">
+<!ENTITY equake.checkbox.alert.me.only6 "只有地震大過此數值時通知我">

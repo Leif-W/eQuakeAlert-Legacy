@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "Наладкі eQuake">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Вэрсія">
+<!ENTITY equake.caption.general "Агульныя">
+<!ENTITY equake.label.interval "Інтэрвал:">
+<!ENTITY equake.label.min.s "хвілін">
+<!ENTITY equake.checkbox.show.day "Паказваць дзень">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Ужываць 12-гадзінны фармат">
+<!ENTITY equake.checkbox.open.links.in2 "Адкрываць спасылкі ў новых укладках">
+<!ENTITY equake.caption.alert.methods "Мэтады напаміну">
+<!ENTITY equake.radio.shake.browser.on3 "Трэсьці браўзэр пры землятрусе">
+<!ENTITY equake.checkbox.shake.proport4 "Трэсьці адпаведка магутнасьці землятрусу">
+<!ENTITY equake.radio.alert.box "Паведамленьне">
+<!ENTITY equake.radio.none.statusbar.m5 "Няма (хопіць паведамленьня ў статуснай панэлі)">
+<!ENTITY equake.checkbox.alert.me.only6 "Паведамляць мне толькі пра магутнасьць">

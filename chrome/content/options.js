@@ -1,3 +1,7 @@
+var gequakeBundle = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.properties");
+var equakenumber = mystrings.GetStringFromName("equakenumber");
+
 var gequakeOptions;
 
 function equakeoptions_init() {
@@ -38,7 +42,7 @@ function chkIntValue()
 	//validations
 	if (!intValue || intValue == NaN || intValue<1) 
 	{
-		alert("Interval should be a natural number");
+		alert(equakenumber);
 		equake_interval.value=5;
 		equake_interval.focus();
 	}

@@ -1,3 +1,33 @@
+var gequakeBundle = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.properties");
+var equakeinterval = mystrings.GetStringFromName("equakeinterval");
+var equakemins = mystrings.GetStringFromName("equakemins");
+var equakemicro = mystrings.GetStringFromName("equakemicro");
+var equakeminor = mystrings.GetStringFromName("equakeminor");
+var equakelight = mystrings.GetStringFromName("equakelight");
+var equakemoderate = mystrings.GetStringFromName("equakemoderate");
+var equakestrong = mystrings.GetStringFromName("equakestrong");
+var equakemajor = mystrings.GetStringFromName("equakemajor");
+var equakegreat = mystrings.GetStringFromName("equakegreat");
+var equakesun = mystrings.GetStringFromName("equakesun");
+var equakemon = mystrings.GetStringFromName("equakemon");
+var equaketue = mystrings.GetStringFromName("equaketue");
+var equakewed = mystrings.GetStringFromName("equakewed");
+var equakethu = mystrings.GetStringFromName("equakethu");
+var equakefri = mystrings.GetStringFromName("equakefri");
+var equakesat = mystrings.GetStringFromName("equakesat");
+var equakejan = mystrings.GetStringFromName("equakejan");
+var equakefeb = mystrings.GetStringFromName("equakefeb");
+var equakemar = mystrings.GetStringFromName("equakemar");
+var equakeapr = mystrings.GetStringFromName("equakeapr");
+var equakemay = mystrings.GetStringFromName("equakemay");
+var equakejun = mystrings.GetStringFromName("equakejun");
+var equakejul = mystrings.GetStringFromName("equakejul");
+var equakeaug = mystrings.GetStringFromName("equakeaug");
+var equakesep = mystrings.GetStringFromName("equakesep");
+var equakeoct = mystrings.GetStringFromName("equakeoct");
+var equakenov = mystrings.GetStringFromName("equakenov");
+var equakedec = mystrings.GetStringFromName("equakedec");
 var equake_interval = 5;
 var equake_showday = true;
 var equake_12clock = true;
@@ -185,7 +215,7 @@ function equakeLoadPrefs() {
   m_StatIcn = document.getElementById("equake-display-icon");
   
   m_Interval = document.getElementById("equake-interval");
-  m_Interval.label="Interval: "+equake_interval+"min(s)";
+  m_Interval.label=equakeinterval+equake_interval+equakemins;
 
   if (!firstrun)
   {
@@ -360,19 +390,19 @@ function getMag(strPlace, dec) {
 function getMagClass(strPlace) {
 intClass=getMag(strPlace, 1);
     if (intClass < 3)
-      return "Micro";
+      return equakemicro;
     else if (intClass< 3.9)
-      return "Minor";
+      return equakeminor;
     else if (intClass< 4.9)
-      return "Light";
+      return equakelight;
     else if (intClass< 5.9)
-      return "Moderate";
+      return equakemoderate;
     else if (intClass< 6.9)
-      return "Strong";
+      return equakestrong;
     else if ( intClass< 7.9)
-      return "Major";
+      return equakemajor;
     else(intClass> 7.9)
-      return "Great";
+      return equakegreat;
 }
 
 function linkit(i) {
@@ -408,30 +438,30 @@ function dateFormat(date, twelveHourClock, format, showday) {
 	var year = date.getYear() + 1900;
 	var day;
 	switch (date.getDay()){
-		case 0: day = "Sun"; break
-		case 1: day = "Mon"; break
-		case 2: day = "Tue"; break
-		case 3: day = "Wed"; break
-		case 4: day = "Thu"; break
-		case 5: day = "Fri"; break
-		case 6: day = "Sat"; break
+		case 0: day = equakesun; break
+		case 1: day = equakemon; break
+		case 2: day = equaketue; break
+		case 3: day = equakewed; break
+		case 4: day = equakethu; break
+		case 5: day = equakefri; break
+		case 6: day = equakesat; break
 	}
 
 	var month, monthNum;
 	monthNum = date.getMonth() + 1;
 	switch (monthNum) {
-		case 1: month = "Jan"; break
-		case 2: month = "Feb"; break
-		case 3: month = "Mar"; break
-		case 4: month = "Apr"; break
-		case 5: month = "May"; break
-		case 6: month = "Jun"; break
-		case 7: month = "Jul"; break
-		case 8: month = "Aug"; break
-		case 9: month = "Sep"; break
-		case 10: month = "Oct"; break
-		case 11: month = "Nov"; break
-		case 12: month = "Dec"; break
+		case 1: month = equakejan; break
+		case 2: month = equakefeb; break
+		case 3: month = equakemar; break
+		case 4: month = equakeapr; break
+		case 5: month = equakemay; break
+		case 6: month = equakejun; break
+		case 7: month = equakejul; break
+		case 8: month = equakeaug; break
+		case 9: month = equakesep; break
+		case 10: month = equakeoct; break
+		case 11: month = equakenov; break
+		case 12: month = equakedec; break
 	}
 
 	var date_str;
@@ -619,3 +649,4 @@ var equakeCheck = {
 		this.checking = false;
 	}
 }
+
