@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "eQuake Aukerak">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Bertsioa">
+<!ENTITY equake.caption.general "Orokorra;">
+<!ENTITY equake.label.interval "Tartea:">
+<!ENTITY equake.label.min.s "min">
+<!ENTITY equake.checkbox.show.day "Erakutsi Eguna">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Erabili 12 orduko erlojua">
+<!ENTITY equake.checkbox.open.links.in2 "Ireki loturak fitxa berrietan">
+<!ENTITY equake.caption.alert.methods "Alerta metodoak">
+<!ENTITY equake.radio.shake.browser.on3 "Lurrikaretan nabigatzailea astindu">
+<!ENTITY equake.checkbox.shake.proport4 "Astindu lurrikararen indarraren arabera">
+<!ENTITY equake.radio.alert.box "Alerta kutxa">
+<!ENTITY equake.radio.none.statusbar.m5 "Bat ere ez (Egoera-barrako mezuarekin nahikoa)">
+<!ENTITY equake.checkbox.alert.me.only6 "Alerta erakutsi indarra hau baino handiagoa bada:">

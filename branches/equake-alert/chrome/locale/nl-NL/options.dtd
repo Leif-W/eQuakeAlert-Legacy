@@ -1,0 +1,15 @@
+<!ENTITY equake.dialog.equake.options "eQuake Opties">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Versie">
+<!ENTITY equake.caption.general "Algemeen">
+<!ENTITY equake.label.interval "Elke:">
+<!ENTITY equake.label.min.s "min">
+<!ENTITY equake.checkbox.show.day "Toon Dag">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Gebruik 12 uur klok">
+<!ENTITY equake.checkbox.open.links.in2 "Open links in nieuw tabblad">
+<!ENTITY equake.caption.alert.methods "Alarm methodes">
+<!ENTITY equake.radio.shake.browser.on3 "Schud browser bij aardbeving">
+<!ENTITY equake.checkbox.shake.proport4 "Schud net zo hard als de sterkte van de aardbeving">
+<!ENTITY equake.radio.alert.box "Alarm venster">
+<!ENTITY equake.radio.none.statusbar.m5 "Geen (Statusbalk bericht is genoeg)">
+<!ENTITY equake.checkbox.alert.me.only6 "Alarmeer mij alleen voor sterkte &gt;">
