@@ -2,7 +2,7 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "版本">
 <!ENTITY equake.caption.general "一般">
-<!ENTITY equake.label.interval "更新間隔:">
+<!ENTITY equake.label.interval "更新間隔">
 <!ENTITY equake.label.min.s "分鐘">
 <!ENTITY equake.checkbox.show.day "顯示星期幾">
 <!ENTITY equake.checkbox.use.12.hour.c1 "使用12 小時制">

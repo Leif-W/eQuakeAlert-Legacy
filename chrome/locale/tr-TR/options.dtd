@@ -1,7 +1,7 @@
 <!ENTITY equake.dialog.equake.options "eQuake Seçenekleri">
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Sürüm">
-<!ENTITY equake.caption.general "Genel;">
+<!ENTITY equake.caption.general "Genel">
 <!ENTITY equake.label.interval "Aralık:">
 <!ENTITY equake.label.min.s "dakika">
 <!ENTITY equake.checkbox.show.day "Günü Göster">

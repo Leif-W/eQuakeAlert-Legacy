@@ -2,7 +2,7 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Versie">
 <!ENTITY equake.caption.general "Algemeen">
-<!ENTITY equake.label.interval "Elke:">
+<!ENTITY equake.label.interval "Elke">
 <!ENTITY equake.label.min.s "min">
 <!ENTITY equake.checkbox.show.day "Toon Dag">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Gebruik 12 uur klok">

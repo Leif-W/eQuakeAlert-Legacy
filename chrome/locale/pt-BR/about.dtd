@@ -1,6 +1,6 @@
 <!ENTITY equake.window.equake.about "eQuake - Sobre">
 <!ENTITY equake.text.equake "eQuake">
 <!ENTITY equake.text.ver "ver.">
-<!ENTITY equake.text.created.by "Criado por:">
-<!ENTITY equake.text.addon.home.page "Home Page:">
+<!ENTITY equake.text.created.by "Criado por">
+<!ENTITY equake.text.addon.home.page "Home Page">
 <!ENTITY equake.button.close "Fechar">

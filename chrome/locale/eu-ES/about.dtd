@@ -1,6 +1,6 @@
 <!ENTITY equake.window.equake.about "eQuakeri Buruz">
 <!ENTITY equake.text.equake "eQuake">
-<!ENTITY equake.text.ver "Bertsioa:">
-<!ENTITY equake.text.created.by "Egilea:">
-<!ENTITY equake.text.addon.home.page "Hedapenaren webgunea:">
+<!ENTITY equake.text.ver "Bertsioa.">
+<!ENTITY equake.text.created.by "Egilea">
+<!ENTITY equake.text.addon.home.page "Hedapenaren webgunea">
 <!ENTITY equake.button.close "Itxi">

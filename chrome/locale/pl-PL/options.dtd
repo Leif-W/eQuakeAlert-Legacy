@@ -1,7 +1,7 @@
 <!ENTITY equake.dialog.equake.options "eQuake Opcje">
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Wersja">
-<!ENTITY equake.caption.general "Ogólne:">
+<!ENTITY equake.caption.general "Ogólne">
 <!ENTITY equake.label.interval "Odstęp:">
 <!ENTITY equake.label.min.s "min(s)">
 <!ENTITY equake.checkbox.show.day "Pokazuj Dzień">

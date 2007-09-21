@@ -1,5 +1,4 @@
 <!ENTITY equake.dialog.equake.options "Pilihan eQuake">
-<!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "verse 2.1">
 <!ENTITY equake.caption.general "Umum">
 <!ENTITY equake.label.interval "Jarak masa">
@@ -12,11 +11,4 @@
 <!ENTITY equake.statusbar.message "Mesej bar status">
 <!ENTITY equake.textbox.status.string "Status String">
 <!ENTITY equake.label.l.location "l = tempat">
-<!ENTITY equake.label.m.magnitude "m = magnitude">
-<!ENTITY equake.caption.alert.methods "Alert methods">
-<!ENTITY equake.radio.shake.browser.on3 "Shake browser on earthquake">
-<!ENTITY equake.checkbox.shake.proport4 "Shake proportional to earth quake magnitude">
-<!ENTITY equake.radio.alert.box "Alert box">
-<!ENTITY equake.radio.none.statusbar.m5 "None (Statusbar message/icon is enough)">
-<!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude &gt;">
 <!ENTITY equake.prevshake "Previu gempa">
