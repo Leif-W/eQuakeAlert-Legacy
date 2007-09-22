@@ -2,7 +2,6 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Versión">
 <!ENTITY equake.caption.general "General">
-<!ENTITY equake.label.interval "Intervalo:">
 <!ENTITY equake.label.min.s "min(s)">
 <!ENTITY equake.checkbox.show.day "Mostrar dia">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Usar reloj de 12 horas">

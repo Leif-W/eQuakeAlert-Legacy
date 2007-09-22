@@ -2,14 +2,20 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Weergawe">
 <!ENTITY equake.caption.general "Algemeen">
-<!ENTITY equake.label.interval "Interval: ">
-<!ENTITY equake.label.min.s " min(e)">
+<!ENTITY equake.label.min.s "min(e)">
 <!ENTITY equake.checkbox.show.day "Wys dag">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Gebruik 12-uur-horlosie">
 <!ENTITY equake.checkbox.open.links.in2 "Open skakels in nuwe oortjie">
+<!ENTITY equake.statusbar "Statusbalk">
+<!ENTITY equake.showicon "Vertoon ikoon">
+<!ENTITY equake.statusbar.message "Statusbalk-boodskap">
+<!ENTITY equake.textbox.status.string "Statusstring">
+<!ENTITY equake.label.l.location "l - ligging">
+<!ENTITY equake.label.m.magnitude "m - ergheidgraad">
 <!ENTITY equake.caption.alert.methods "Waarskumetode">
 <!ENTITY equake.radio.shake.browser.on3 "Laat blaaier bewe tydens aardbewing">
 <!ENTITY equake.checkbox.shake.proport4 "Laat bewe na die mate van die aardbewing se ergheid">
 <!ENTITY equake.radio.alert.box "Waarskukassie">
 <!ENTITY equake.radio.none.statusbar.m5 "Geen (statusbalkboodskap is voldoende)">
 <!ENTITY equake.checkbox.alert.me.only6 "Waarsku my net vir ergheidgraad &#37;gt;">
+<!ENTITY equake.prevshake "Voorskou skudding">

@@ -2,7 +2,6 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Bertsioa">
 <!ENTITY equake.caption.general "Orokorra;">
-<!ENTITY equake.label.interval "Tartea:">
 <!ENTITY equake.label.min.s "min">
 <!ENTITY equake.checkbox.show.day "Erakutsi Eguna">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Erabili 12 orduko erlojua">

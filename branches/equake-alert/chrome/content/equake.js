@@ -30,6 +30,8 @@ var equakenov = mystrings.GetStringFromName("equakenov");
 var equakedec = mystrings.GetStringFromName("equakedec");
 var equakeequakeerror = mystrings.GetStringFromName("equakeequakeerror");
 var equakenoconnection = mystrings.GetStringFromName("equakenoconnection");
+var equakepm = mystrings.GetStringFromName("equakepm");
+var equakeam = mystrings.GetStringFromName("equakeam");
 
 var equake_interval = 5;
 var equake_showday = true;
@@ -488,7 +490,7 @@ function dateFormat(date, twelveHourClock, format, showday) {
 	
 	if(twelveHourClock) {
 		adjhours = (hours == 0) ? 12 : ((hours < 13) ? hours : hours-12);
-		time_str = adjhours + ":" + minutes + ((hours < 12) ? " AM" : " PM");
+		time_str = adjhours + ":" + minutes + " " + ((hours < 12) ? equakeam : equakepm);
 	} else {
 		time_str = hours + ":" + minutes;
 	}
