@@ -115,7 +115,7 @@ equakeOptions.prototype = {
 			equake_newtab.checked=false;
 			equake_chkmag.checked=false;
 			equake_alert.value=0;
-			equake_status.value=0;
+			equake_status.value=1;
 			equake_magval=5;
 			equake_stat_str.value="M %m, %l";
 
