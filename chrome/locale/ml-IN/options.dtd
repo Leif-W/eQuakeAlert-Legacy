@@ -2,7 +2,6 @@
 <!ENTITY equake.dialogheader.equake "ഇ-ഭൂമികുലുക്കം!">
 <!ENTITY equake.dialogheader.version "വേര്‍ഷന്‍">
 <!ENTITY equake.caption.general "പൊതുവായവ">
-<!ENTITY equake.label.interval "എത്ര നിമിഷങ്ങള്‍ കൂടുമ്പോള്‍">
 <!ENTITY equake.label.min.s "നിമിഷങ്ങള്‍">
 <!ENTITY equake.checkbox.show.day "ദിവസം കാണിക്കു">
 <!ENTITY equake.checkbox.use.12.hour.c1 "12 മണിക്കൂര്‍ ഘടികാരം ഉപയോഗിക്കൂ">

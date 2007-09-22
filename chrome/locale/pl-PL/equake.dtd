@@ -1,5 +1,3 @@
 <!ENTITY equake.statusbarpanel.equake "eQuake!">
-<!ENTITY equake.menuitem.interval "Odstep">
 <!ENTITY equake.menuitem.check.now "Sprawdz teraz">
 <!ENTITY equake.menu.recent.quakes "Najnowsze wstrzasy">
-<!ENTITY equake.menuitem.about "o">

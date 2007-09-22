@@ -2,7 +2,6 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Inačica">
 <!ENTITY equake.caption.general "Općenito">
-<!ENTITY equake.label.interval "Interval: ">
 <!ENTITY equake.label.min.s " min(s)">
 <!ENTITY equake.checkbox.show.day "Prikaži dan">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Koristi 12 satni sat">

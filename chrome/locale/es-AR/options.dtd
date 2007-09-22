@@ -2,14 +2,20 @@
 <!ENTITY equake.dialogheader.equake "eQuake!">
 <!ENTITY equake.dialogheader.version "Versión">
 <!ENTITY equake.caption.general "General">
-<!ENTITY equake.label.interval "Intervalo:">
 <!ENTITY equake.label.min.s "min(s)">
 <!ENTITY equake.checkbox.show.day "Mostrar Día">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Utilizar reloj de 12 horas">
 <!ENTITY equake.checkbox.open.links.in2 "Abrir enlaces en pestañas nuevas">
+<!ENTITY equake.statusbar "Barra de Estado">
+<!ENTITY equake.showicon "Mostrar ícono">
+<!ENTITY equake.statusbar.message "Mensaje en la Barra de Estado">
+<!ENTITY equake.textbox.status.string "Cadena de Estado">
+<!ENTITY equake.label.l.location "l = ubicación">
+<!ENTITY equake.label.m.magnitude "m = magnitud">
 <!ENTITY equake.caption.alert.methods "Métodos de alerta">
 <!ENTITY equake.radio.shake.browser.on3 "Sacudir el navegador en caso de terremoto">
 <!ENTITY equake.checkbox.shake.proport4 "Sacudir proporcionalmente a la magnitud del terremoto">
 <!ENTITY equake.radio.alert.box "Cuadro de Alerta">
 <!ENTITY equake.radio.none.statusbar.m5 "Ninguno (la barra de estado es suficiente)">
 <!ENTITY equake.checkbox.alert.me.only6 "Alertarme solamente por magnitud &gt;">
+<!ENTITY equake.prevshake "Vista previa de la sacudida">
