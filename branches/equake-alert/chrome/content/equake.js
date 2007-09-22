@@ -44,6 +44,7 @@ var equake_chkmag = false;
 var equake_magval = 0;
 var equake_stat_str="M %m, %l";
 var ifModifiedSince =  new Date(0);
+var reloadData=false;
 
 var equake_dbidx=0;
 var firstrun=false;
@@ -236,25 +237,29 @@ function equakeLoadPrefs() {
       place=equakeGetCharPref("fplace_item" + i, "location");
       m.label=date+":- "+place;
     }
-	
+
+  m = document.getElementById("equake-filter");	
+  if (equake_chkmag == true)
+  {
+      m.setAttribute("hidden",false);
+  }
+  else
+  {
+      m.setAttribute("hidden",true);
+  }
+
     for (i=9;i>=0;i--)
     {
       m = document.getElementById("equake-item"+i);
       date=equakeGetCharPref("date_item" + i, "");
-	  if (date=="") continue;
-	  m.setAttribute("hidden",false);
+	    if (date=="")  {
+        continue;
+      }
+	    m.setAttribute("hidden",false);
       date=dateFormat(date, equake_12clock, 0, equake_showday);
       place=equakeGetCharPref("place_item" + i, "location");
       m.label=date+":- "+place;
     }
-	
-	m = document.getElementById("equake-filter");
-	if (i==9) {
-		m.setAttribute("hidden",true);
-	}
-	else {
-		m.setAttribute("hidden",false);
-	}
 	
     var str_Tmp=place.split(", ");
     var str_M=str_Tmp[0].slice(1);
@@ -306,12 +311,13 @@ var equakePrefObserver = {
 		if(topic != "nsPref:changed")
 			return;
 			
+    if (data=="magval" || data=="chkmag") {
+      reloadData=true;
+      equake_timeout = setTimeout("equakeUpdate()", 1000);
+    }
+			
 		if (data=="interval")   {
 			equakeLoadPrefs();
-
-			if(equake_timeout != null)
-				clearTimeout(equake_timeout);
-
 			equakeUpdate();
 		}
 		else if(data.indexOf("_item")<0) {
@@ -509,6 +515,7 @@ var equakeCheck = {
 
 	getXML: function(){
 		if(this.checking) return;
+		//this.checking = true;
     if (equake_dbidx==0)
 	{
   	 //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M2.5.xml";
@@ -546,16 +553,16 @@ var equakeCheck = {
 				id.label=equakenoconnection;
 			}
 			
-	      if (status==200) {
+	    if (status==200) {
 			ifModifiedSince = equakeCheck.httpReq.getResponseHeader("Last-Modified");
 			ifModifiedSince = (ifModifiedSince) ? ifModifiedSince : new Date(0); // January 1, 1970
 			equakeSetCharPref("ifModifiedSince",ifModifiedSince);
 		  }
 		  else if(status==304) {
-			return;
+			 return;
 		  }
 		  else
-	      {
+	    {
 	        var id = document.getElementById("equake-display");
 	        id.label=equakeequakeerror+": "+status;
 		  }
@@ -601,33 +608,35 @@ var equakeCheck = {
 				iconUpdate(1);
 			}
 				
-	      }
-		  //id.label = place;
+      }
+      }
 	      
-	      equakeSetCharPref("equake-last",link+":"+place+date);
+	  if (reloadData==true || link+":"+place+date!=lastentry)
+	  {
+     equakeSetCharPref("equake-last",link+":"+place+date);
 	    		  for(i = 0; i<=9; i++) 
 	      {
 			equakeSetCharPref("fdate_item" + i, "");
 			equakeSetCharPref("fplace_item" + i, "");
 			equakeSetCharPref("flink_item" + i, "");
-	        equakeSetCharPref("date_item" + i, "");
-	        equakeSetCharPref("place_item" + i, "");
-	        equakeSetCharPref("link_item" + i, "");			
-		    m = document.getElementById("equake-item"+i);
+	    equakeSetCharPref("date_item" + i, "");
+	    equakeSetCharPref("place_item" + i, "");
+	    equakeSetCharPref("link_item" + i, "");			
+		  m = document.getElementById("equake-item"+i);
 			m.setAttribute("hidden",true);
 			m = document.getElementById("equake-fitem"+i);			
 			m.setAttribute("hidden",true);
 		  }
 		  
 		  for(i = 0; i<=9; i++) 
-	      {
+	    {
 	        place = items[i].getTitle();
 	        date=items[i].getContent();
 	        link=items[i].getLink();
 	        equakeSetCharPref("date_item" + i, date);
 	        equakeSetCharPref("place_item" + i, place);
 	        equakeSetCharPref("link_item" + i, link);
-	      }
+	    }
 		  
 		  if (equake_chkmag)
 		  {
@@ -636,22 +645,21 @@ var equakeCheck = {
 			  
 			  do
 			  {
-				if (!items[i]) break;
-				place = items[i].getTitle();
-				if (getMag(place, 1)>=equake_magval)
-				{
-					date=items[i].getContent();
-					link=items[i].getLink();
-					equakeSetCharPref("fdate_item" + j, date);
-					equakeSetCharPref("fplace_item" + j, place);
-					equakeSetCharPref("flink_item" + j++, link);				
-				}
-				i++;
+  				if (!items[i]) break;
+  				place = items[i].getTitle();
+  				if (getMag(place, 1)>=equake_magval)
+  				{
+  					date=items[i].getContent();
+  					link=items[i].getLink();
+  					equakeSetCharPref("fdate_item" + j, date);
+  					equakeSetCharPref("fplace_item" + j, place);
+  					equakeSetCharPref("flink_item" + j++, link);				
+  				}
+  				i++;
 			  } while (j<9)
 		  }
-	      equakeLoadPrefs();		
+	    equakeLoadPrefs();		
 		}
 		this.checking = false;
 	}
 }
-
