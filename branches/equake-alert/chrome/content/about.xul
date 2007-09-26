@@ -33,7 +33,7 @@ function openURL(aURL)
   <text value="&equake.text.ver;&#32;2.1" />
   <separator class="thin"/>
   <text value="&equake.text.created.by;:" style="font-weight: bold;" />
-  <text value="Priyadarsan" class="url"
+  <text value="Priyadarsan Venugopalan" class="url"
         onclick="openURL('http://www.freebookzone.com'); window.close();"/>
   <separator class="thin"/>
     <text value="&equake.text.addon.home.page;:" style="font-weight: bold;" />

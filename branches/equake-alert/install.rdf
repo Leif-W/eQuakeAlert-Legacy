@@ -5,10 +5,10 @@
 
     <Description about="urn:mozilla:install-manifest">
 	<em:id>{8585C31E-1E94-4498-ACEC-CB913A05FC52}</em:id>
-	<em:name>eQuake</em:name>
+	<em:name>eQuake Alert</em:name>
 	<em:version>2.1</em:version>
-	<em:description>eQuake Alert!!!</em:description>
-	<em:creator>Priyadarsan</em:creator>
+	<em:description>Did you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that...</em:description>
+	<em:creator>Priyadarsan Venugopalan</em:creator>
 
 	<em:homepageURL>http://www.freebookzone.com</em:homepageURL>
 
