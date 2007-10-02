@@ -3,6 +3,7 @@ var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.proper
 var equakenumber = mystrings.GetStringFromName("equakenumber");
 
 var gequakeOptions;
+var equake_oldshake;
 
 function equakeoptions_init() {
   gequakeOptions = new equakeOptions;
@@ -12,6 +13,14 @@ function equakeoptions_init() {
 function equakeOptions() {
 	this.ID_PrefService	= "@mozilla.org/preferences-service;1";
 	this.PrefService	= Components.classes[this.ID_PrefService].getService(Components.interfaces.nsIPrefService).getBranch("");
+}
+
+function callShake(tmpMag)
+{
+	if (equake_oldshake)
+		shakeItOld(tmpMag);
+	else
+		shakeIt(tmpMag);
 }
 
 function onStatusChange(i)
@@ -85,7 +94,8 @@ equakeOptions.prototype = {
 		var equake_chkmag	   = document.getElementById('equake.chkmag');
 		var equake_magval	   = document.getElementById('equake.magval');
 		var equake_stat_str    = document.getElementById('equake.stat_str');
-
+		
+		
 		try
 		{
 			equake_interval.value		= this.PrefService.getIntPref('equake.interval');
@@ -101,11 +111,12 @@ equakeOptions.prototype = {
 			equake_12clock.checked		= this.PrefService.getBoolPref('equake.12clock');
 			equake_chkshakm.checked		= this.PrefService.getBoolPref('equake.chkshakm');
 			equake_newtab.checked       = this.PrefService.getBoolPref('equake.newtab');
-			equake_chkmag.checked		= this.PrefService.getBoolPref('equake.chkmag');			
+			equake_chkmag.checked		= this.PrefService.getBoolPref('equake.chkmag');
 			equake_alert.value		    = this.PrefService.getIntPref('equake.alert');
 			equake_status.value		    = this.PrefService.getIntPref('equake.status');
 			equake_magval.value		    = this.PrefService.getCharPref('equake.magval');
 			equake_stat_str.value		= this.PrefService.getCharPref('equake.stat_str');
+			equake_oldshake = this.PrefService.getBoolPref('equake.oldshake');
 		}
 
 		catch (ignored)	{
@@ -118,15 +129,8 @@ equakeOptions.prototype = {
 			equake_status.value=1;
 			equake_magval=5;
 			equake_stat_str.value="M %m, %l";
-
-			/*this.PrefService.setBoolPref('equake.showday',equake_showday.checked);
-			this.PrefService.setBoolPref('equake.12clock',equake_12clock.checked);
-			this.PrefService.setBoolPref('equake.chkshakm',equake_chkshakm.checked);
-			this.PrefService.setBoolPref('equake.chkmag',equake_chkmag.checked);		  
-			this.PrefService.setIntPref('equake.alert', equake_alert.value);
-			this.PrefService.setIntPref('equake.status', equake_status.value);
-			this.PrefService.setCharPref('equake.magval',equake_magval);
-			this.PrefService.setCharPref('equake.stat_str',equake_stat_str.value);*/
+			
+			equake_oldshake = false;
 		}
 
 		onShakeChange(equake_alert.value);

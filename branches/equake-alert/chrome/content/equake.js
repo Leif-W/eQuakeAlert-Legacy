@@ -37,14 +37,15 @@ var equake_interval = 5;
 var equake_showday = true;
 var equake_12clock = true;
 var equake_alert = 0;
-var equake_status=0;
+var equake_status = 1;
 var equake_chkshakm = true;
 var equake_newtab = false;
 var equake_chkmag = false;
-var equake_magval = 0;
+var equake_magval = 5;
 var equake_stat_str="M %m, %l";
 var ifModifiedSince =  new Date(0);
 var reloadData=false;
+var equake_oldshake = false;
 
 var equake_dbidx=0;
 var firstrun=false;
@@ -195,6 +196,7 @@ function equakeLoadPrefs() {
 		equake_magval 		= this.PrefService.getCharPref('equake.magval');
 		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
 		ifModifiedSince     = this.PrefService.getCharPref('equake.ifModifiedSince');
+		equake_oldshake		= this.PrefService.getBoolPref('equake.oldshake');
 	}
 	catch (ignored)	{
 	    firstrun=true;
@@ -210,6 +212,7 @@ function equakeLoadPrefs() {
 		this.PrefService.setCharPref('equake.stat_str',equake_stat_str);
 		this.PrefService.setBoolPref('equake.stat_popup',equake_stat_popup);
 		this.PrefService.setIntPref('equake.dbidx',equake_dbidx);
+		this.PrefService.setBoolPref('equake.oldshake',equake_oldshake);
 	}
 	
 	if (equake_interval<=0) equake_interval=1;
@@ -326,14 +329,6 @@ var equakePrefObserver = {
 	}
 }
 
-/*function shake(j){
-for (i=0;i,i<25;i++){
-window.moveBy(0,j)
-window.moveBy(j,0)
-window.moveBy(0,-j)
-window.moveBy(-j,0)
-}
-}*/
 function maximize() {
     window.moveTo(0,0)
     window.resizeTo(screen.availWidth, screen.availHeight)
@@ -357,37 +352,25 @@ function iconUpdate(op) {
 function shake(mag) {
 	iconUpdate(1);
 
-oldX=window.screenX;
-oldY=window.screenY;
-/*oldOutWidth=window.outerWidth;
-oldOutHeight=window.outerHeight;*/
-oldOutWidth=(window.outerWidth<=160)?screen.availWidth:window.outerWidth;
-oldOutHeight=(window.outerHeight<34)?screen.availHeight:window.outerHeight;
+	oldX=window.screenX;
+	oldY=window.screenY;
+	oldOutWidth=(window.outerWidth<=160)?screen.availWidth:window.outerWidth;
+	oldOutHeight=(window.outerHeight<34)?screen.availHeight:window.outerHeight;
 
-if (oldX<-4 && oldY <-4) //minimized
-{
-	oldX=-4;
-	oldY=-4;
-	/*if (oldOutWidth==160 && oldOutHeight==31)
+	if (oldX<-4 && oldY <-4) //minimized
 	{
-		oldOutWidth=window.outerWidth;
-		oldOutHeight=window.outerHeight;
-	}*/
-}
-/*oldX=(window.screenX<-4)?-4:window.screenX;
-oldY=(window.screenY<-4)?-4:window.screenY;
-*/
+		oldX=-4;
+		oldY=-4;
+	}
 
-
-//alert(oldX + ", " + oldY + ", " + oldOutWidth + ", " + oldOutHeight);
-
-//maximize();
-
-shakeIt(mag);  
-    
-//Back to Windows Old Settings    
-window.moveTo(oldX,oldY);
-window.resizeTo(oldOutWidth,oldOutHeight);
+	if (equake_oldshake)
+		shakeItOld(mag)
+	else
+		shakeIt(mag);
+	    
+	//Back to Windows Old Settings    
+	window.moveTo(oldX,oldY);
+	window.resizeTo(oldOutWidth,oldOutHeight);
 }
 
 function getMag(strPlace, dec) {
@@ -594,7 +577,7 @@ var equakeCheck = {
 		            if(equake_chkshakm)
 		              shake(getMag(place, 0));
 		            else
-		              shake(6);
+		              shake(5);
 		            break;
 		          case 1:
 		            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));

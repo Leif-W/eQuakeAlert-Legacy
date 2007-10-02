@@ -17,3 +17,15 @@ function shakeIt(mag)
 		}
 	}
 }
+
+
+function shakeItOld(mag){
+ if (mag>10) mag=10;
+ if (mag<1) mag=1;
+for (i=0;i,i<25;i++){
+window.moveBy(0,mag)
+window.moveBy(mag,0)
+window.moveBy(0,-mag)
+window.moveBy(-mag,0)
+}
+}

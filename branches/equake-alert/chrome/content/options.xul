@@ -62,11 +62,11 @@
     <checkbox id="equake.chkmag" label="&equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
     <textbox type="text" id="equake.magval" />
   </row>
-  <button label="&equake.prevshake;" oncommand="shakeIt(prompt(document.getElementById('equake-strings').getString('EnterMagnitude'),5))" />
+  <button label="&equake.prevshake;" oncommand="callShake(prompt(document.getElementById('equake-strings').getString('EnterMagnitude'),5))" />
 </groupbox>	
 
 	<script type="application/x-javascript">
-	document.getElementById("equakeinterval").value =  document.getElementById('equake-strings').getString('equakeinterval')+": ";
+	document.getElementById("equakeinterval").value =  document.getElementById("equake-strings").getString("equakeinterval")+": ";
 	</script>
 	
 </dialog>
