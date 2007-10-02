@@ -37,15 +37,16 @@
              <em:locale>locale/it-IT/</em:locale>
              <em:locale>locale/ml-IN/</em:locale>
              <em:locale>locale/pl-PL/</em:locale>
+             <em:locale>locale/tr-TR/</em:locale>             
              <em:locale>locale/zh-TW/</em:locale>
+             <em:locale>locale/zh-CN/</em:locale>             
 <!--      	 <em:locale>locale/es-ES/</em:locale>
              <em:locale>locale/eu-ES/</em:locale>
              <em:locale>locale/hr-HR/</em:locale>
   		       <em:locale>locale/hi-IN/</em:locale>
 			       <em:locale>locale/ms-MY/</em:locale>
              <em:locale>locale/nl-NL/</em:locale>
-             <em:locale>locale/pt-BR/</em:locale>
-             <em:locale>locale/tr-TR/</em:locale>-->
+             <em:locale>locale/pt-BR/</em:locale>-->
              <em:skin>skin/</em:skin>
            </Description>
         </em:file>
