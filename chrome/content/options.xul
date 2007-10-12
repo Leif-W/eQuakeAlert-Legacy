@@ -12,7 +12,7 @@
    <stringbundle id="equake-strings" src="chrome://equake/locale/equake.properties"/>
 </stringbundleset>
  
-<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1" />
+<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1.1" />
 <groupbox>
 	<caption label="&equake.caption.general;" />
 		<row valign="center">
