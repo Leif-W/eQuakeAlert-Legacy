@@ -1,0 +1,21 @@
+<!ENTITY equake.dialog.equake.options "eQuake Opcje">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Wersja">
+<!ENTITY equake.caption.general "Ogólne">
+<!ENTITY equake.label.min.s "min(s)">
+<!ENTITY equake.checkbox.show.day "Pokazuj Dzień">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12/24 godzinna tarcza zegara">
+<!ENTITY equake.checkbox.open.links.in2 "Otwieraj linki w nowym oknie">
+<!ENTITY equake.statusbar "Wskaźnik położenia">
+<!ENTITY equake.showicon "Pokaż ikone">
+<!ENTITY equake.statusbar.message "Wiadmomość">
+<!ENTITY equake.textbox.status.string "Zapis połozenia">
+<!ENTITY equake.label.l.location "l = lokacja">
+<!ENTITY equake.label.m.magnitude "m = skala">
+<!ENTITY equake.caption.alert.methods "ostrzeżenie">
+<!ENTITY equake.radio.shake.browser.on3 "Wstrząsy przeglądarki podczas trzęsienia">
+<!ENTITY equake.checkbox.shake.proport4 "Wstrząsy proporcjonalne do wielkości">
+<!ENTITY equake.radio.alert.box "Skrzynka ostrzeżeń">
+<!ENTITY equake.radio.none.statusbar.m5 "Brak (Wiadomości paska statusu są już wystarczające)">
+<!ENTITY equake.checkbox.alert.me.only6 "Ostrzegaj mnie tylko dla trzęsień większych od &gt;">
+<!ENTITY equake.prevshake "Przeglądnij trzęsienia">
