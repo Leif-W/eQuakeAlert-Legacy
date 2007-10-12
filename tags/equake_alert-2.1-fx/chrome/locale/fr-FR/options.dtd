@@ -1,0 +1,21 @@
+<!ENTITY equake.dialog.equake.options "Options d&apos;eQuake">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Version">
+<!ENTITY equake.caption.general "Général">
+<!ENTITY equake.label.min.s "min(s)">
+<!ENTITY equake.checkbox.show.day "Voir le jour">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Afficher l&apos;heure sur 12 heures">
+<!ENTITY equake.checkbox.open.links.in2 "Ouvrir les liens dans un nouvel onglet">
+<!ENTITY equake.statusbar "Barre d&apos;état">
+<!ENTITY equake.showicon "Afficher l&apos;icône">
+<!ENTITY equake.statusbar.message "Afficher le message suivant :">
+<!ENTITY equake.textbox.status.string "Texte du message">
+<!ENTITY equake.label.l.location "l = localisation">
+<!ENTITY equake.label.m.magnitude "m = magnitude">
+<!ENTITY equake.caption.alert.methods "Méthodes d&apos;alerte">
+<!ENTITY equake.radio.shake.browser.on3 "Faire vibrer le navigateur en cas de tremblement de terre">
+<!ENTITY equake.checkbox.shake.proport4 "Faire vibrer proportionnellement par rapport à la magnitude du tremblement de terre">
+<!ENTITY equake.radio.alert.box "Message d&apos;alerte">
+<!ENTITY equake.radio.none.statusbar.m5 "Rien (le message de la barre d&apos;état est suffisant)">
+<!ENTITY equake.checkbox.alert.me.only6 "Alerter seulement pour les magnitudes &gt;">
+<!ENTITY equake.prevshake "Prévisualiser la vibration">

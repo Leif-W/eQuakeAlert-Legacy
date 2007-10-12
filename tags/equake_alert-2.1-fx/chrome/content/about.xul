@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://equake/locale/about.dtd" >
+<window class="dialog"
+	title="&equake.window.equake.about;"
+	orient="vertical"
+	autostretch="always"
+	onload="sizeToContent()"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+<script type="application/x-javascript">
+function openURL(aURL)
+{
+    var gWindowManager = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+   	var selWindow = gWindowManager.getMostRecentWindow("navigator:browser");
+
+   	if (selWindow) 
+    {
+		  var selBrowser = selWindow.getBrowser();
+		  var originCharset = selBrowser.characterSet;
+			var newTab = selBrowser.addTab(aURL, null, originCharset);
+      selBrowser.selectedTab = newTab;
+   	}
+   	else 
+		  window.open(aURL);
+   	return true;
+}
+</script>
+
+<groupbox align="center" orient="horizontal">
+<vbox>
+  <text value="&equake.text.equake;" style="font-weight: bold; font-size: x-large;" />
+  <text value="&equake.text.ver;&#32;2.1" />
+  <separator class="thin"/>
+  <text value="&equake.text.created.by;:" style="font-weight: bold;" />
+  <text value="Priyadarsan Venugopalan" class="url"
+        onclick="openURL('http://www.freebookzone.com'); window.close();"/>
+  <separator class="thin"/>
+    <text value="&equake.text.addon.home.page;:" style="font-weight: bold;" />
+    <text value="http://www.freebookzone.com/exec.php?cmd=firefox_addon"
+          class="url"
+        onclick="openURL('http://www.freebookzone.com/exec.php?cmd=firefox_addon'); window.close();"/>
+  <separator class="thin"/>
+</vbox>
+<spring flex="1"/>
+<image src="chrome://ebooksearch/skin/logobig.gif"/>
+</groupbox>
+
+  <hbox>
+  <spacer flex="1"/>
+   <button label="&equake.button.close;" oncommand="window.close();" />
+  </hbox>
+
+</window>

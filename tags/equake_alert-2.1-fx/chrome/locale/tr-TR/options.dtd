@@ -1,0 +1,14 @@
+<!ENTITY equake.dialog.equake.options "eQuake Seçenekleri">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Sürüm">
+<!ENTITY equake.caption.general "Genel">
+<!ENTITY equake.label.min.s "dakika">
+<!ENTITY equake.checkbox.show.day "Günü Göster">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12 saatlik birimi kullan">
+<!ENTITY equake.checkbox.open.links.in2 "Bağlantıları yeni sekmede aç">
+<!ENTITY equake.caption.alert.methods "Uyarı yöntemleri">
+<!ENTITY equake.radio.shake.browser.on3 "Depremde sırasında tarayıcıyı sars">
+<!ENTITY equake.checkbox.shake.proport4 "Deprem şiddetiyle orantılı olarak sars">
+<!ENTITY equake.radio.alert.box "Uyarı penceresi">
+<!ENTITY equake.radio.none.statusbar.m5 "Hiçbir (Durum çubuğu iletisi yeterli)">
+<!ENTITY equake.checkbox.alert.me.only6 "Uyar, eğer deprem şiddeti &gt;">
