@@ -74,6 +74,9 @@ insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-
   </window>
 
 	<script type="application/x-javascript">
+	if (document.getElementById('equake-strings'))
+	{
 	document.getElementById('equake-interval').label = document.getElementById('equake-strings').getString('equakeinterval');
+	}
 	</script>
 </overlay>
