@@ -264,6 +264,8 @@ function equakeLoadPrefs() {
       m.label=date+":- "+place;
     }
 	
+	if (place)
+	{
     var str_Tmp=place.split(", ");
     var str_M=str_Tmp[0].slice(1);
     var str_L=str_Tmp[1];
@@ -271,6 +273,7 @@ function equakeLoadPrefs() {
 		str_L+=", "+str_Tmp[2];
 	}
 	m_StatMsg.label=equake_stat_str.replace("%m",str_M).replace("%l",str_L);
+	}
 	
   switch(equake_status)
   {
@@ -533,7 +536,7 @@ var equakeCheck = {
 			} catch(e) {
 				var id = document.getElementById("equake-display");
 				status=-1;
-				id.label=equakenoconnection;
+				//id.label=equakenoconnection;
 			}
 			
 	    if (status==200) {
@@ -544,11 +547,11 @@ var equakeCheck = {
 		  else if(status==304) {
 			 return;
 		  }
-		  else
+		  /*else
 	    {
 	        var id = document.getElementById("equake-display");
 	        id.label=equakeequakeerror+": "+status;
-		  }
+		  }*/
 		}
 	},
 	
