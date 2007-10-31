@@ -18,4 +18,6 @@
 <!ENTITY equake.radio.alert.box "Alert box">
 <!ENTITY equake.radio.none.statusbar.m5 "None (Statusbar message/icon is enough)">
 <!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude >">
-<!ENTITY equake.prevshake "Preview shake">
+<!ENTITY equake.label.shaketype "Shake type">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.scrambler "Letter Scrambler">

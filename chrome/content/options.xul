@@ -12,7 +12,7 @@
    <stringbundle id="equake-strings" src="chrome://equake/locale/equake.properties"/>
 </stringbundleset>
  
-<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1.1" />
+<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1.2" />
 <groupbox>
 	<caption label="&equake.caption.general;" />
 		<row valign="center">
@@ -41,8 +41,17 @@
 	<radiogroup id="equake.alert" orient="vertical" oncommand="onShakeChange(this.value);">          
     <radio group="alert" label="&equake.radio.shake.browser.on3;" value="0" />
     	<vbox style="padding-left: 2em;">
-				<checkbox id="equake.chkshakm" label="&equake.checkbox.shake.proport4;" />
-			</vbox>
+			<checkbox id="equake.chkshakm" label="&equake.checkbox.shake.proport4;" />
+			<row valign="center">
+			<label value="&equake.label.shaketype;: "/>
+			    <menulist id="equake.shaketype">
+ 			    <menupopup>
+				  <menuitem label="&equake.label.shaketype.normal;" value="0"/>
+				  <menuitem label="&equake.label.shaketype.scrambler;" value="1"/>
+				</menupopup>
+				</menulist>
+			</row>
+		</vbox>
     <radio group="alert" label="&equake.radio.alert.box;" value="1" /> 
     <radio group="alert" label="&equake.radio.none.statusbar.m5;" value="2" /> 
   </radiogroup>
@@ -62,7 +71,6 @@
     <checkbox id="equake.chkmag" label="&equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
     <textbox type="text" id="equake.magval" />
   </row>
-  <button label="&equake.prevshake;" oncommand="callShake(prompt(document.getElementById('equake-strings').getString('EnterMagnitude'),5))" />
 </groupbox>	
 
 	<script type="application/x-javascript">

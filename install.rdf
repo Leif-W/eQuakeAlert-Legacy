@@ -6,8 +6,8 @@
     <Description about="urn:mozilla:install-manifest">
 	<em:id>{8585C31E-1E94-4498-ACEC-CB913A05FC52}</em:id>
 	<em:name>eQuake Alert</em:name>
-	<em:version>2.1.1</em:version>
-	<em:description>Did you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that...</em:description>
+	<em:version>2.1.2</em:version>
+	<em:description>Have you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that...</em:description>
 	<em:creator>Priyadarsan Venugopalan</em:creator>
 
 	<em:homepageURL>http://www.freebookzone.com</em:homepageURL>
@@ -27,24 +27,24 @@
 
         <em:file>
            <Description about="urn:mozilla:extension:file:equake.jar">
-              <em:package>content/</em:package>
+             <em:package>content/</em:package>
              <em:locale>locale/en-US/</em:locale>
+<!--         <em:locale>locale/ml-IN/</em:locale>
              <em:locale>locale/af-ZA/</em:locale>
              <em:locale>locale/be-BY/</em:locale>
              <em:locale>locale/bg-BG/</em:locale>
              <em:locale>locale/es-AR/</em:locale>             
              <em:locale>locale/fr-FR/</em:locale>
              <em:locale>locale/it-IT/</em:locale>
-             <em:locale>locale/ml-IN/</em:locale>
              <em:locale>locale/pl-PL/</em:locale>
              <em:locale>locale/tr-TR/</em:locale>             
              <em:locale>locale/zh-TW/</em:locale>
              <em:locale>locale/zh-CN/</em:locale>             
-<!--      	 <em:locale>locale/es-ES/</em:locale>
+        	 <em:locale>locale/es-ES/</em:locale>
              <em:locale>locale/eu-ES/</em:locale>
              <em:locale>locale/hr-HR/</em:locale>
-  		       <em:locale>locale/hi-IN/</em:locale>
-			       <em:locale>locale/ms-MY/</em:locale>
+  		     <em:locale>locale/hi-IN/</em:locale>
+			 <em:locale>locale/ms-MY/</em:locale>
              <em:locale>locale/nl-NL/</em:locale>
              <em:locale>locale/pt-BR/</em:locale>-->
              <em:skin>skin/</em:skin>

@@ -3,3 +3,4 @@
 <!ENTITY equake.menu.recent.quakes "當前地震">
 <!ENTITY equake.menuitem.yourquakes "儲存的地震">
 <!ENTITY equake.menuitem.about "關於">
+<!ENTITY equake.menuitem.prevshake "預覽地震">

@@ -3,3 +3,4 @@
 <!ENTITY equake.menu.recent.quakes "Recent Quakes">
 <!ENTITY equake.menuitem.yourquakes "Your Quakes">
 <!ENTITY equake.menuitem.about "About">
+<!ENTITY equake.menuitem.prevshake "Preview shake">
