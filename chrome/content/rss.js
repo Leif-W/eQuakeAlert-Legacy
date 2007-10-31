@@ -1,3 +1,8 @@
+var gequakeBundle = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+var mystrings = gequakeBundle.createBundle("chrome://equake/locale/rss.properties");
+var equakeinvaliddate = mystrings.GetStringFromName("equakeinvaliddate");
+var equakepossiblyusgschanged0 = mystrings.GetStringFromName("equakepossiblyusgschanged0");
+var equakenodata = mystrings.GetStringFromName("equakenodata");
 function getOrigTxt(aNode)
 {
 		if(!aNode.hasChildNodes()) return "";
@@ -39,7 +44,7 @@ function rssFmt(feedXML) {
 	   this.parseFeed();
 	   break;
 	 default:
-	   throw "Possibly, USGS changed feed format; inform author";
+	   throw equakepossiblyusgschanged0;
 	   break;  
   }
 }
@@ -105,5 +110,5 @@ rssItem.prototype.getContent = function() {
 	if(this.content)
     return this.content;
 	else
-    return "No data";
+    return equakenodata;
 }

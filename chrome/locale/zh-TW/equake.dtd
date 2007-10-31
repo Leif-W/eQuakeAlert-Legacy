@@ -1,0 +1,5 @@
+<!ENTITY equake.statusbarpanel.equake "eQuake!">
+<!ENTITY equake.menuitem.check.now "立刻檢查">
+<!ENTITY equake.menu.recent.quakes "當前地震">
+<!ENTITY equake.menuitem.yourquakes "儲存的地震">
+<!ENTITY equake.menuitem.about "關於">
