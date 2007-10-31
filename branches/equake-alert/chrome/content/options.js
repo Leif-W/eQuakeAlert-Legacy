@@ -3,24 +3,15 @@ var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.proper
 var equakenumber = mystrings.GetStringFromName("equakenumber");
 
 var gequakeOptions;
-var equake_oldshake;
 
 function equakeoptions_init() {
-  gequakeOptions = new equakeOptions;
-	gequakeOptions.loadOptions();
+   gequakeOptions = new equakeOptions;
+   gequakeOptions.loadOptions();
 }
 
 function equakeOptions() {
 	this.ID_PrefService	= "@mozilla.org/preferences-service;1";
 	this.PrefService	= Components.classes[this.ID_PrefService].getService(Components.interfaces.nsIPrefService).getBranch("");
-}
-
-function callShake(tmpMag)
-{
-	if (equake_oldshake)
-		shakeItOld(tmpMag);
-	else
-		shakeIt(tmpMag);
 }
 
 function onStatusChange(i)
@@ -34,9 +25,14 @@ function onStatusChange(i)
 function onShakeChange(i)
 {
     if (i==0)
+	{
       document.getElementById("equake.chkshakm").disabled = false;
-    else
+	  document.getElementById("equake.shaketype").disabled = false;	  
+	}
+    else {
       document.getElementById("equake.chkshakm").disabled = true;
+	  document.getElementById("equake.shaketype").disabled = true;	  
+	}
 }
 
 function onMagChange(i)
@@ -70,10 +66,12 @@ equakeOptions.prototype = {
 		var equake_chkmag	   = document.getElementById('equake.chkmag');
 		var equake_magval	   = document.getElementById('equake.magval');
 		var equake_stat_str    = document.getElementById('equake.stat_str');
+		var equake_shaketype   = document.getElementById('equake.shaketype');
 		
 	  	this.PrefService.setIntPref('equake.interval',equake_interval.value); 
 	  	this.PrefService.setIntPref('equake.alert',equake_alert.value);
 	 	this.PrefService.setIntPref('equake.status',equake_status.value);  	
+		this.PrefService.setIntPref('equake.shaketype',equake_shaketype.value);
 	  	this.PrefService.setBoolPref('equake.showday',equake_showday.checked);
 	  	this.PrefService.setBoolPref('equake.12clock',equake_12clock.checked);
 	    this.PrefService.setBoolPref('equake.chkshakm',equake_chkshakm.checked);
@@ -94,7 +92,7 @@ equakeOptions.prototype = {
 		var equake_chkmag	   = document.getElementById('equake.chkmag');
 		var equake_magval	   = document.getElementById('equake.magval');
 		var equake_stat_str    = document.getElementById('equake.stat_str');
-		
+		var equake_shaketype   = document.getElementById('equake.shaketype');
 		
 		try
 		{
@@ -114,9 +112,9 @@ equakeOptions.prototype = {
 			equake_chkmag.checked		= this.PrefService.getBoolPref('equake.chkmag');
 			equake_alert.value		    = this.PrefService.getIntPref('equake.alert');
 			equake_status.value		    = this.PrefService.getIntPref('equake.status');
+			equake_shaketype.value		= this.PrefService.getIntPref('equake.shaketype');
 			equake_magval.value		    = this.PrefService.getCharPref('equake.magval');
 			equake_stat_str.value		= this.PrefService.getCharPref('equake.stat_str');
-			equake_oldshake = this.PrefService.getBoolPref('equake.oldshake');
 		}
 
 		catch (ignored)	{
@@ -129,8 +127,7 @@ equakeOptions.prototype = {
 			equake_status.value=1;
 			equake_magval=5;
 			equake_stat_str.value="M %m, %l";
-			
-			equake_oldshake = false;
+			equake_shaketype = 0;
 		}
 
 		onShakeChange(equake_alert.value);

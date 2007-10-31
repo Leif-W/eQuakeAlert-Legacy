@@ -3,3 +3,4 @@
 <!ENTITY equake.menu.recent.quakes "Tremblements de terre récents">
 <!ENTITY equake.menuitem.yourquakes "Vos tremblements de terre">
 <!ENTITY equake.menuitem.about "À propos">
+<!ENTITY equake.menuitem.prevshake "Prévisualiser la vibration">

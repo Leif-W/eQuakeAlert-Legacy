@@ -45,7 +45,7 @@ var equake_magval = 5;
 var equake_stat_str="M %m, %l";
 var ifModifiedSince =  new Date(0);
 var reloadData=false;
-var equake_oldshake = false;
+var equake_shaketype;
 
 var equake_dbidx=0;
 var firstrun=false;
@@ -196,7 +196,7 @@ function equakeLoadPrefs() {
 		equake_magval 		= this.PrefService.getCharPref('equake.magval');
 		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
 		ifModifiedSince     = this.PrefService.getCharPref('equake.ifModifiedSince');
-		equake_oldshake		= this.PrefService.getBoolPref('equake.oldshake');
+		equake_shaketype	= this.PrefService.getIntPref('equake.shaketype');
 	}
 	catch (ignored)	{
 	    firstrun=true;
@@ -212,7 +212,7 @@ function equakeLoadPrefs() {
 		this.PrefService.setCharPref('equake.stat_str',equake_stat_str);
 		this.PrefService.setBoolPref('equake.stat_popup',equake_stat_popup);
 		this.PrefService.setIntPref('equake.dbidx',equake_dbidx);
-		this.PrefService.setBoolPref('equake.oldshake',equake_oldshake);
+		this.PrefService.setIntPref('equake.shaketype',equake_shaketype);
 	}
 	
 	if (equake_interval<=0) equake_interval=1;
@@ -352,6 +352,15 @@ function iconUpdate(op) {
 	}
 }
 
+function callShake(tmpMag)
+{
+	if (equake_shaketype==0)
+		shakeItOld(tmpMag);
+	else
+		shakeIt(tmpMag);
+}
+
+
 function shake(mag) {
 	iconUpdate(1);
 
@@ -366,7 +375,7 @@ function shake(mag) {
 		oldY=-4;
 	}
 
-	if (equake_oldshake)
+	if (equake_shaketype==0)
 		shakeItOld(mag)
 	else
 		shakeIt(mag);
