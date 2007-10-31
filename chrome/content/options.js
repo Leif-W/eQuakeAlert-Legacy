@@ -1,6 +1,6 @@
 var gequakeBundle = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
 var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.properties");
-var equakenumber = mystrings.GetStringFromName("equakenumber");
+var equakeMsgInterval = mystrings.GetStringFromName("equakenumber");
 
 var gequakeOptions;
 
@@ -40,16 +40,28 @@ function onMagChange(i)
   document.getElementById("equake.magval").disabled = !i.checked;
 }
 
+function chkIntValueMag(obj)
+{
+	var intValue = parseInt(obj.value);
+	//validations
+	if (!intValue || intValue == NaN || intValue<1 || intValue!=obj.value) 
+	{
+		//alert(equakenumber);
+		obj.value=5;
+		obj.focus();
+	}
+}
+
 function chkIntValue()
 {
-	var equake_interval	 = document.getElementById('equake.interval');
-	var intValue = parseInt(equake_interval.value);
+	var obj	 = document.getElementById('equake.interval');
+	var intValue = parseInt(obj.value);
 	//validations
-	if (!intValue || intValue == NaN || intValue<1) 
+	if (!intValue || intValue == NaN || intValue<1 || intValue!=obj.value) 
 	{
-		alert(equakenumber);
-		equake_interval.value=5;
-		equake_interval.focus();
+		alert(equakeMsgInterval);
+		obj.value=5;
+		obj.focus();
 	}
 }
    

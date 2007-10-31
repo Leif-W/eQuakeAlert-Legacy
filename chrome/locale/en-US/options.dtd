@@ -20,4 +20,4 @@
 <!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude >">
 <!ENTITY equake.label.shaketype "Shake type">
 <!ENTITY equake.label.shaketype.normal "Normal">
-<!ENTITY equake.label.shaketype.scrambler "Letter Scrambler">
+<!ENTITY equake.label.shaketype.strong "Strong">

@@ -6,7 +6,6 @@ pref("equake.newtab", false);
 pref("equake.chkmag", false);
 pref("equake.alert", 0);
 pref("equake.status", 1);
-pref("equake.magval", 5);
 pref("equake.stat_str", "M %m, %l");
 pref("equake.shaketype", 0);
 pref("equake.interval", 5);

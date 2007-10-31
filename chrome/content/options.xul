@@ -47,7 +47,7 @@
 			    <menulist id="equake.shaketype">
  			    <menupopup>
 				  <menuitem label="&equake.label.shaketype.normal;" value="0"/>
-				  <menuitem label="&equake.label.shaketype.scrambler;" value="1"/>
+				  <menuitem label="&equake.label.shaketype.strong;" value="1"/>
 				</menupopup>
 				</menulist>
 			</row>
@@ -69,7 +69,7 @@
 
   <row valign="center">
     <checkbox id="equake.chkmag" label="&equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
-    <textbox type="text" id="equake.magval" />
+    <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
   </row>
 </groupbox>	
 
