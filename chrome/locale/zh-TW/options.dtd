@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "警報對話框">
 <!ENTITY equake.radio.none.statusbar.m5 "無 (狀態列信息/圖示已足夠)">
 <!ENTITY equake.checkbox.alert.me.only6 "只有地震大過此數值時通知我">
+<!ENTITY equake.label.shaketype "地震類型">
+<!ENTITY equake.label.shaketype.normal "普通">
+<!ENTITY equake.label.shaketype.strong "強烈">
