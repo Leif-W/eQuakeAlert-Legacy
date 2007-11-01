@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "അറിയിപ്പ് ബോക്സ്">
 <!ENTITY equake.radio.none.statusbar.m5 "ഒന്നും വേണ്ട (സ്റ്റാറ്റസ്സ് ബാറിലുള്ള സന്ദേശം മതി)">
 <!ENTITY equake.checkbox.alert.me.only6 "മാഗ്നിറ്റൂട് ഇതില്‍ കൂടുമ്പോള്‍ മാത്രം എന്നെ അറിയിച്ചാല്‍ മതി">
+<!ENTITY equake.label.shaketype "കുലുക്കത്തിന്റെ സ്വഭാവം">
+<!ENTITY equake.label.shaketype.normal "സാധാരണം">
+<!ENTITY equake.label.shaketype.strong "ശക്തമായ">

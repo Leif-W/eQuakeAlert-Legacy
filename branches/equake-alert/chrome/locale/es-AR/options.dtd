@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Cuadro de Alerta">
 <!ENTITY equake.radio.none.statusbar.m5 "Ninguno (la barra de estado es suficiente)">
 <!ENTITY equake.checkbox.alert.me.only6 "Alertarme solamente por magnitud &gt;">
+<!ENTITY equake.label.shaketype "Tipo de sacudida">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Fuerte">
