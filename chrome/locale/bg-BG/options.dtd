@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Известие">
 <!ENTITY equake.radio.none.statusbar.m5 "Нищо (Съобщението/иконата в лентата за състоянието е достатъчно)">
 <!ENTITY equake.checkbox.alert.me.only6 "Известявай ме само за сила &gt;">
+<!ENTITY equake.label.shaketype "Тип на труса">
+<!ENTITY equake.label.shaketype.normal "Нормален">
+<!ENTITY equake.label.shaketype.strong "Силен">

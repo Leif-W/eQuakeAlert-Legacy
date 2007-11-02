@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Waarskukassie">
 <!ENTITY equake.radio.none.statusbar.m5 "Geen (statusbalkboodskap is voldoende)">
 <!ENTITY equake.checkbox.alert.me.only6 "Waarsku my net vir ergheidgraad &#37;gt;">
+<!ENTITY equake.label.shaketype "Tipe skudding">
+<!ENTITY equake.label.shaketype.normal "Gewoon">
+<!ENTITY equake.label.shaketype.strong "Sterk">
