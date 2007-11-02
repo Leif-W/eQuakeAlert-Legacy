@@ -32,9 +32,9 @@
              <em:locale>locale/ml-IN/</em:locale>
              <em:locale>locale/es-AR/</em:locale>             
              <em:locale>locale/zh-TW/</em:locale>
-<!--             <em:locale>locale/af-ZA/</em:locale>
-             <em:locale>locale/be-BY/</em:locale>
+             <em:locale>locale/af-ZA/</em:locale>
              <em:locale>locale/bg-BG/</em:locale>
+<!--             <em:locale>locale/be-BY/</em:locale>
              <em:locale>locale/fr-FR/</em:locale>
              <em:locale>locale/it-IT/</em:locale>
              <em:locale>locale/pl-PL/</em:locale>
