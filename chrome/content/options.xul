@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://equake/skin/button.css" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://equake/locale/options.dtd" >
 <dialog buttons="accept,cancel" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return gequakeOptions.saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 <script type="application/x-javascript" src="chrome://equake/content/options.js" />
 <script type="application/x-javascript" src="chrome://equake/content/common.js" />
+<script type="application/x-javascript" src="chrome://equake/content/maps.js" />
 
 
 <stringbundleset id="stringbundleset">
@@ -13,6 +15,16 @@
 </stringbundleset>
  
 <dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1.2" />
+
+<tabbox>
+      <tabs>
+         <tab label="&equake.caption.general;"/>
+         <tab label="Advanced"/>
+      </tabs>
+	  
+<tabpanels>
+<tabpanel>
+<vbox flex="1">
 <groupbox>
 	<caption label="&equake.caption.general;" />
 		<row valign="center">
@@ -72,9 +84,24 @@
     <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
   </row>
 </groupbox>	
+</vbox>
+</tabpanel>
+<tabpanel>
+ <vbox flex="1">
+	<hbox>
+	 <button label="Save" class="ff-button" oncommand="callMapsSave();" />
+	 <button label="Fit" class="ff-button" oncommand="callMapsFit();" />
+	 <button label="Check" class="ff-button" oncommand="callMapsCheck();" />
+	</hbox>
+ 
+	<browser id="equake.maps" flex="1" style="border: 1px solid rgb(51, 51, 51); " />
+	</vbox>	
+</tabpanel>
+</tabpanels>
+</tabbox>
 
 	<script type="application/x-javascript">
 	document.getElementById("equakeinterval").value =  document.getElementById("equake-strings").getString("equakeinterval")+": ";
 	</script>
-	
+
 </dialog>
