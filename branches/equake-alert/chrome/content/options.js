@@ -105,6 +105,7 @@ equakeOptions.prototype = {
 		var equake_magval	   = document.getElementById('equake.magval');
 		var equake_stat_str    = document.getElementById('equake.stat_str');
 		var equake_shaketype   = document.getElementById('equake.shaketype');
+		var equake_maps		   = document.getElementById('equake.maps');
 		
 		try
 		{
@@ -127,6 +128,7 @@ equakeOptions.prototype = {
 			equake_shaketype.value		= this.PrefService.getIntPref('equake.shaketype');
 			equake_magval.value		    = this.PrefService.getCharPref('equake.magval');
 			equake_stat_str.value		= this.PrefService.getCharPref('equake.stat_str');
+			equake_geo 					= this.PrefService.getCharPref('equake.geo');
 		}
 
 		catch (ignored)	{
@@ -140,10 +142,18 @@ equakeOptions.prototype = {
 			equake_magval=5;
 			equake_stat_str.value="M %m, %l";
 			equake_shaketype = 0;
+			equake_geo=0;
 		}
 
 		onShakeChange(equake_alert.value);
 		onStatusChange(equake_status.value);
 		onMagChange(equake_chkmag);
+		
+		if (equake_geo==0)
+			equake_maps.loadURI("http://www.freebookzone.com/equake/geomap.htm");
+		else
+		{
+			equake_maps.loadURI("http://www.freebookzone.com/equake/geomap.htm?geo="+equake_geo);
+		}			
 	}
 }
