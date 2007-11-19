@@ -3,15 +3,31 @@ var mystrings = gequakeBundle.createBundle("chrome://equake/locale/equake.proper
 var equakeMsgInterval = mystrings.GetStringFromName("equakenumber");
 
 var gequakeOptions;
+var equake_geo;
 
 function equakeoptions_init() {
    gequakeOptions = new equakeOptions;
    gequakeOptions.loadOptions();
 }
 
+function equakeSetCharPref(name, value) {
+	var prefservice = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
+	var prefs = prefservice.getBranch("equake.");
+
+	prefs.setCharPref(name, value);
+
+	return true;
+}
+
 function equakeOptions() {
 	this.ID_PrefService	= "@mozilla.org/preferences-service;1";
 	this.PrefService	= Components.classes[this.ID_PrefService].getService(Components.interfaces.nsIPrefService).getBranch("");
+}
+
+function mapsSave()
+{
+	equake_geo = callMapsSave();
+	equakeSetCharPref("geo",equake_geo);
 }
 
 function onStatusChange(i)
@@ -150,7 +166,7 @@ equakeOptions.prototype = {
 		onMagChange(equake_chkmag);
 		
 		if (equake_geo==0)
-			equake_maps.loadURI("http://www.freebookzone.com/equake/geomap.htm");
+			equake_maps.loadURI("chrome://equake/content/geo_disabled.htm?msg=Geofiltering is disabled. Please select a prestored area from the list above.");
 		else
 		{
 			equake_maps.loadURI("http://www.freebookzone.com/equake/geomap.htm?geo="+equake_geo);
