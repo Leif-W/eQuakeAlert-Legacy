@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Uyarı kutusu">
 <!ENTITY equake.radio.none.statusbar.m5 "Hiçbir (Durum çubuğu iletisi/simgesi yeterli)">
 <!ENTITY equake.checkbox.alert.me.only6 "Uyar, eğer deprem şiddeti &gt;">
+<!ENTITY equake.label.shaketype "Sarsıntı türü">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Güçlü">
