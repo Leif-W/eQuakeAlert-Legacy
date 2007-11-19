@@ -12,7 +12,7 @@ function equake_mapsBrowserScope(){
 
 function callMapsSave()
 {
-  equake_mapsBrowserScope().save();
+  return equake_mapsBrowserScope().save();
 }
 
 function callMapsFit()
@@ -25,3 +25,23 @@ function callMapsCheck()
   equake_mapsBrowserScope().check();
 }
 
+function callMapsSwitch(area)
+{
+	var geo_asia="11.523087506868512,128.671875;1,10";
+	var uri = "http://www.freebookzone.com/equake/geomap.htm";
+	switch (parseInt(area))
+	{
+		case -1: //Disabled
+			uri="chrome://equake/content/geo_disabled.htm";
+			break;
+		case 0: //Current
+		default:
+			uri+= "?geo="+equake_geo;
+			break;
+		case 1: //Asia
+			uri+= "?geo="+geo_asia
+			break;
+	}
+	alert(uri);
+	$('equake.maps').loadURI(uri);
+}

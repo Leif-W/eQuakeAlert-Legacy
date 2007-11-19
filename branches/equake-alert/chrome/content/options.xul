@@ -19,7 +19,7 @@
 <tabbox>
       <tabs>
          <tab label="&equake.caption.general;"/>
-         <tab label="Advanced"/>
+         <tab label="Geomap"/>
       </tabs>
 	  
 <tabpanels>
@@ -88,13 +88,37 @@
 </tabpanel>
 <tabpanel>
  <vbox flex="1">
+ <hbox>
+	<label value="Prestored Areas" />
+	<menulist id="equake.mapsarea" oncommand="callMapsSwitch(this.value);">
+	 	<menupopup>
+		<menuitem label="Disabled" value="-1"/>
+		<menuitem label="Current" value="0"/>
+		<menuitem label="Asia" value="1"/>
+		<menuitem label="Australia" value="2"/>
+		<menuitem label="America" value="3"/>
+		<menuitem label="Africa" value="4"/>
+		<menuitem label="Artica" value="5"/>
+		<menuitem label="Antartica" value="6"/>
+		</menupopup>
+	</menulist>
+ </hbox>
 	<hbox>
-	 <button label="Save" class="ff-button" oncommand="callMapsSave();" />
+	 <button label="Save" class="ff-button" oncommand="mapsSave();" />
 	 <button label="Fit" class="ff-button" oncommand="callMapsFit();" />
 	 <button label="Check" class="ff-button" oncommand="callMapsCheck();" />
 	</hbox>
  
 	<browser id="equake.maps" flex="1" style="border: 1px solid rgb(51, 51, 51); " />
+	<hbox>
+	<checkbox id="equake.chkmag" label="Inside the area selected, &equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
+    <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
+	</hbox>
+	<row valign="center">
+	<checkbox id="equake.chkmag" label="Outside the selected area, &equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
+    <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
+	</row>
+	
 	</vbox>	
 </tabpanel>
 </tabpanels>

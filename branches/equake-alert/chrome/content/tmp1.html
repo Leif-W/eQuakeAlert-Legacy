@@ -1,0 +1,245 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2.&amp;key=ABQIAAAArkgg0yma1jVx5NOC-AAxtRR-iIW4BIorN7rdrQKbTCQQHaz_lRQukV8So1-CBFIxX55qVRkcT_9q-A"
+      type="text/javascript"></script>
+</script>
+</head>
+<body onload="draw()" onunload="GUnload()">
+
+
+<div id="map" style="position: absolute; top:60px;left:20px;width:512px; height:440px; "></div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var map = new GMap2(document.getElementById("map"));
+var start = new GLatLng(37.443109, -122.146189);
+map.setCenter(start, 2); //zoom
+map.addControl(new GMapTypeControl(1));
+map.addControl(new GLargeMapControl());
+map.addControl(new GScaleControl());
+
+// red marker icon
+var icon = new GIcon();
+icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
+icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+icon.iconSize = new GSize(12, 20);
+icon.shadowSize = new GSize(22, 20);
+icon.iconAnchor = new GPoint(6, 20);
+
+var marker=[];
+var point=[];
+var poly=[];
+var line=null;
+var tmp=[];
+
+point.push(new GLatLng(11.523087506868512, 128.671875));
+point.push(new GLatLng(-0.3515602939922709, 157.8515625));
+point.push(new GLatLng(-9.79567758282973, 156.09375));
+point.push(new GLatLng(-25.79989118208832, 159.609375));
+point.push(new GLatLng(-47.75409797968002, 149.765625));
+point.push(new GLatLng(-37.99616267972812, 134.296875));
+point.push(new GLatLng(-37.71859032558814, 121.640625));
+point.push(new GLatLng(-36.87962060502676, 108.6328125));
+point.push(new GLatLng(-17.978733095556155, 97.03125));
+point.push(new GLatLng(9.102096738726456, 91.7578125));
+point.push(new GLatLng(13.239945499286312, 87.5390625));
+point.push(new GLatLng(33.7243396617476, 88.2421875));
+point.push(new GLatLng(25.48295117535531, 122.6953125));
+
+
+tmp.push(new GLatLng(14, 130));
+
+// Markers
+var n;
+for(n=0;n<point.length;n++)
+{
+marker[n] = new GMarker(point[n], {icon:icon, draggable: true});
+map.addOverlay(marker[n]);
+marker[n].enableDragging();
+GEvent.addListener(marker[n],'drag',function(){draw()});
+};
+
+markPoint = new GMarker(tmp[0], {icon:icon, draggable: true});
+map.addOverlay(markPoint);
+markPoint.enableDragging();
+
+// Polygon
+
+function draw()
+{
+poly.length=0; 
+for(var i=0;i<marker.length;i++)
+{
+poly.push(marker[i].getPoint());
+}
+poly.push(marker[0].getPoint());
+if(line){map.removeOverlay(line)};
+line=new GPolygon(poly,'#FF0000', 3, 1,'#0000FF',0.2);
+map.addOverlay(line);
+};
+
+
+////zoom to fit
+
+function fit(){
+var bounds = new GLatLngBounds();
+for(var i=0;i<marker.length;i++){bounds.extend(marker[i].getPoint())};
+var lngCenter = (bounds.getNorthEast().lng() + bounds.getSouthWest().lng()) / 2;
+var latCenter = (bounds.getNorthEast().lat() + bounds.getSouthWest().lat()) / 2;
+var center = new GLatLng(latCenter,lngCenter);
+map.setCenter(center, map.getBoundsZoomLevel(bounds));
+draw();
+save();
+};
+
+function save(){
+alert(poly.join('#'));
+return;
+};
+
+/*function pnpoly(npol, yp, x, y)
+    {
+      var i, j, c = 0;
+      for (i = 0, j = npol-1; i < npol; j = i++) {
+        if ((((yp[i].Qh <= y) && (y < yp[j].Qh)) ||
+             ((yp[j].Qh <= y) && (y < yp[i].Qh))) &&
+            (x < (yp[j].Ph - yp[i].Ph) * (y - yp[i].Qh) / (yp[j].Qh - yp[i].Qh) + yp[i].Ph))
+          c = !c;
+      }
+      return c;
+    }
+*/	
+
+/*function pnpoly(polySides, polyY, x, y) {
+  var polyX = polyY;
+  var i, j=polySides-1 ;
+  var oddNodes=false;
+
+  for (i=0; i<polySides; i++) {
+    if (polyY[i].Qh<y && polyY[j].Qh>=y
+    ||  polyY[j].Qh<y && polyY[i].Qh>=y) {
+      if (polyX[i].Ph+(y-polyY[i].Qh)/(polyY[j].Qh-polyY[i].Qh)*(polyX[j].Ph-polyX[i].Ph)<x) {
+        oddNodes=!oddNodes; }}
+    j=i; }
+
+  return oddNodes; 
+}*/
+
+function MIN(x,y) 
+{
+return (x < y )? x : y;
+}
+
+function MAX(x,y) 
+{
+return (x > y )? x : y;
+}
+
+
+var INSIDE  = 0
+var OUTSIDE = 1
+
+function pnpoly(N, polygon, x, y)
+{
+
+var p = [];
+p.x = x;
+p.y = y;
+
+  var counter = 0;
+  var i;
+  var xinters;
+  var p1=[],p2=[];
+
+  p1.x = polygon[0].Ph;
+  p1.y = polygon[0].Qh;
+  for (i=1;i<=N;i++) {
+    p2.x = polygon[i % N].Ph;
+	p2.y = polygon[i % N].Qh;
+    if (p.y > MIN(p1.y,p2.y)) {
+      if (p.y <= MAX(p1.y,p2.y)) {
+        if (p.x <= MAX(p1.x,p2.x)) {
+          if (p1.y != p2.y) {
+            xinters = (p.y-p1.y)*(p2.x-p1.x)/(p2.y-p1.y)+p1.x;
+            if (p1.x == p2.x || p.x <= xinters)
+              counter++;
+          }
+        }
+      }
+    }
+    p1 = p2;
+  }
+
+  if (counter % 2 == 0)
+    return(OUTSIDE);
+  else
+    return(INSIDE);
+}
+
+/*function pnpoly(n, polygon,x,y)
+{
+   var i;
+   var angle=0;
+   var p = [];
+   p.x = x;
+   p.y = y;
+   var p1=[], p2=[];
+
+   for (i=0;i<n;i++) {
+      p1.y = polygon[i].Qh - p.y;
+      p1.x = polygon[i].Ph - p.x;
+      p2.y = polygon[(i+1)%n].Qh - p.y;
+      p2.x = polygon[(i+1)%n].Ph - p.x;
+      angle += Angle2D(p1.y,p1.x,p2.y,p2.x);
+   }
+
+   if (Math.abs(angle) < Math.PI)
+      return(false);
+   else
+      return(true);
+}*/
+
+/*
+   Return the angle between two vectors on a plane
+   The angle is from vector 1 to vector 2, positive anticlockwise
+   The result is between -pi -> pi
+*/
+/*function Angle2D(x1, y1, x2, y2)
+{
+   var dtheta,theta1,theta2;
+   var TWOPI = Math.PI * 2;
+
+   theta1 = Math.atan2(y1,x1);
+   theta2 = Math.atan2(y2,x2);
+   dtheta = theta2 - theta1;
+   while (dtheta > Math.PI)
+      dtheta -= TWOPI;
+   while (dtheta < -Math.PI)
+      dtheta += TWOPI;
+
+   return(dtheta);
+}*/
+
+	
+function check() {
+	alert(pnpoly(poly.length, poly, markPoint.getPoint().Ph, markPoint.getPoint().Qh));
+};	
+
+function get(){
+
+}
+
+draw();
+
+
+//]]>
+
+</script>
+<a href="javascript: save();">Save</a> &nbsp;
+<a href="javascript: fit();">Fit</a> &nbsp;
+<a href="javascript: check();">Check</a>
+
+</body>
+</html>
