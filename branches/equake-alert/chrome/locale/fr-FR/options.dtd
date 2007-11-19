@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Message d&apos;alerte">
 <!ENTITY equake.radio.none.statusbar.m5 "Rien (le message de la barre d&apos;état est suffisant)">
 <!ENTITY equake.checkbox.alert.me.only6 "Alerter seulement pour les magnitudes &gt;">
+<!ENTITY equake.label.shaketype "Type de tremblement">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Fort">
