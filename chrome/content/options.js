@@ -68,6 +68,18 @@ function chkIntValueMag(obj)
 	}
 }
 
+function chkIntValueMagIn(obj)
+{
+	var intValue = parseInt(obj.value);
+	//validations
+	if (!intValue || intValue == NaN || intValue<1 || intValue!=obj.value) 
+	{
+		//alert(equakenumber);
+		obj.value=3;
+		obj.focus();
+	}
+}
+
 function chkIntValue()
 {
 	var obj	 = document.getElementById('equake.interval');
@@ -122,6 +134,7 @@ equakeOptions.prototype = {
 		var equake_stat_str    = document.getElementById('equake.stat_str');
 		var equake_shaketype   = document.getElementById('equake.shaketype');
 		var equake_maps		   = document.getElementById('equake.maps');
+		var equake_mapsarea    = document.getElementById('equake.mapsarea');
 		
 		try
 		{
@@ -170,6 +183,7 @@ equakeOptions.prototype = {
 		else
 		{
 			equake_maps.loadURI("http://www.freebookzone.com/equake/geomap.htm?geo="+equake_geo);
-		}			
+			equake_mapsarea.value=1;
+		}
 	}
 }
