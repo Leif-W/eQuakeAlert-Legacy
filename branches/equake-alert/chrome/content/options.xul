@@ -3,7 +3,7 @@
 <?xml-stylesheet href="chrome://equake/skin/button.css" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://equake/locale/options.dtd" >
-<dialog buttons="accept,cancel" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return gequakeOptions.saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<dialog buttons="accept,cancel" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
 <script type="application/x-javascript" src="chrome://equake/content/options.js" />
 <script type="application/x-javascript" src="chrome://equake/content/common.js" />
@@ -90,21 +90,21 @@
  <vbox flex="1">
  <hbox>
 	<label value="Prestored Areas" />
-	<menulist id="equake.mapsarea" oncommand="callMapsSwitch(this.value);">
+	<menulist id="equake.mapsarea" oncommand="onAreaSwitch(this.value);">
 	 	<menupopup>
 		<menuitem label="Disabled" value="-1"/>
 		<menuitem label="Current" value="1"/>
-		<menuitem label="Asia" value="2"/>
-		<menuitem label="Australia" value="3"/>
-		<menuitem label="America" value="4"/>
-		<menuitem label="Africa" value="5"/>
-		<menuitem label="Artica" value="6"/>
-		<menuitem label="Antartica" value="7"/>
+		<menuitem label="Africa" value="2"/>
+		<menuitem label="Asia" value="3"/>
+		<menuitem label="Australia" value="4"/>
+		<menuitem label="Europe" value="5"/>
+		<menuitem label="North America" value="6"/>
+		<menuitem label="South America" value="7"/>
+		<menuitem label="Antarctica" value="8"/>
 		</menupopup>
 	</menulist>
  </hbox>
 	<hbox>
-	 <button label="Save" class="ff-button" oncommand="mapsSave();" />
 	 <button label="Fit" class="ff-button" oncommand="callMapsFit();" />
 	 <button label="Check" class="ff-button" oncommand="callMapsCheck();" />
 	</hbox>
