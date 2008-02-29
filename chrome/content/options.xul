@@ -1,36 +1,59 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 
-<dialog buttons="accept,cancel"
-        id="equake-options-dialog"
-	      onload="equakeoptions_init();"
-        ondialogaccept="return gequakeOptions.saveOptions()"
-        title="eQuake Options"
-        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!DOCTYPE dialog SYSTEM "chrome://equake/locale/options.dtd" >
+<dialog buttons="accept,cancel" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return gequakeOptions.saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-<script type="application/x-javascript" src="chrome://equake/content/options.js"/>
-<dialogheader id="header" title="eQuake!" description="version 2.0"/>
+<script type="application/x-javascript" src="chrome://equake/content/options.js" />
+<script type="application/x-javascript" src="chrome://equake/content/common.js" />
+
+
+<stringbundleset id="stringbundleset">
+   <stringbundle id="equake-strings" src="chrome://equake/locale/equake.properties"/>
+</stringbundleset>
+ 
+<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 2.1.2" />
 <groupbox>
-	<caption label="General;"/>
+	<caption label="&equake.caption.general;" />
 		<row valign="center">
-			<label value="Interval: "/>
-			<textbox type="text" id="equake.interval"></textbox>
-			<label value=" min(s)"/>
+			<label id="equakeinterval"/>
+			<textbox type="text" id="equake.interval" onchange="chkIntValue()" />
+			<label value="&equake.label.min.s;" />
   	</row>
-	<checkbox id="equake.showday" label="Show Day"/>
-	<checkbox id="equake.12clock" label="Use 12 hour clock"/>
-	<checkbox id="equake.newtab" label="Open links in new tab"/>
+	<checkbox id="equake.showday" label="&equake.checkbox.show.day;" />
+	<checkbox id="equake.12clock" label="&equake.checkbox.use.12.hour.c1;" />
+	<checkbox id="equake.newtab" label="&equake.checkbox.open.links.in2;" />
 </groupbox>
+<groupbox>
+	<caption label="&equake.statusbar;" />
+	<radiogroup id="equake.status" orient="vertical" oncommand="onStatusChange(this.value);">
+	 <radio group="status" label="&equake.showicon;" value="0" />
+	 <radio group="status" label="&equake.statusbar.message;" value="1" />
+	 <vbox style="padding-left: 2em;">
+		<textbox type="text" id="equake.stat_str" label="&equake.textbox.status.string;" width="10" />
+		<label value="&#37;&equake.label.l.location;&#44;&#32;&#37;&equake.label.m.magnitude;" />
+	</vbox>
+	</radiogroup>
+</groupbox>		
 
 <groupbox>
-	<caption label="Alert methods"/>
+	<caption label="&equake.caption.alert.methods;" />
 	<radiogroup id="equake.alert" orient="vertical" oncommand="onShakeChange(this.value);">          
-    <radio group="alert" label="Shake browser on earthquake" value="0"/>
-    	<vbox style="padding-left:2em">
-				<checkbox id="equake.chkshakm" label="Shake proportional to earth quake magnitude"/>
-			</vbox>
-    <radio group="alert" label="Alert box" value="1"/> 
-    <radio group="alert" label="None (Statusbar message is enough)" value="2"/> 
+    <radio group="alert" label="&equake.radio.shake.browser.on3;" value="0" />
+    	<vbox style="padding-left: 2em;">
+			<checkbox id="equake.chkshakm" label="&equake.checkbox.shake.proport4;" />
+			<row valign="center">
+			<label value="&equake.label.shaketype;: "/>
+			    <menulist id="equake.shaketype">
+ 			    <menupopup>
+				  <menuitem label="&equake.label.shaketype.normal;" value="0"/>
+				  <menuitem label="&equake.label.shaketype.strong;" value="1"/>
+				</menupopup>
+				</menulist>
+			</row>
+		</vbox>
+    <radio group="alert" label="&equake.radio.alert.box;" value="1" /> 
+    <radio group="alert" label="&equake.radio.none.statusbar.m5;" value="2" /> 
   </radiogroup>
 <!-->
   <row valign="center">
@@ -43,9 +66,15 @@
 			</menulist>
   </row>
 -->
+
   <row valign="center">
-    <checkbox id="equake.chkmag" label="Alert me only for magnitude >" oncommand="onMagChange(this);"/>
-    <textbox type="text" id="equake.magval"></textbox>
+    <checkbox id="equake.chkmag" label="&equake.checkbox.alert.me.only6;" oncommand="onMagChange(this);" />
+    <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
   </row>
 </groupbox>	
+
+	<script type="application/x-javascript">
+	document.getElementById("equakeinterval").value =  document.getElementById("equake-strings").getString("equakeinterval")+": ";
+	</script>
+	
 </dialog>

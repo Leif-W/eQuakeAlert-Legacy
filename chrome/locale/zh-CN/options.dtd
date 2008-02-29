@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "eQuake 选项">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "版本">
+<!ENTITY equake.caption.general "常规">
+<!ENTITY equake.label.min.s "分钟">
+<!ENTITY equake.checkbox.show.day "显示星期几">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12小时制">
+<!ENTITY equake.checkbox.open.links.in2 "在新页打开链接">
+<!ENTITY equake.statusbar "状态栏">
+<!ENTITY equake.showicon "显示图标">
+<!ENTITY equake.statusbar.message "状态栏信息">
+<!ENTITY equake.textbox.status.string "状态句">
+<!ENTITY equake.label.l.location "l = 位置">
+<!ENTITY equake.label.m.magnitude "m = 大小">
+<!ENTITY equake.caption.alert.methods "警报方式">
+<!ENTITY equake.radio.shake.browser.on3 "发生地震时震动浏览器">
+<!ENTITY equake.checkbox.shake.proport4 "浏览器震动程度根据地震大小而定">
+<!ENTITY equake.radio.alert.box "警报对话框">
+<!ENTITY equake.radio.none.statusbar.m5 "无（状态栏信息/图标已足够）">
+<!ENTITY equake.checkbox.alert.me.only6 "当地震级大于此值时通知我">
+<!ENTITY equake.label.shaketype "地震类型">
+<!ENTITY equake.label.shaketype.normal "正常">
+<!ENTITY equake.label.shaketype.strong "强烈">

@@ -1,0 +1,6 @@
+<!ENTITY equake.statusbarpanel.equake "eQuake!">
+<!ENTITY equake.menuitem.check.now "Verificar ahora">
+<!ENTITY equake.menu.recent.quakes "Temblores Recientes">
+<!ENTITY equake.menuitem.yourquakes "Sus Temblores">
+<!ENTITY equake.menuitem.about "Acerca de">
+<!ENTITY equake.menuitem.prevshake "Vista previa de la sacudida">

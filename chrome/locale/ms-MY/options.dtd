@@ -1,0 +1,11 @@
+<!ENTITY equake.dialog.equake.options "Pilihan eQuake">
+<!ENTITY equake.dialogheader.version "verse 2.1">
+<!ENTITY equake.caption.general "Umum">
+<!ENTITY equake.label.min.s "min">
+<!ENTITY equake.checkbox.show.day "Tunjuk haribulan">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Guna format 12 jam">
+<!ENTITY equake.checkbox.open.links.in2 "Buka pautan dalam tab baru">
+<!ENTITY equake.statusbar "Bar status">
+<!ENTITY equake.showicon "Tunjuk ikon">
+<!ENTITY equake.statusbar.message "Mesej bar status">
+<!ENTITY equake.label.l.location "l = tempat">
