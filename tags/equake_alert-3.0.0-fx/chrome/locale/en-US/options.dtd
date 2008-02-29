@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "eQuake Options">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "version">
+<!ENTITY equake.caption.general "General">
+<!ENTITY equake.label.min.s " min(s)">
+<!ENTITY equake.checkbox.show.day "Show Day">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Use 12 hour clock">
+<!ENTITY equake.checkbox.open.links.in2 "Open links in new tab">
+<!ENTITY equake.statusbar "Status Bar">
+<!ENTITY equake.showicon "Show icon">
+<!ENTITY equake.statusbar.message "Statusbar message">
+<!ENTITY equake.textbox.status.string "Status String">
+<!ENTITY equake.label.l.location "l = location">
+<!ENTITY equake.label.m.magnitude "m = magnitude">
+<!ENTITY equake.caption.alert.methods "Alert methods">
+<!ENTITY equake.radio.shake.browser.on3 "Shake browser on earthquake">
+<!ENTITY equake.checkbox.shake.proport4 "Shake proportional to earth quake magnitude">
+<!ENTITY equake.radio.alert.box "Alert box">
+<!ENTITY equake.radio.none.statusbar.m5 "None (Statusbar message/icon is enough)">
+<!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude >">
+<!ENTITY equake.label.shaketype "Shake type">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Strong">
