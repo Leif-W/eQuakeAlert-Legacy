@@ -35,6 +35,7 @@
              <em:locale>locale/af-ZA/</em:locale>
              <em:locale>locale/bg-BG/</em:locale>
              <em:locale>locale/zh-CN/</em:locale>
+			 <em:locale>locale/bn-IN/</em:locale>
 <!--             <em:locale>locale/be-BY/</em:locale>
              <em:locale>locale/fr-FR/</em:locale>
              <em:locale>locale/it-IT/</em:locale>
