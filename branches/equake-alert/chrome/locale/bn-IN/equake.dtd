@@ -1,0 +1,6 @@
+<!ENTITY equake.statusbarpanel.equake "ভূমিকম্প!">
+<!ENTITY equake.menuitem.check.now "এখনই নিরীক্ষা কর">
+<!ENTITY equake.menu.recent.quakes "সাম্প্রতিকালের ভূমিকম্পগুলি">
+<!ENTITY equake.menuitem.yourquakes "আপনার ভূমিকম্পগুলি">
+<!ENTITY equake.menuitem.about "সম্পর্কে">
+<!ENTITY equake.menuitem.prevshake "কম্পনের পূর্বসমীক্ষা">
