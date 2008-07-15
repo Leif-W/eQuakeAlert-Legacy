@@ -1,4 +1,6 @@
 <!ENTITY equake.statusbarpanel.equake "¡aQuake!">
 <!ENTITY equake.menuitem.check.now "Comprobar ahora">
 <!ENTITY equake.menu.recent.quakes "Teremotos recientes">
+<!ENTITY equake.menuitem.yourquakes "">
 <!ENTITY equake.menuitem.about "Acerca de">
+<!ENTITY equake.menuitem.prevshake "">

@@ -1,3 +1,6 @@
 <!ENTITY equake.statusbarpanel.equake "eQuake!">
 <!ENTITY equake.menuitem.check.now "Provjeri sada">
 <!ENTITY equake.menu.recent.quakes "Nedavni potresi">
+<!ENTITY equake.menuitem.yourquakes "">
+<!ENTITY equake.menuitem.about "">
+<!ENTITY equake.menuitem.prevshake "">

@@ -6,9 +6,18 @@
 <!ENTITY equake.checkbox.show.day "Erakutsi Eguna">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Erabili 12 orduko erlojua">
 <!ENTITY equake.checkbox.open.links.in2 "Ireki loturak fitxa berrietan">
+<!ENTITY equake.statusbar "">
+<!ENTITY equake.showicon "">
+<!ENTITY equake.statusbar.message "">
+<!ENTITY equake.textbox.status.string "">
+<!ENTITY equake.label.l.location "">
+<!ENTITY equake.label.m.magnitude "">
 <!ENTITY equake.caption.alert.methods "Alerta metodoak">
 <!ENTITY equake.radio.shake.browser.on3 "Lurrikaretan nabigatzailea astindu">
 <!ENTITY equake.checkbox.shake.proport4 "Astindu lurrikararen indarraren arabera">
 <!ENTITY equake.radio.alert.box "Alerta kutxa">
 <!ENTITY equake.radio.none.statusbar.m5 "Bat ere ez (Egoera-barrako mezuarekin nahikoa)">
 <!ENTITY equake.checkbox.alert.me.only6 "Alerta erakutsi indarra hau baino handiagoa bada:">
+<!ENTITY equake.label.shaketype "">
+<!ENTITY equake.label.shaketype.normal "">
+<!ENTITY equake.label.shaketype.strong "">

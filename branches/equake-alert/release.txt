@@ -3,6 +3,6 @@ How to release?
 1) Check in the Code
 2) Export working copy to new directory
 3) Compress chrome/* into chrome/equake.jar
-4) remove chrome/* except equake.jar
+4) remove chrome.manifest, chrome/* - except equake.jar
 5) Remove me
 6) Compress equake-alert into equake-alert.xpi
