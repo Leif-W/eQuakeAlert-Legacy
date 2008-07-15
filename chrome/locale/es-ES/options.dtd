@@ -6,9 +6,18 @@
 <!ENTITY equake.checkbox.show.day "Mostrar dia">
 <!ENTITY equake.checkbox.use.12.hour.c1 "Usar reloj de 12 horas">
 <!ENTITY equake.checkbox.open.links.in2 "Abrir enlaces en una nueva pestaña">
+<!ENTITY equake.statusbar "">
+<!ENTITY equake.showicon "">
+<!ENTITY equake.statusbar.message "">
+<!ENTITY equake.textbox.status.string "">
+<!ENTITY equake.label.l.location "">
+<!ENTITY equake.label.m.magnitude "">
 <!ENTITY equake.caption.alert.methods "Tipos de alerta">
 <!ENTITY equake.radio.shake.browser.on3 "Sacudir el navegador en caso de terremoto">
 <!ENTITY equake.checkbox.shake.proport4 "Sacudir proporcionalmente a la magnitud del terremoto">
 <!ENTITY equake.radio.alert.box "Dialogo de alerta">
 <!ENTITY equake.radio.none.statusbar.m5 "Ninguno (la barra de estado es suficiente)">
 <!ENTITY equake.checkbox.alert.me.only6 "Avisar solo por magniudes &gt;">
+<!ENTITY equake.label.shaketype "">
+<!ENTITY equake.label.shaketype.normal "">
+<!ENTITY equake.label.shaketype.strong "">

@@ -18,3 +18,6 @@
 <!ENTITY equake.radio.alert.box "Skrzynka ostrzeżeń">
 <!ENTITY equake.radio.none.statusbar.m5 "Brak (Wiadomości paska statusu są już wystarczające)">
 <!ENTITY equake.checkbox.alert.me.only6 "Ostrzegaj mnie tylko dla trzęsień większych od &gt;">
+<!ENTITY equake.label.shaketype "">
+<!ENTITY equake.label.shaketype.normal "">
+<!ENTITY equake.label.shaketype.strong "">
