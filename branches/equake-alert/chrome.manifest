@@ -10,6 +10,8 @@ locale	equake	ml-IN	chrome/locale/ml-IN/
 
 locale	equake	es-AR	chrome/locale/es-AR/
 
+locale	equake	es-ES	chrome/locale/es-ES/
+
 locale	equake	zh-TW	chrome/locale/zh-TW/
 
 locale	equake	af-ZA	chrome/locale/af-ZA/
