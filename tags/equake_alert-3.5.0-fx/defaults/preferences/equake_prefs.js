@@ -1,0 +1,11 @@
+pref("extensions.{8585C31E-1E94-4498-ACEC-CB913A05FC52}.description", "chrome://equake/locale/equake.properties");
+pref("equake.showday", true);
+pref("equake.12clock", true);
+pref("equake.chkshakm", true);
+pref("equake.newtab", false);
+pref("equake.chkmag", false);
+pref("equake.alert", 0);
+pref("equake.status", 1);
+pref("equake.stat_str", "M %m, %l");
+pref("equake.shaketype", 0);
+pref("equake.interval", 5);

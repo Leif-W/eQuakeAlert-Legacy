@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "ഇ-ഭൂമികുലുക്കം">
+<!ENTITY equake.dialogheader.equake "ഇ-ഭൂമികുലുക്കം!">
+<!ENTITY equake.dialogheader.version "വേര്‍ഷന്‍">
+<!ENTITY equake.caption.general "പൊതുവായവ">
+<!ENTITY equake.label.min.s "നിമിഷങ്ങള്‍">
+<!ENTITY equake.checkbox.show.day "ദിവസം കാണിക്കു">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12 മണിക്കൂര്‍ ഘടികാരം ഉപയോഗിക്കൂ">
+<!ENTITY equake.checkbox.open.links.in2 "ലിങ്കുകള്‍ പുതിയ ടാബില്‍ തുറക്കു">
+<!ENTITY equake.statusbar "സ്റ്റാറ്റസ് ബാര്‍">
+<!ENTITY equake.showicon "ബിമ്പം കാണിക്കു">
+<!ENTITY equake.statusbar.message "സ്റ്റാറ്റസ്ബാര്‍ സന്തേശം">
+<!ENTITY equake.textbox.status.string "സ്റ്റാറ്റസ് സന്തേശരൂപം">
+<!ENTITY equake.label.l.location "l ന്നാല്‍ സ്ഥലം">
+<!ENTITY equake.label.m.magnitude "m ന്നാല്‍ മാഗ്നിറ്റൂ‍ഡ്">
+<!ENTITY equake.caption.alert.methods "അറിയിക്കേണ്ട വിധങ്ങള്‍">
+<!ENTITY equake.radio.shake.browser.on3 "ഭൂമികുലുക്കമുണ്ടാകുമ്പോള്‍ ബ്രോസ്സര്‍ കുലുക്കു">
+<!ENTITY equake.checkbox.shake.proport4 "കുലുക്കം ഭൂമികുലുക്കത്തിനനുസരിചാകട്ടെ">
+<!ENTITY equake.radio.alert.box "അറിയിപ്പ് ബോക്സ്">
+<!ENTITY equake.radio.none.statusbar.m5 "ഒന്നും വേണ്ട (സ്റ്റാറ്റസ്സ് ബാറിലുള്ള സന്ദേശം മതി)">
+<!ENTITY equake.checkbox.alert.me.only6 "മാഗ്നിറ്റൂട് ഇതില്‍ കൂടുമ്പോള്‍ മാത്രം എന്നെ അറിയിച്ചാല്‍ മതി">
+<!ENTITY equake.label.shaketype "കുലുക്കത്തിന്റെ സ്വഭാവം">
+<!ENTITY equake.label.shaketype.normal "സാധാരണം">
+<!ENTITY equake.label.shaketype.strong "ശക്തമായ">
