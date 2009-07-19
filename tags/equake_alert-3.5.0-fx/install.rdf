@@ -6,7 +6,7 @@
     <Description about="urn:mozilla:install-manifest">
 	<em:id>{8585C31E-1E94-4498-ACEC-CB913A05FC52}</em:id>
 	<em:name>eQuake Alert</em:name>
-	<em:version>3.0.1</em:version>
+	<em:version>3.5.0</em:version>
 	<em:description>Have you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that...</em:description>
 	<em:creator>Priyadarsan Venugopalan</em:creator>
 
@@ -21,7 +21,7 @@
             <Description>
   	        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>1.0</em:minVersion>
-                <em:maxVersion>3.0.*</em:maxVersion>
+                <em:maxVersion>3.6a1pre</em:maxVersion>
             </Description>
         </em:targetApplication>
 
