@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "Настройки на eQuake">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Версия">
+<!ENTITY equake.caption.general "Основни">
+<!ENTITY equake.label.min.s "мин.">
+<!ENTITY equake.checkbox.show.day "Покажи деня">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Използвай 12 часовo време">
+<!ENTITY equake.checkbox.open.links.in2 "Отваряй връзките в нов таб">
+<!ENTITY equake.statusbar "Лента на състоянието">
+<!ENTITY equake.showicon "Покажи иконата">
+<!ENTITY equake.statusbar.message "Съобщение в лентата на състоянието">
+<!ENTITY equake.textbox.status.string "Състояние">
+<!ENTITY equake.label.l.location "l = позиция">
+<!ENTITY equake.label.m.magnitude "m = сила">
+<!ENTITY equake.caption.alert.methods "Методи за известяване">
+<!ENTITY equake.radio.shake.browser.on3 "Разклати браузъра на земетресение">
+<!ENTITY equake.checkbox.shake.proport4 "Разклати в съответствие на силата на земетресението">
+<!ENTITY equake.radio.alert.box "Известие">
+<!ENTITY equake.radio.none.statusbar.m5 "Нищо (Съобщението/иконата в лентата за състоянието е достатъчно)">
+<!ENTITY equake.checkbox.alert.me.only6 "Известявай ме само за сила &gt;">
+<!ENTITY equake.label.shaketype "Тип на труса">
+<!ENTITY equake.label.shaketype.normal "Нормален">
+<!ENTITY equake.label.shaketype.strong "Силен">
