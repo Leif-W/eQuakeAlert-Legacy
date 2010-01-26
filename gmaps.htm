@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+Please wait while the map is loading ...
+<div id="map" style="position: absolute; top:0px;left:0px;width:100%; height:100%;"></div>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAArkgg0yma1jVx5NOC-AAxtRR-iIW4BIorN7rdrQKbTCQQHaz_lRQukV8So1-CBFIxX55qVRkcT_9q-A" type="text/javascript"></script>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript" src="xccDrawPolygon.js"></script>
+
+<script type="text/javascript">
+
+// red marker icon
+var icon = new GIcon();
+icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
+icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+icon.iconSize = new GSize(12, 20);
+icon.shadowSize = new GSize(22, 20);
+icon.iconAnchor = new GPoint(6, 20);
+
+var markPoint = new GMarker(new GLatLng(14, 130), {icon:icon, draggable: true});
+
+if (GBrowserIsCompatible()) 
+{
+	// create GIcon object for the markes
+	var blueIcon = new GIcon();
+  blueIcon.image = "iconPoints.gif";
+	blueIcon.iconSize = new GSize(8, 8);
+	blueIcon.iconAnchor = new GPoint(4, 4);
+	
+	// create GIcon object for the markes
+	var redIcon = new GIcon();
+  redIcon.image = "iconGhostPoints.png";
+	redIcon.iconSize = new GSize(8, 8);
+	redIcon.iconAnchor = new GPoint(4, 4);
+		
+	// Polygon
+	var map = new GMap2(document.getElementById("map"));
+	map.setCenter(new GLatLng(37.443109, -122.146189), 2);
+  map.addControl(new GMapTypeControl(1));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GScaleControl());
+  	
+	// create new draw polygon object
+	var newPolygon = new xccDrawPolygon(map,{
+		iconPoints: blueIcon,
+		iconGhostPoints: redIcon,
+		lineColor: '#000066',
+		lineWeight: 3,
+		polygonColor: '#ff0000',
+		polygonOpacity: 0.5,
+		lineOpacity: 1
+	});	
+}
+
+  var geo = getURLParam("geo");
+  if (geo!="")
+  {
+  var temp = new Array();
+  temp = geo.split(';');
+
+  for (i=0;i<temp.length;i++)
+  {
+  	var geoTmp = temp[i].split(",");
+    newPolygon.myPoints.push(new GLatLng(geoTmp[0],geoTmp[1]))
+  }
+  
+  newPolygon.redrawPolygon();
+  newPolygon.refreshPolylines();
+  newPolygon.refreshPointMarkers();
+  }
+  
+  map.addOverlay(markPoint);
+  markPoint.enableDragging();
+  
+  fit();
+
+function getURLParam(strParamName){
+  var strReturn = "";
+  var strHref = window.location.href;
+  if ( strHref.indexOf("?") > -1 ){
+    var strQueryString = strHref.substr(strHref.indexOf("?")).toLowerCase();
+    var aQueryString = strQueryString.split("&");
+    for ( var iParam = 0; iParam < aQueryString.length; iParam++ ){
+      if (
+aQueryString[iParam].indexOf(strParamName.toLowerCase() + "=") > -1 ){
+        var aParam = aQueryString[iParam].split("=");
+        strReturn = aParam[1];
+        break;
+      }
+    }
+  }
+  return unescape(strReturn);
+}
+
+function fit()
+{
+  var bounds = new GLatLngBounds();
+  for(var i=0;i<newPolygon.getPoints().length;i++)
+  {
+    bounds.extend(newPolygon.getPoints()[i])
+  }
+  var lngCenter = (bounds.getNorthEast().lng() + bounds.getSouthWest().lng()) / 2;
+  var latCenter = (bounds.getNorthEast().lat() + bounds.getSouthWest().lat()) / 2;
+  var center = new GLatLng(latCenter,lngCenter);
+  map.setCenter(center, map.getBoundsZoomLevel(bounds));
+}
+
+function save(){
+  var tmpPoly = newPolygon.myPoints;
+  return(tmpPoly.join(';').replace(/ /g, "").replace(/\(/g, "").replace(/\)/g, ""));
+}
+
+function pnpoly(n, polygon,x,y)
+{
+   var i;
+   var angle=0;
+   var p = [];
+   p.x = x;
+   p.y = y;
+   var p1=[], p2=[];
+
+   for (i=0;i<n;i++) {
+      p1.y = polygon[i].x - p.y;
+      p1.x = polygon[i].y - p.x;
+      p2.y = polygon[(i+1)%n].x - p.y;
+      p2.x = polygon[(i+1)%n].y - p.x;
+      angle += Angle2D(p1.y,p1.x,p2.y,p2.x);
+   }
+
+   if (Math.abs(angle) < Math.PI)
+      return(false);
+   else
+      return(true);
+}
+
+/*
+   Return the angle between two vectors on a plane
+   The angle is from vector 1 to vector 2, positive anticlockwise
+   The result is between -pi -> pi
+*/
+function Angle2D(x1, y1, x2, y2)
+{
+   var dtheta,theta1,theta2;
+   var TWOPI = Math.PI * 2;
+
+   theta1 = Math.atan2(y1,x1);
+   theta2 = Math.atan2(y2,x2);
+   dtheta = theta2 - theta1;
+   while (dtheta > Math.PI)
+      dtheta -= TWOPI;
+   while (dtheta < -Math.PI)
+      dtheta += TWOPI;
+
+   return(dtheta);
+}
+
+function check() {
+	alert(pnpoly(newPolygon.myPoints.length, newPolygon.myPoints, markPoint.getPoint().y, markPoint.getPoint().x));
+}
+
+function checkQuake(y,x) {
+	return(pnpoly(newPolygon.myPoints.length, newPolygon.myPoints, y, x));
+}	
+</script>
+</body>
+</html>
