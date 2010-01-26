@@ -40,8 +40,8 @@ insertbefore="adblock-status,statusbar-updates,statusbarpanel-progress,security-
 		<popupset id="mainPopupSet">
 			<popup id="equake-contextmenu" position="before_end">
 				<menuitem id="equake-interval" name="equakeinterval" oncommand="window.openDialog('chrome://equake/content/options.xul', null,'chrome,centerscreen,dependent', null, null, null);"/>
-				<menuitem label="&equake.menuitem.prevshake;" oncommand="var prevMag=prompt(document.getElementById('equake-strings').getString('EnterMagnitude'),5);if(prevMag) callShake(prevMag);"/>
-				<menuitem id="equake-check" label="&equake.menuitem.check.now;" name="equakecheck" oncommand="equakeUpdate();"/>
+				<menuitem label="&equake.menuitem.prevshake;" oncommand="prevMag=prompt(document.getElementById('equake-strings').getString('EnterMagnitude'),5);if(prevMag) setTimeout('callShake(prevMag)', 500)"/>
+				<menuitem id="equake-check" label="&equake.menuitem.check.now;" name="equakecheck" oncommand="equakeUpdate(-1);"/>
 	<menu id="equake-recent" label="&equake.menu.recent.quakes;" name="equakerecent">
 	   <menupopup id="equake-submenu">
         <menuitem id="equake-item0" label="quake0" hidden="true" name="item0" oncommand="linkit(0);"/>

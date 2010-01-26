@@ -57,13 +57,38 @@ var animateYStart_=-100;
 var animateY_ = 40;
 var status=-1;
 
+//Geo
+var equake_geo=""; 
+var equake_geoAreaIndex=0;
+var equake_chkmagin;
+var equake_chkmagout;
+var equake_maginval;
+var equake_magoutval;
+
 var m;
+
+function Angle2D(x1, y1, x2, y2)
+{
+   var dtheta,theta1,theta2;
+   var TWOPI = Math.PI * 2;
+
+   theta1 = Math.atan2(y1,x1);
+   theta2 = Math.atan2(y2,x2);
+   dtheta = theta2 - theta1;
+   while (dtheta > Math.PI)
+      dtheta -= TWOPI;
+   while (dtheta < -Math.PI)
+      dtheta += TWOPI;
+
+   return(dtheta);
+}
+
 
 function equakeInit() {
 	this.ID_PrefService	= "@mozilla.org/preferences-service;1";
 	this.PrefService	= Components.classes[this.ID_PrefService].getService(Components.interfaces.nsIPrefService).getBranch("");
 	equakeLoadPrefs();
-	equakeUpdate();
+	equakeUpdate(-1);
 	equakePrefObserver.register();
 	return true;
 }
@@ -73,11 +98,15 @@ function equakeClose() {
 	return true;
 }
 
-function equakeUpdate() {
+function equakeUpdate(mode) 
+{
 	if(equake_timeout != null)
 	 clearTimeout(equake_timeout);
-	equakeCheck.getXML();
-	equake_timeout = setTimeout("equakeUpdate()", equake_interval*60000);
+	if (mode==-1)
+	equakeCheck.getXML(-1);
+  else
+	equakeCheck.getXML(0);
+	equake_timeout = setTimeout("equakeUpdate(0)", equake_interval*60000);
 	return;
 }
 
@@ -197,9 +226,17 @@ function equakeLoadPrefs() {
 		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
 		ifModifiedSince     = this.PrefService.getCharPref('equake.ifModifiedSince');
 		equake_shaketype	= this.PrefService.getIntPref('equake.shaketype');
+		 //Geo
+		equake_geo =  this.PrefService.getCharPref('equake.geo');
+		equake_geoAreaIndex = this.PrefService.getIntPref('equake.mapsarea');
+		equake_chkmagin = this.PrefService.getBoolPref('equake.chkmagin');
+    equake_chkmagout = this.PrefService.getBoolPref('equake.chkmagout');
+    equake_maginval = this.PrefService.getCharPref('equake.maginval');
+    equake_magoutval = this.PrefService.getCharPref('equake.magoutval');
 	}
-	catch (ignored)	{
-	    firstrun=true;
+	catch (e)	{
+		//alert("An exception occurred in the script. Error name: " + e.name + ". Error description: " + e.description + ". Error number: " + e.number + ". Error message: " + e.message);
+    firstrun=true;
 		this.PrefService.setBoolPref('equake.showday',equake_showday);
 		this.PrefService.setBoolPref('equake.12clock',equake_12clock);
 		this.PrefService.setBoolPref('equake.chkshakm',equake_chkshakm);
@@ -213,6 +250,13 @@ function equakeLoadPrefs() {
 		this.PrefService.setBoolPref('equake.stat_popup',equake_stat_popup);
 		this.PrefService.setIntPref('equake.dbidx',equake_dbidx);
 		this.PrefService.setIntPref('equake.shaketype',equake_shaketype);
+		//Geo
+		this.PrefService.setCharPref('equake.geo',equake_geo);
+		this.PrefService.setIntPref('equake.mapsarea',equake_geoAreaIndex);
+    this.PrefService.setBoolPref('equake.chkmagin',equake_chkmagin);                   
+    this.PrefService.setBoolPref('equake.chkmagout',equake_chkmagout);
+    this.PrefService.setCharPref('equake.maginval',equake_maginval);
+    this.PrefService.setCharPref('equake.magoutval',equake_magoutval);
 	}
 	
 	if (equake_interval<=0) equake_interval=1;
@@ -242,7 +286,7 @@ function equakeLoadPrefs() {
     }
 
   m = document.getElementById("equake-filter");	
-  if (equake_chkmag == true)
+  if (equake_chkmag || equake_chkmagin || equake_chkmagout)
   {
       m.setAttribute("hidden",false);
   }
@@ -319,12 +363,12 @@ var equakePrefObserver = {
 			
     if (data=="magval" || data=="chkmag") {
       reloadData=true;
-      equake_timeout = setTimeout("equakeUpdate()", 1000);
+      equake_timeout = setTimeout("equakeUpdate(0)", 1000);
     }
 			
 		if (data=="interval")   {
 			equakeLoadPrefs();
-			equakeUpdate();
+			equakeUpdate(0);
 		}
 		else if(data.indexOf("_item")<0) {
 			equakeLoadPrefs();
@@ -332,7 +376,8 @@ var equakePrefObserver = {
 	}
 }
 
-function maximize() {
+function maximize() /* Function to Maximise the Browser Windows */ 
+{
     window.moveTo(0,0)
     window.resizeTo(screen.availWidth, screen.availHeight)
 }
@@ -376,7 +421,7 @@ function shake(mag) {
 	}
 
 	if (equake_shaketype==0)
-		shakeItOld(mag)
+		shakeItOld(mag);
 	else
 		shakeIt(mag);
 	    
@@ -465,9 +510,9 @@ function dateFormat(date, twelveHourClock, format, showday) {
 		case 7: month = equakejul; break
 		case 8: month = equakeaug; break
 		case 9: month = equakesep; break
-		case 10: month = equakeoct; break
-		case 11: month = equakenov; break
-		case 12: month = equakedec; break
+		case 10:month = equakeoct; break
+		case 11:month = equakenov; break
+		case 12:month = equakedec; break
 	}
 
 	var date_str;
@@ -498,6 +543,25 @@ function dateFormat(date, twelveHourClock, format, showday) {
 	return date_str + " " + time_str;
 }
 
+function alertUser(getMagClassStr, place, date)
+{
+  switch(equake_alert)
+  {
+    		          case 0:
+    		            //Alert now
+    		            if(equake_chkshakm)
+    		              shake(getMag(place, 0));
+    		            else
+    		              shake(5);
+    		            break;
+    		          case 1:
+    		            alert("Quake @ "+getMagClassStr+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
+    		            break;
+    		          default:
+    		            break;
+}
+}
+
 /** Register global callbacks **/
 window.addEventListener("load", equakeInit, false);
 window.addEventListener("close", equakeClose, false);
@@ -508,13 +572,14 @@ var equakeCheck = {
 	res: null,
 	url: "",
 
-	getXML: function(){
+	getXML: function(mode){
 		if(this.checking) return;
 		//this.checking = true;
     if (equake_dbidx==0)
 	{
-  	 //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M2.5.xml";
+   //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M2.5.xml";
 	 this.url = "http://earthquake.usgs.gov/eqcenter/catalogs/eqs7day-M2.5.xml";
+	 //this.url = "http://earthquake.usgs.gov/eqcenter/catalogs/eqs7day-M2.5.xml.gz";
 	}
   	else {
   	 //this.url = "http://earthquake.usgs.gov/eqcenter/recenteqsww/catalogs/eqs7day-M5.xml";
@@ -527,8 +592,11 @@ var equakeCheck = {
 		this.httpReq.open("GET", this.url);
 		this.httpReq.setRequestHeader("User-Agent", "Mozilla/5.0 (eQuake) http://www.freebookzone.com");
 		this.httpReq.overrideMimeType("application/xml");
-		ifModifiedSince = equakeGetCharPref("ifModifiedSince", new Date(0));
-		this.httpReq.setRequestHeader("If-Modified-Since", ifModifiedSince);
+		if (mode!=-1)
+		{
+  		ifModifiedSince = equakeGetCharPref("ifModifiedSince", new Date(0));
+  		this.httpReq.setRequestHeader("If-Modified-Since", ifModifiedSince);
+		}
 		try {
 			this.httpReq.send(null);
 		} catch(e) {
@@ -576,34 +644,65 @@ var equakeCheck = {
 		var place = items[i].getTitle();
 		var date = items[i].getContent();
 		var id = document.getElementById("equake-display");
-   
+		//Geo
+		var newPolygon = new Array();
+    var tempGeos = equake_geo.split('|');
+    var geo_lat = items[i].getLat();
+		var geo_lng = items[i].getLng();
+
 	    if (link+":"+place+date!=lastentry)
 	    {
 	      if (lastentry!="noentry") 
 	      {
-	        if (!equake_chkmag || getMag(place, 1)>=equake_magval)
-	        {
-		        switch(equake_alert)
-		        {
-		          case 0:
-		            if(equake_chkshakm)
-		              shake(getMag(place, 0));
-		            else
-		              shake(5);
-		            break;
-		          case 1:
-		            alert("Quake @ "+getMagClass(place)+", "+place+" on "+dateFormat(date, equake_12clock, 0, equake_showday));
-		            break;
-		          default:
-		            break;
-		        }
-	        }
-			else
-			{
-				iconUpdate(1);
-			}
-				
-      }
+	          if (equake_geoAreaIndex == 0) //GeoFilter Not Enabled
+	          {
+    	        if (!equake_chkmag || getMag(place, 1)>=equake_magval) //Magnitude Based Filter Checking
+    	        {
+    	          //Alert Now
+      	        alertUser(getMagClass(place), place, date);
+    	        }
+    			    else
+    			    {
+    				    iconUpdate(1);
+    			    }
+            }
+            else //Check whether the Quake is in the Selected Geography
+            {              
+              tempRegion = tempGeos[equake_geoAreaIndex-1].split("=");                  
+              userRegion = tempRegion[1]; //Holds the Geo Points thats user has selected.
+              
+              temp = userRegion.split(';');
+              
+              for (i=0;i<temp.length;i++)
+              { 
+                newPolygon.push(temp[i]);
+              }
+              if (pnpoly(newPolygon.length, newPolygon, geo_lat, geo_lng)) /* The Quake is in the userselected area */
+              {
+              //Check the Magnitude Preference
+                if (!equake_chkmagin || (equake_chkmagin && getMag(place, 1)>=equake_maginval))
+                {
+                  //Alert
+                  alertUser(getMagClass(place), place, date);
+                }
+              }
+              else
+              {
+              //Earthquake is Outside the user Selected Region
+                if (equake_chkmagout && getMag(place, 1)>=equake_magoutval)
+                {
+                  //Alert
+                  alertUser(getMagClass(place), place, date);
+                }
+                else if (!equake_chkmagout)
+                {
+                  //Filter Magnitude Disabled
+                  //No action
+                  ;
+                }
+              }
+            } 
+        }
       }
 	      
 	  if (reloadData==true || link+":"+place+date!=lastentry)
@@ -619,7 +718,7 @@ var equakeCheck = {
 	    equakeSetCharPref("link_item" + i, "");			
 		  m = document.getElementById("equake-item"+i);
 			m.setAttribute("hidden",true);
-			m = document.getElementById("equake-fitem"+i);			
+			m = document.getElementById("equake-fitem"+i);
 			m.setAttribute("hidden",true);
 		  }
 		  
@@ -633,7 +732,7 @@ var equakeCheck = {
 	        equakeSetCharPref("link_item" + i, link);
 	    }
 		  
-		  if (equake_chkmag)
+		  if (equake_chkmag || equake_chkmagin || equake_chkmagout)
 		  {
 			  i=0;
 			  var j=0;
@@ -642,14 +741,38 @@ var equakeCheck = {
 			  {
   				if (!items[i]) break;
   				place = items[i].getTitle();
-  				if (getMag(place, 1)>=equake_magval)
+  				tmpgeo_lat = items[i].getLat();
+		      tmpgeo_lng = items[i].getLng();
+  				curMag = getMag(place, 1);
+  				//alert("curMag="+curMag+" equake_magval="+equake_magval+" equake_maginval="+equake_maginval+"equake_magoutval="+equake_magoutval);
+  				
+  				if (equake_geoAreaIndex==0 && equake_chkmag && curMag>=equake_magval)
   				{
-  					date=items[i].getContent();
-  					link=items[i].getLink();
-  					equakeSetCharPref("fdate_item" + j, date);
-  					equakeSetCharPref("fplace_item" + j, place);
-  					equakeSetCharPref("flink_item" + j++, link);				
+  				    //alert("equake_magval");
+    					date=items[i].getContent();
+    					link=items[i].getLink();
+    					equakeSetCharPref("fdate_item" + j, date);
+    					equakeSetCharPref("fplace_item" + j, place);
+    					equakeSetCharPref("flink_item" + j++, link);				
   				}
+  				else if (equake_chkmagin && curMag>=equake_maginval && pnpoly(newPolygon.length, newPolygon, tmpgeo_lat, tmpgeo_lng))
+  				{
+  				    //alert("equake_magvalin");
+    					date=items[i].getContent();
+    					link=items[i].getLink();
+    					equakeSetCharPref("fdate_item" + j, date);
+    					equakeSetCharPref("fplace_item" + j, place);
+    					equakeSetCharPref("flink_item" + j++, link);				
+          }
+          else if (equake_chkmagout && curMag>=equake_magoutval && !pnpoly(newPolygon.length, newPolygon, tmpgeo_lat, tmpgeo_lng))
+  				{
+  				    //alert("equake_magvalout");
+    					date=items[i].getContent();
+    					link=items[i].getLink();
+    					equakeSetCharPref("fdate_item" + j, date);
+    					equakeSetCharPref("fplace_item" + j, place);
+    					equakeSetCharPref("flink_item" + j++, link);				
+          }
   				i++;
 			  } while (j<9)
 		  }
@@ -657,4 +780,28 @@ var equakeCheck = {
 		}
 		this.checking = false;
 	}
+}
+
+function pnpoly(n, polygon, x, y)
+{
+   var i;
+   var angle=0;
+   var p = [];
+   p.x = x;
+   p.y = y;
+   var p1=[], p2=[];
+
+   for (i=0;i<n;i++) {
+      var tempGeos = polygon[i].split(',');
+      p1.y = polygon[i].split(',')[1] - p.y;
+      p1.x = polygon[i].split(',')[0] - p.x;
+      p2.y = polygon[(i+1)%n].split(',')[1] - p.y;
+      p2.x = polygon[(i+1)%n].split(',')[0] - p.x;            
+      angle += Angle2D(p1.y,p1.x,p2.y,p2.x);
+   }
+
+   if (Math.abs(angle) < Math.PI)
+      return(false);
+   else
+      return(true);
 }
