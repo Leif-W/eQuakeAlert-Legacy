@@ -3,11 +3,11 @@
 <?xml-stylesheet href="chrome://equake/skin/button.css" type="text/css"?>
 
 <!DOCTYPE dialog SYSTEM "chrome://equake/locale/options.dtd" >
-<dialog buttons="accept,cancel,extra1" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<dialog buttons="accept,cancel" id="equake-options-dialog" onload="equakeoptions_init();" ondialogaccept="return saveOptions()" title="&equake.dialog.equake.options;" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
-<script type="application/x-javascript" src="chrome://equake/content/options.js" />
-<script type="application/x-javascript" src="chrome://equake/content/common.js" />
-<script type="application/x-javascript" src="chrome://equake/content/maps.js" />
+<script type="application/javascript" src="options.js" />
+<script type="application/x-javascript" src="common.js" />
+<script type="application/x-javascript" src="maps.js" />
 
 
 <stringbundleset id="stringbundleset">
@@ -83,22 +83,43 @@
     <checkbox id="equake.chkmag" label="&equake.checkbox.alert.me.only6;" oncommand="onMagChange($('equake.magval'), this);" />
     <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
   </row>
+  <vbox style="padding-left: 2em;">
+  <label value="[ Please check the 'Geomap' tab for advanced configuration ]"/>
+  </vbox>
 </groupbox>	
 </vbox>
 </tabpanel>
 <tabpanel>
  <vbox flex="1">
- <hbox>
-	<label value="Prestored Areas" />
+ 
+ 
+ <groupbox>
+	<caption label="Geographical Area" />
+	<row>
+  <label value="Choose: " />
 	<menulist id="equake.mapsarea" oncommand="onAreaSwitch(this.value);">
 	 	<menupopup>
 		<menuitem label="Disabled" value="-1"/>
 		</menupopup>
 	</menulist>
-	 <button label="Add Region" class="ff-button" oncommand="mapsAdd(0);" />
- <button label="Delete Region" class="ff-button" id="btnDelRegion"  oncommand="callMapsDelete();" />
- <button label="Save Region" class="ff-button" id="btnSaveRegion" oncommand="callMapsSave();" />
- </hbox>
+ <row valign="center">	
+ <button label="Add" class="ff-button" oncommand="mapsAdd(0);" />
+ <button label="Delete" class="ff-button" id="btnDelRegion"  oncommand="callMapsDelete();" />
+ <button label="Save" class="ff-button" id="btnSaveRegion" oncommand="callMapsSave();" />
+ <!--<button dlgtype="extra1" id="mySettings" label="Import/Export" popup="settings" disabled="true"/>-->
+ </row>
+  </row>
+ </groupbox>
+ 
+
+
+   <popupset>
+      <popup id="settings" position="before_start">
+         <menuitem id="default" label="default" oncommand="equakeGeoRestore();"/>
+         <menuitem id="import"  label="import"  oncommand="equakeGeoImport();"/>
+         <menuitem id="export"  label="export"  oncommand="equakeGeoExport();"/>
+      </popup>
+   </popupset>
 
 <!--
 For Debug
@@ -108,7 +129,6 @@ For Debug
 	 <button label="Set Point" class="ff-button" oncommand="callMapsSet();" />
 	</hbox>
 --> 
-	<browser id="equake.maps" flex="1" style="border: 1px solid rgb(51, 51, 51); " />
 <label value="&equake.checkbox.alert.me.only6;" />
 	<hbox>
 	<checkbox id="equake.chkmagin" label="Inside the area selected: " oncommand="onMagChange($('equake.maginval'), this);" />
@@ -118,26 +138,30 @@ For Debug
 	<checkbox id="equake.chkmagout" label="Outside the selected area: " oncommand="onMagChange($('equake.magoutval'), this);" />
     <textbox type="text" id="equake.magoutval" onchange="chkIntValueMag(this)"/>
 	</hbox>
-	
-	</vbox>	
+	<browser id="equake.maps" flex="1" style="border: 1px solid rgb(51, 51, 51); " />
+
+  <groupbox id="equake.areadesign" hidden="true">
+	<caption label="Area Design Tools" />
+	<row>
+  <button label="Fit Area in the Map" class="ff-button" oncommand="callMapsFit();" />
+  </row>
+  <label value="Tips"/>
+  <vbox style="padding-left: 2em;">
+	<label value="Click on the Map to define corners of the polygon"/>
+	<label value="Mouseover on any point, for an option to split the corner line"/>
+	</vbox>
+</groupbox>
+	</vbox> 
+  	
 </tabpanel>
 </tabpanels>
 </tabbox>
 
-   <hbox>
-      <button dlgtype="extra1" id="mySettings" label="Import/Export" popup="settings"/>
-      <spacer flex="1"/>
+<hbox>
       <button dlgtype="accept" id="myAccept"/>
       <button dlgtype="cancel" id="myCancel"/>
-   </hbox>
+      </hbox>
 
-   <popupset>
-      <popup id="settings" position="before_start">
-         <menuitem id="default" label="default" oncommand="equakeRestoreDefault();"/>
-         <menuitem id="import"  label="import"  oncommand="equakeImportSettings();"/>
-         <menuitem id="export"  label="export"  oncommand="equakeExportSettings();"/>
-      </popup>
-   </popupset>
 
 	<script type="application/x-javascript">
 	document.getElementById("equakeinterval").value =  document.getElementById("equake-strings").getString("equakeinterval")+": ";

@@ -68,9 +68,9 @@ if (GBrowserIsCompatible())
   newPolygon.refreshPolylines();
   newPolygon.refreshPointMarkers();
   }
-  
-  map.addOverlay(markPoint);
-  markPoint.enableDragging();
+  //For testing
+  //map.addOverlay(markPoint);
+  //markPoint.enableDragging();
   
   fit();
 
@@ -154,13 +154,15 @@ function Angle2D(x1, y1, x2, y2)
    return(dtheta);
 }
 
+/*Test Function
 function check() {
 	alert(pnpoly(newPolygon.myPoints.length, newPolygon.myPoints, markPoint.getPoint().y, markPoint.getPoint().x));
 }
 
+
 function checkQuake(y,x) {
 	return(pnpoly(newPolygon.myPoints.length, newPolygon.myPoints, y, x));
-}	
+}*/	
 </script>
 </body>
 </html>
