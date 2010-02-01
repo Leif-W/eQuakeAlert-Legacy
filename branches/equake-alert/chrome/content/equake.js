@@ -227,13 +227,6 @@ function equakeLoadPrefs() {
 		equake_stat_str		= this.PrefService.getCharPref('equake.stat_str');
 		ifModifiedSince     = this.PrefService.getCharPref('equake.ifModifiedSince');
 		equake_shaketype	= this.PrefService.getIntPref('equake.shaketype');
-		 //Geo
-		equake_geo =  this.PrefService.getCharPref('equake.geo');
-		equake_geoAreaIndex = this.PrefService.getIntPref('equake.mapsarea');
-		equake_chkmagin = this.PrefService.getBoolPref('equake.chkmagin');
-    equake_chkmagout = this.PrefService.getBoolPref('equake.chkmagout');
-    equake_maginval = this.PrefService.getCharPref('equake.maginval');
-    equake_magoutval = this.PrefService.getCharPref('equake.magoutval');
 	}
 	catch (e)	{
 		//alert("An exception occurred in the script. Error name: " + e.name + ". Error description: " + e.description + ". Error number: " + e.number + ". Error message: " + e.message);
@@ -252,6 +245,19 @@ function equakeLoadPrefs() {
 		this.PrefService.setCharPref('equake.stat_str',equake_stat_str);
 		this.PrefService.setCharPref('equake.ifModifiedSince',ifModifiedSince);
 		this.PrefService.setIntPref('equake.shaketype',equake_shaketype);
+	}
+	
+	try  {
+  		 //Geo
+		equake_geo =  this.PrefService.getCharPref('equake.geo');
+		equake_geoAreaIndex = this.PrefService.getIntPref('equake.mapsarea');
+		equake_chkmagin = this.PrefService.getBoolPref('equake.chkmagin');
+    equake_chkmagout = this.PrefService.getBoolPref('equake.chkmagout');
+    equake_maginval = this.PrefService.getCharPref('equake.maginval');
+    equake_magoutval = this.PrefService.getCharPref('equake.magoutval');
+  }
+  
+  catch (e){
 		//Geo
 		this.PrefService.setCharPref('equake.geo',equake_geo);
 		this.PrefService.setIntPref('equake.mapsarea',equake_geoAreaIndex);
