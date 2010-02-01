@@ -19,22 +19,26 @@ function mapsAdd(mode)
    if (mode!=-1)
     onAreaSwitch();
   }
+  //$("equake.areadesign").hidden = false;
 }
 
 function callMapsDelete()
 {
-var curIdx = $("equake.mapsarea").selectedIndex;
-if (curIdx==0)
-{
-  alert("This region can't be deleted");
-  return;
-}
-$("equake.mapsarea").removeItemAt(curIdx);
-if (curIdx>0)
-  $("equake.mapsarea").selectedIndex = curIdx-1;
-else
-  $("equake.mapsarea").selectedIndex = 0;
-onAreaSwitch($("equake.mapsarea").value);
+  var curIdx = $("equake.mapsarea").selectedIndex;
+  if (curIdx==0)
+  {
+    alert("This region can't be deleted");
+    return;
+  }
+  if(confirm("Do you want to delete region '"+$("equake.mapsarea").label+"'?"))
+  {
+  $("equake.mapsarea").removeItemAt(curIdx);
+  if (curIdx>0)
+    $("equake.mapsarea").selectedIndex = curIdx-1;
+  else
+    $("equake.mapsarea").selectedIndex = 0;
+  onAreaSwitch($("equake.mapsarea").value);
+  }
 }
 
 function callMapsSave()
@@ -57,10 +61,12 @@ function callMapsFit()
   equake_mapsBrowserScope().fit();
 }
 
+/*
 function callMapsCheck()
 {
   equake_mapsBrowserScope().check();
 }
+
 
 function callMapsSet()
 {
@@ -68,3 +74,4 @@ function callMapsSet()
   var lng=prompt("Longitude: ");
   equake_mapsBrowserScope().setPoint(lat, lng);
 }
+*/
