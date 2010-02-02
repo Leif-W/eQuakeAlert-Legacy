@@ -1,0 +1,6 @@
+How to release?
+
+1) Check in the Code
+2) Export working copy to new directory
+3) Remove me
+4) Compress equake-alert into equake-alert.xpi

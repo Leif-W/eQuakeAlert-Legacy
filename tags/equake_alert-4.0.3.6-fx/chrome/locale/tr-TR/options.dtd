@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "eQuake Seçenekleri">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Sürüm">
+<!ENTITY equake.caption.general "Genel">
+<!ENTITY equake.label.min.s "dak.">
+<!ENTITY equake.checkbox.show.day "Günü Göster">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12 saatlik birimi kullan">
+<!ENTITY equake.checkbox.open.links.in2 "Bağlantıları yeni sekmede aç">
+<!ENTITY equake.statusbar "Durum Çubuğu">
+<!ENTITY equake.showicon "İkonları göster">
+<!ENTITY equake.statusbar.message "Durum çubuğu mesajı">
+<!ENTITY equake.textbox.status.string "Durum Kaydı">
+<!ENTITY equake.label.l.location "l = konum">
+<!ENTITY equake.label.m.magnitude "m = şiddet">
+<!ENTITY equake.caption.alert.methods "Uyarı yöntemleri">
+<!ENTITY equake.radio.shake.browser.on3 "Deprem sırasında tarayıcıyı salla">
+<!ENTITY equake.checkbox.shake.proport4 "Deprem şiddetiyle orantılı olarak salla">
+<!ENTITY equake.radio.alert.box "Uyarı kutusu">
+<!ENTITY equake.radio.none.statusbar.m5 "Hiçbir (Durum çubuğu iletisi/simgesi yeterli)">
+<!ENTITY equake.checkbox.alert.me.only6 "Uyar, eğer deprem şiddeti &gt;">
+<!ENTITY equake.label.shaketype "Sarsıntı türü">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Güçlü">

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$WOdDz3"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="1.0"
+                   em:maxVersion="3.6" />
+  <RDF:Description RDF:about="urn:mozilla:extension:file:equake.jar"
+                   em:package="content/"
+                   em:skin="skin/">
+    <em:locale>locale/en-US/</em:locale>
+    <em:locale>locale/ml-IN/</em:locale>
+    <em:locale>locale/es-AR/</em:locale>
+    <em:locale>locale/zh-TW/</em:locale>
+    <em:locale>locale/af-ZA/</em:locale>
+    <em:locale>locale/bg-BG/</em:locale>
+    <em:locale>locale/zh-CN/</em:locale>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="{8585C31E-1E94-4498-ACEC-CB913A05FC52}"
+                   em:name="eQuake Alert"
+                   em:version="4.0.3.6"
+                   em:creator="Priyadarsan Venugopalan"
+                   em:description="Have you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that..."
+                   em:homepageURL="http://www.freebookzone.com"
+                   em:iconURL="chrome://equake/skin/equake.png"
+                   em:optionsURL="chrome://equake/content/options.xul"
+                   em:aboutURL="chrome://equake/content/about.xul">
+    <em:targetApplication RDF:resource="rdf:#$WOdDz3"/>
+  </RDF:Description>
+</RDF:RDF>
