@@ -21,3 +21,20 @@
 <!ENTITY equake.label.shaketype "Tipo de sacudida">
 <!ENTITY equake.label.shaketype.normal "Normal">
 <!ENTITY equake.label.shaketype.strong "Fuerte">
+<!ENTITY equake.label.msg.checkgeomap "[Por favor, consulte la pestaña &quot;Geomap' para la configuración avanzada]">
+<!ENTITY equake.label.geo.geoarea "Area Geográfica">
+<!ENTITY equake.label.geo.choose "Elija:">
+<!ENTITY equake.label.geo.areadisabled "Deshabilitado">
+<!ENTITY equake.label.geo.areaadd "Agregar">
+<!ENTITY equake.label.geo.areadel "Borrar">
+<!ENTITY equake.label.geo.areasav "Guardar">
+<!ENTITY equake.label.geo.setdefault "Predeterminado">
+<!ENTITY equake.label.geo.setexport "Exportar">
+<!ENTITY equake.label.geo.setimport "Importar">
+<!ENTITY equake.label.geo.maginside "Dentro del área seleccionada:">
+<!ENTITY equake.label.geo.magoutside "Fuera del área seleccionada:">
+<!ENTITY equake.label.geo.areadesign "Área de Herramientas de Diseño">
+<!ENTITY equake.label.geo.areafit "Ajustar la zona en el mapa">
+<!ENTITY equake.label.tips "Consejos">
+<!ENTITY equake.label.tip1 "Haga clic en el mapa para definir las esquinas del polígono">
+<!ENTITY equake.label.tip2 "Pasar el ratón sobre cualquier punto, para dividir la línea de la esquina">
