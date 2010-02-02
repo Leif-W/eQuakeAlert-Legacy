@@ -1,0 +1,40 @@
+<!ENTITY equake.dialog.equake.options "eQuake オプション">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "バージョン">
+<!ENTITY equake.caption.general "一般">
+<!ENTITY equake.label.min.s "分(s)">
+<!ENTITY equake.checkbox.show.day "曜日を表示">
+<!ENTITY equake.checkbox.use.12.hour.c1 "12時間表示にする">
+<!ENTITY equake.checkbox.open.links.in2 "リンクを新しいタブで開く">
+<!ENTITY equake.statusbar "ステータスバー">
+<!ENTITY equake.showicon "アイコン表示">
+<!ENTITY equake.statusbar.message "メッセージ表示">
+<!ENTITY equake.textbox.status.string "ステータス文字列">
+<!ENTITY equake.label.l.location "l = 場所">
+<!ENTITY equake.label.m.magnitude "m = マグニチュード">
+<!ENTITY equake.caption.alert.methods "警告方法">
+<!ENTITY equake.radio.shake.browser.on3 "地震のときブラウザを振動させる">
+<!ENTITY equake.checkbox.shake.proport4 "マグニチュードの大きさに応じて振動させる">
+<!ENTITY equake.radio.alert.box "警告ボックス">
+<!ENTITY equake.radio.none.statusbar.m5 "なし (メッセージ表示/アイコン表示で十分)">
+<!ENTITY equake.checkbox.alert.me.only6 "マグニチュードが次の数値以上の地震のみを警告する &gt;">
+<!ENTITY equake.label.shaketype "振動の強さ">
+<!ENTITY equake.label.shaketype.normal "通常">
+<!ENTITY equake.label.shaketype.strong "強く">
+<!ENTITY equake.label.msg.checkgeomap "[ 詳細設定は 'Geomap' タブを確認してください ]">
+<!ENTITY equake.label.geo.geoarea "Geographical エリア">
+<!ENTITY equake.label.geo.choose "選択:">
+<!ENTITY equake.label.geo.areadisabled "無効">
+<!ENTITY equake.label.geo.areaadd "追加">
+<!ENTITY equake.label.geo.areadel "削除">
+<!ENTITY equake.label.geo.areasav "保存">
+<!ENTITY equake.label.geo.setdefault "デフォルト">
+<!ENTITY equake.label.geo.setexport "エクスポート">
+<!ENTITY equake.label.geo.setimport "インポート">
+<!ENTITY equake.label.geo.maginside "選択したエリア内:">
+<!ENTITY equake.label.geo.magoutside "選択したエリア外:">
+<!ENTITY equake.label.geo.areadesign "エリア設計ツール">
+<!ENTITY equake.label.geo.areafit "エリア全体を地図に収める">
+<!ENTITY equake.label.tips "ヒント">
+<!ENTITY equake.label.tip1 "エリアの頂点を定義するにはマップをクリックしてください">
+<!ENTITY equake.label.tip2 "頂点を追加するには任意の頂点をポイントして分割点をクリックしてください">

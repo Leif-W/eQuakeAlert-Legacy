@@ -1,0 +1,6 @@
+<!ENTITY equake.statusbarpanel.equake "eQuake!">
+<!ENTITY equake.menuitem.check.now "今すぐ確認">
+<!ENTITY equake.menu.recent.quakes "最近の地震情報">
+<!ENTITY equake.menuitem.yourquakes "指定マグニチュードの地震情報">
+<!ENTITY equake.menuitem.about "この拡張機能について">
+<!ENTITY equake.menuitem.prevshake "振動プレビュー">
