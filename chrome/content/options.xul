@@ -84,7 +84,7 @@
     <textbox type="text" id="equake.magval" onchange="chkIntValueMag(this)"/>
   </row>
   <vbox style="padding-left: 2em;">
-  <label value="[ Please check the 'Geomap' tab for advanced configuration ]"/>
+  <label value="&equake.label.msg.checkgeomap;"/>
   </vbox>
 </groupbox>	
 </vbox>
@@ -94,18 +94,18 @@
  
  
  <groupbox>
-	<caption label="Geographical Area" />
+	<caption label="&equake.label.geo.geoarea;" />
 	<row>
-  <label value="Choose: " />
+  <label value="&equake.label.geo.choose;" />
 	<menulist id="equake.mapsarea" oncommand="onAreaSwitch(this.value);">
 	 	<menupopup>
-		<menuitem label="Disabled" value="-1"/>
+		<menuitem label="&equake.label.geo.areadisabled;" value="-1"/>
 		</menupopup>
 	</menulist>
  <row valign="center">	
- <button label="Add" class="ff-button" oncommand="mapsAdd(0);" />
- <button label="Delete" class="ff-button" id="btnDelRegion"  oncommand="callMapsDelete();" />
- <button label="Save" class="ff-button" id="btnSaveRegion" oncommand="callMapsSave();" />
+ <button label="&equake.label.geo.areaadd;" class="ff-button" oncommand="mapsAdd(0);" />
+ <button label="&equake.label.geo.areadel;" class="ff-button" id="btnDelRegion"  oncommand="callMapsDelete();" />
+ <button label="&equake.label.geo.areasav;" class="ff-button" id="btnSaveRegion" oncommand="callMapsSave();" />
  <!--<button dlgtype="extra1" id="mySettings" label="Import/Export" popup="settings" disabled="true"/>-->
  </row>
   </row>
@@ -115,9 +115,9 @@
 
    <popupset>
       <popup id="settings" position="before_start">
-         <menuitem id="default" label="default" oncommand="equakeGeoRestore();"/>
-         <menuitem id="import"  label="import"  oncommand="equakeGeoImport();"/>
-         <menuitem id="export"  label="export"  oncommand="equakeGeoExport();"/>
+         <menuitem id="default" label="&equake.label.geo.setdefault;" oncommand="equakeGeoRestore();"/>
+         <menuitem id="import"  label="&equake.label.geo.setimport;"  oncommand="equakeGeoImport();"/>
+         <menuitem id="export"  label="&equake.label.geo.setexport;"  oncommand="equakeGeoExport();"/>
       </popup>
    </popupset>
 
@@ -131,24 +131,24 @@ For Debug
 --> 
 <label value="&equake.checkbox.alert.me.only6;" />
 	<hbox>
-	<checkbox id="equake.chkmagin" label="Inside the area selected: " oncommand="onMagChange($('equake.maginval'), this);" />
+	<checkbox id="equake.chkmagin" label="&equake.label.geo.maginside; " oncommand="onMagChange($('equake.maginval'), this);" />
     <textbox type="text" id="equake.maginval" onchange="chkIntValueMagIn(this)"/>
 	</hbox>
 	<hbox>
-	<checkbox id="equake.chkmagout" label="Outside the selected area: " oncommand="onMagChange($('equake.magoutval'), this);" />
+	<checkbox id="equake.chkmagout" label="&equake.label.geo.magoutside; " oncommand="onMagChange($('equake.magoutval'), this);" />
     <textbox type="text" id="equake.magoutval" onchange="chkIntValueMag(this)"/>
 	</hbox>
 	<browser id="equake.maps" flex="1" style="border: 1px solid rgb(51, 51, 51); " />
 
   <groupbox id="equake.areadesign" hidden="true">
-	<caption label="Area Design Tools" />
+	<caption label="&equake.label.geo.areadesign;" />
 	<row>
-  <button label="Fit Area in the Map" class="ff-button" oncommand="callMapsFit();" />
+  <button label="&equake.label.geo.areafit;" class="ff-button" oncommand="callMapsFit();" />
   </row>
-  <label value="Tips"/>
+  <label value=""/>
   <vbox style="padding-left: 2em;">
-	<label value="Click on the Map to define corners of the polygon"/>
-	<label value="Mouseover on any point, for an option to split the corner line"/>
+	<label value="&equake.label.tip1;"/>
+	<label value="&equake.label.tip2;"/>
 	</vbox>
 </groupbox>
 	</vbox> 
