@@ -1,4 +1,9 @@
 var $ = function(x) { return  document.getElementById(x); };
+var mystrings = gequakeBundle.createBundle("chrome://equake/locale/maps.properties");
+var txtNewAreaName = mystrings.GetStringFromName("newareaname");
+var regcantdel =  mystrings.GetStringFromName("regcantdel");
+var txtdelregion = mystrings.GetStringFromName("txtdelregion");
+
 
 function equake_mapsBrowserScope(){
 	var src = window.location.href;
@@ -12,7 +17,7 @@ function equake_mapsBrowserScope(){
 
 function mapsAdd(mode)
 {
-  var newAreaName = prompt("Enter a name for the new area: ");
+  var newAreaName = prompt(txtNewAreaName);
   if (newAreaName!="" && newAreaName!=null)
   {
    $("equake.mapsarea").selectedItem = $("equake.mapsarea").appendItem(newAreaName, "","");
@@ -27,10 +32,10 @@ function callMapsDelete()
   var curIdx = $("equake.mapsarea").selectedIndex;
   if (curIdx==0)
   {
-    alert("This region can't be deleted");
+    alert(regcantdel);
     return;
   }
-  if(confirm("Do you want to delete region '"+$("equake.mapsarea").label+"'?"))
+  if(confirm(txtdelregion +" '"+$("equake.mapsarea").label+"'?"))
   {
   $("equake.mapsarea").removeItemAt(curIdx);
   if (curIdx>0)

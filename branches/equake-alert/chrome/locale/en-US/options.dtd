@@ -17,7 +17,35 @@
 <!ENTITY equake.checkbox.shake.proport4 "Shake proportional to earth quake magnitude">
 <!ENTITY equake.radio.alert.box "Alert box">
 <!ENTITY equake.radio.none.statusbar.m5 "None (Statusbar message/icon is enough)">
-<!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude >">
+<!ENTITY equake.checkbox.alert.me.only6 "Alert me only for magnitude &gt;">
 <!ENTITY equake.label.shaketype "Shake type">
 <!ENTITY equake.label.shaketype.normal "Normal">
 <!ENTITY equake.label.shaketype.strong "Strong">
+<!ENTITY equake.label.msg.checkgeomap "[ Please check the 'Geomap' tab for advanced configuration ]">
+<!ENTITY equake.label.geo.geoarea "Geographical Area">
+<!ENTITY equake.label.geo.choose "Choose: ">
+<!ENTITY equake.label.geo.areadisabled "Disabled">
+<!ENTITY equake.label.geo.areaadd "Add">
+<!ENTITY equake.label.geo.areadel "Delete">
+<!ENTITY equake.label.geo.areasav "Save">
+<!ENTITY equake.label.geo.setdefault "Default">
+<!ENTITY equake.label.geo.setexport "Export">
+<!ENTITY equake.label.geo.setimport "Import">
+<!ENTITY equake.label.geo.maginside "Inside the selected area:">
+<!ENTITY equake.label.geo.magoutside "Outside the selected area:">
+<!ENTITY equake.label.geo.areadesign "Area Design Tools">
+<!ENTITY equake.label.geo.areafit "Fit Area in the Map">
+<!ENTITY equake.label.tips "Tips">
+<!ENTITY equake.label.tip1 "Click on the Map to define corners of the polygon">
+<!ENTITY equake.label.tip2 "Mouseover on any point, for an option to split the corner line">
+
+
+
+
+
+
+
+
+   
+
+
