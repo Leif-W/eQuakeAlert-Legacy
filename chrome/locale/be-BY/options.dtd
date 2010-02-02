@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "Наладкі eQuake">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "Вэрсія">
+<!ENTITY equake.caption.general "Агульныя">
+<!ENTITY equake.label.min.s "хвілін">
+<!ENTITY equake.checkbox.show.day "Паказваць дзень">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Ужываць 12-гадзінны фармат">
+<!ENTITY equake.checkbox.open.links.in2 "Адкрываць спасылкі ў новых укладках">
+<!ENTITY equake.statusbar "Статусная панэль">
+<!ENTITY equake.showicon "Паказваць значак">
+<!ENTITY equake.statusbar.message "Паведамленьне ў панэлі">
+<!ENTITY equake.textbox.status.string "Радок статусу">
+<!ENTITY equake.label.l.location "l = месцазнаходжаньне">
+<!ENTITY equake.label.m.magnitude "m = магутнасьць">
+<!ENTITY equake.caption.alert.methods "Мэтады напаміну">
+<!ENTITY equake.radio.shake.browser.on3 "Трэсьці браўзэр пры землятрусе">
+<!ENTITY equake.checkbox.shake.proport4 "Трэсьці адпаведка магутнасьці землятрусу">
+<!ENTITY equake.radio.alert.box "Паведамленьне">
+<!ENTITY equake.radio.none.statusbar.m5 "Няма (хопіць паведамленьня ў статуснай панэлі)">
+<!ENTITY equake.checkbox.alert.me.only6 "Паведамляць мне толькі пра магутнасьць">
+<!ENTITY equake.label.shaketype "">
+<!ENTITY equake.label.shaketype.normal "">
+<!ENTITY equake.label.shaketype.strong "">

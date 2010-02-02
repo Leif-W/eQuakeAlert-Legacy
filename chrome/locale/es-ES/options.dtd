@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "Opciones de eQuake">
+<!ENTITY equake.dialogheader.equake "¡eQuake!">
+<!ENTITY equake.dialogheader.version "versión">
+<!ENTITY equake.caption.general "General">
+<!ENTITY equake.label.min.s "min(s)">
+<!ENTITY equake.checkbox.show.day "Mostrar día">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Usar reloj de 12 horas">
+<!ENTITY equake.checkbox.open.links.in2 "Abrir enlaces en nueva pestaña">
+<!ENTITY equake.statusbar "Barra de estado">
+<!ENTITY equake.showicon "Mostrar icono">
+<!ENTITY equake.statusbar.message "Mensaje de la barra de estado">
+<!ENTITY equake.textbox.status.string "Cadena de estado">
+<!ENTITY equake.label.l.location "l = localización">
+<!ENTITY equake.label.m.magnitude "m = magnitud">
+<!ENTITY equake.caption.alert.methods "Tipos de alerta">
+<!ENTITY equake.radio.shake.browser.on3 "Sacudir el navegador en caso de terremoto">
+<!ENTITY equake.checkbox.shake.proport4 "Sacudir proporcionalmente a la magnitud del terremoto">
+<!ENTITY equake.radio.alert.box "Dialogo de alerta">
+<!ENTITY equake.radio.none.statusbar.m5 "Ninguno (mensaje de barra de estado es suficiente)">
+<!ENTITY equake.checkbox.alert.me.only6 "Avisar solo por magnitudes &gt;">
+<!ENTITY equake.label.shaketype "Tipo de temblor">
+<!ENTITY equake.label.shaketype.normal "Normal">
+<!ENTITY equake.label.shaketype.strong "Fuerte">

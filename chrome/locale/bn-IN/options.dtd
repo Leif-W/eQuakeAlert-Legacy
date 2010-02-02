@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "eQuake বিকল্পগুলি">
+<!ENTITY equake.dialogheader.equake "eQuake!">
+<!ENTITY equake.dialogheader.version "সংস্করণ">
+<!ENTITY equake.caption.general "সাধারণ">
+<!ENTITY equake.label.min.s "মিঃ">
+<!ENTITY equake.checkbox.show.day "দিন দেখাও">
+<!ENTITY equake.checkbox.use.12.hour.c1 "১২ ঘন্টা ঘড়ির ব্যবহার কর">
+<!ENTITY equake.checkbox.open.links.in2 "নতুন ট্যাবে খোলো">
+<!ENTITY equake.statusbar "অবস্থা রেখা">
+<!ENTITY equake.showicon "প্রতিমূর্তি দেখাও">
+<!ENTITY equake.statusbar.message "অবস্থা রেখার সন্দেশ">
+<!ENTITY equake.textbox.status.string "অবস্থা সূত্র">
+<!ENTITY equake.label.l.location "l = স্থান">
+<!ENTITY equake.label.m.magnitude "m = মান">
+<!ENTITY equake.caption.alert.methods "সচেতন করার উপায়">
+<!ENTITY equake.radio.shake.browser.on3 "ভূমিকম্পন ঘটলে পরিক্রমককে কাঁপাও">
+<!ENTITY equake.checkbox.shake.proport4 "ভূমিকম্পনের মান অনুযায়ী কাঁপাও">
+<!ENTITY equake.radio.alert.box "সচেত বাক্স">
+<!ENTITY equake.radio.none.statusbar.m5 "কিছু না (অবস্থা রেখার সন্দেশ/প্রতিমূর্তিই যথেষ্ট)">
+<!ENTITY equake.checkbox.alert.me.only6 "আমায় সচেতন কর কেবলই যখন মান &gt;">
+<!ENTITY equake.label.shaketype "কম্পনের ধরণ">
+<!ENTITY equake.label.shaketype.normal "সাধারণ">
+<!ENTITY equake.label.shaketype.strong "প্রবল">

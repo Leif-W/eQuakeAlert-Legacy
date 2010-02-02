@@ -1,3 +1,8 @@
+var gequakeBundle = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
+var mystrings = gequakeBundle.createBundle("chrome://equake/locale/rss.properties");
+var equakeinvaliddate = mystrings.GetStringFromName("equakeinvaliddate");
+var equakepossiblyusgschanged0 = mystrings.GetStringFromName("equakepossiblyusgschanged0");
+var equakenodata = mystrings.GetStringFromName("equakenodata");
 function getOrigTxt(aNode)
 {
 		if(!aNode.hasChildNodes()) return "";
@@ -30,6 +35,8 @@ function rssFmt(feedXML) {
 	this.title = null;
 	this.link = null;
 	this.description = null;
+	this.geolat = null;
+	this.geolng = null;
 	this.items = new Array();
 
 	switch(feedXML.documentElement.localName.toLowerCase())
@@ -39,7 +46,7 @@ function rssFmt(feedXML) {
 	   this.parseFeed();
 	   break;
 	 default:
-	   throw "Possibly, USGS changed feed format; inform author";
+	   throw equakepossiblyusgschanged0;
 	   break;  
   }
 }
@@ -52,7 +59,7 @@ rssFmt.prototype.parseFeed = function() {
 	var itemNodes = feedXML.getElementsByTagName("item");
 	var item;
 	for(i = 0; itemNodes.length > i; i++) {
-		item = {title:"", link:"", content:""};
+		item = {title:"", link:"", content:"", geolat:"", geolng:""};
 
 		for (j = itemNodes[i].firstChild; j!=null; j=j.nextSibling) {
 			if (j.nodeType != j.ELEMENT_NODE) continue;
@@ -68,10 +75,16 @@ rssFmt.prototype.parseFeed = function() {
 					if (!item.content)
 						item.content = getOrigTxt(j);
 					break;
+				case "lat":
+						item.geolat = getOrigTxt(j);
+				  break;
+				case "long":
+						item.geolng = getOrigTxt(j);
+				  break;
 			}
 		}
 
-		this.items.push(new rssItem(item.title, item.link, item.content));
+		this.items.push(new rssItem(item.title, item.link, item.content, item.geolat, item.geolng));
 	}
 }
 
@@ -87,11 +100,14 @@ rssFmt.prototype.getItems = function() {
 	return items_array;
 }
 
-function rssItem(title, link, content) {
+function rssItem(title, link, content, geolat, geolng) {
 	this.title = title;
 	this.link = link;
 	this.content = content;
+	this.geolat = geolat;
+	this.geolng = geolng;
 }
+
 
 rssItem.prototype.getTitle = function() {
 	return this.title.replace(/<.*?>/g,'');
@@ -101,9 +117,17 @@ rssItem.prototype.getLink = function() {
 	return this.link;
 }
 
+rssItem.prototype.getLat = function() {
+	return this.geolat;
+}
+
+rssItem.prototype.getLng = function() {
+	return this.geolng;
+}
+
 rssItem.prototype.getContent = function() {
 	if(this.content)
     return this.content;
 	else
-    return "No data";
+    return equakenodata;
 }

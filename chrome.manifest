@@ -1,0 +1,21 @@
+
+overlay	chrome://browser/content/browser.xul	chrome://equake/content/equake.xul
+content	equake	chrome/content/
+
+skin	equake	classic/1.0	chrome/skin/
+
+locale	equake	en-US	chrome/locale/en-US/
+
+locale	equake	ml-IN	chrome/locale/ml-IN/
+
+locale	equake	es-AR	chrome/locale/es-AR/
+
+locale	equake	es-ES	chrome/locale/es-ES/
+
+locale	equake	zh-TW	chrome/locale/zh-TW/
+
+locale	equake	af-ZA	chrome/locale/af-ZA/
+
+locale	equake	bg-BG	chrome/locale/bg-BG/
+
+locale	equake	zh-CN	chrome/locale/zh-CN/

@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript" src="http://dev.virtualearth.net/mapcontrol/v4/mapcontrol.js"></script>
+
+    <script type="text/javascript">
+        var map = null;
+        var points = new Array();
+        var tempPoints = null;
+        var num = 0;  
+                          
+        function GetMap() {
+            map = new VEMap('myMap');
+            map.LoadMap();
+        }
+
+        function DrawPolygon() {
+            map.AttachEvent('onclick', mapClick);
+            map.AttachEvent('oncontextmenu', mapContextMenu);
+            map.AttachEvent('onmousemove', mapMouseMove);
+            map.vemapcontrol.EnableGeoCommunity(true);
+        }
+
+        function mapClick(e) {
+            points.push(e.view.LatLong);
+        }
+
+        function mapContextMenu(e) {
+            points.push(points[0]);
+
+            var polygon = new VEPolygon('polygon_' + num++, points);
+            polygon.SetFillColor(new VEColor(170, 150, 150, 0.65));
+            polygon.SetOutlineColor(new VEColor(170, 150, 150, 1.0));
+            polygon.SetOutlineWidth(2);
+            map.AddPolygon(polygon);
+
+            try {
+                map.DeletePolygon('tempPolygon');
+            } catch (err) {
+            }
+
+            points = new Array();
+            map.DetachEvent('onclick', mapClick);
+            map.DetachEvent('oncontextmenu', mapContextMenu);
+            map.DetachEvent('onmousemove', mapMouseMove);
+            map.vemapcontrol.EnableGeoCommunity(false);
+        }
+
+        function mapMouseMove(e) {
+            tempPoints = points.slice(0, points.length);
+            tempPoints.push(e.view.LatLong);
+
+            try {
+                map.DeletePolygon('tempPolygon');
+            } catch (err) {
+            }
+
+            var polygon = new VEPolygon('tempPolygon', tempPoints);
+            polygon.SetFillColor(new VEColor(170, 150, 150, 0.65));
+            polygon.SetOutlineColor(new VEColor(170, 150, 150, 1.0));
+            polygon.SetOutlineWidth(2);
+            map.AddPolygon(polygon);
+        }      
+      
+      </script>
+
+</head>
+<body onload="GetMap();DrawPolygon();">
+    <div id='myMap' style="position: relative; width: 400px; height: 400px;">
+    </div>
+</body>
+</html>

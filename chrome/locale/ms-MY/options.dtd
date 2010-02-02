@@ -1,0 +1,23 @@
+<!ENTITY equake.dialog.equake.options "Pilihan eQuake">
+<!ENTITY equake.dialogheader.equake "">
+<!ENTITY equake.dialogheader.version "verse 2.1">
+<!ENTITY equake.caption.general "Umum">
+<!ENTITY equake.label.min.s "min">
+<!ENTITY equake.checkbox.show.day "Tunjuk haribulan">
+<!ENTITY equake.checkbox.use.12.hour.c1 "Guna format 12 jam">
+<!ENTITY equake.checkbox.open.links.in2 "Buka pautan dalam tab baru">
+<!ENTITY equake.statusbar "Bar status">
+<!ENTITY equake.showicon "Tunjuk ikon">
+<!ENTITY equake.statusbar.message "Mesej bar status">
+<!ENTITY equake.textbox.status.string "">
+<!ENTITY equake.label.l.location "l = tempat">
+<!ENTITY equake.label.m.magnitude "">
+<!ENTITY equake.caption.alert.methods "">
+<!ENTITY equake.radio.shake.browser.on3 "">
+<!ENTITY equake.checkbox.shake.proport4 "">
+<!ENTITY equake.radio.alert.box "">
+<!ENTITY equake.radio.none.statusbar.m5 "">
+<!ENTITY equake.checkbox.alert.me.only6 "">
+<!ENTITY equake.label.shaketype "">
+<!ENTITY equake.label.shaketype.normal "">
+<!ENTITY equake.label.shaketype.strong "">
