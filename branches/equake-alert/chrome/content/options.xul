@@ -14,7 +14,7 @@
    <stringbundle id="equake-strings" src="chrome://equake/locale/equake.properties"/>
 </stringbundleset>
  
-<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 4.0.3.6" />
+<dialogheader id="header" title="&equake.dialogheader.equake;" description="&equake.dialogheader.version; 4.1.3.6" />
 
 <tabbox>
       <tabs>
