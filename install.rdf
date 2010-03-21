@@ -20,7 +20,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="{8585C31E-1E94-4498-ACEC-CB913A05FC52}"
                    em:name="eQuake Alert"
-                   em:version="4.1.3.6"
+                   em:version="4.3.3.6"
                    em:creator="Priyadarsan Venugopalan"
                    em:description="Have you ever thought of getting alerts on land disasters like earth quake, right on your desktop . eQuake Alert is the solution for that..."
                    em:homepageURL="http://www.freebookzone.com"
