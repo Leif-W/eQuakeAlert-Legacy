@@ -30,7 +30,7 @@ function openURL(aURL)
 <groupbox align="center" orient="horizontal">
 <vbox>
   <text value="&equake.text.equake;" style="font-weight: bold; font-size: x-large;" />
-  <text value="&equake.text.ver;&#32;4.1.3.6" />
+  <text value="&equake.text.ver;&#32;4.3.3.6" />
   <separator class="thin"/>
   <text value="&equake.text.created.by;:" style="font-weight: bold;" />
   <text value="Priyadarsan Venugopalan" class="url"
